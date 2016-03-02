@@ -2,7 +2,7 @@
 title: hexo换电脑麻烦解决
 date: 2016-03-02 22:51:51
 categories: 技术工具 #文章文类
-tags: [git,hexo,nodejs] #文章标签，多于一项时用这种格式
+tags: [git,hexo,node.js] #文章标签，多于一项时用这种格式
 ---
 hexo部署blog到github确实很方便，下载相关插件，然后一条命令就搞定了。不明白？参考这篇[hexo配置](http://dontcry2013.github.io/2016/02/26/hello-world/)，神马？不知道怎么配置nodejs环境？那就参考[这里](http://jingyan.baidu.com/article/9113f81b01c4e72b3214c7d3.html)。
 
