@@ -10,6 +10,7 @@ Let's say something about http proxy.
 
 ## Demand
 When I have username and password to simulate a login action on a website, how can I pass the verification algorithm or validation routines, sometimes this kind of program is really complicated which is the biggest obstacle to hack in. For instance, when you have plenty [taobao](https://login.m.taobao.com/login.htm) usenames and passwords how can you figure out what the customer bought, as this b2c mogul uses an algorithm to check all http resquest if they are legal.
+<!-- more -->
 
 ## Analysis
 We need that signature program to disguise our http request.

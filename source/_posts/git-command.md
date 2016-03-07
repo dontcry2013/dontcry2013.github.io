@@ -15,6 +15,7 @@ $ git add *.c
 $ git add LICENSE
 $ git commit -m 'initial project version'
 ```
+<!-- more -->
 
 ### 克隆现有的仓库
 
