@@ -26,16 +26,20 @@ $ git clone https://github.com/libgit2/libgit2
 ### 基本操作
 
 ``` bash
-$ git status #检查当前文件状态
-$ git status --short #简略查看状态
-$ git add README # 跟踪新文件
-$ git rm log/\*.log
-$ git mv file_from file_to #改名
+$ git help <command>  # display command's help
+$ git status  #check repository status
+$ git status --short  #briefly
+$ git status -s  # same to --short
+$ git add README  #track new file
+$ git rm log/\*.log  # remove from working directory,not filesys
+$ git mv file_from file_to  #rename
+$ git log --oneline --graph  #check commit log
+$ git log --stat  #commit log lately
 
 ### 加入到暂存区域等待提交：
 $ git add README test.rb LICENSE
 $ git commit -m 'The initial commit of my project'
-$ git commit -a -m 'made a change' #跳过暂存直接提交
+$ git commit -a -m 'made a change'  #跳过暂存直接提交
 ```
 
 ### 远程仓库的使用
