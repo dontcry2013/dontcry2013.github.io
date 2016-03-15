@@ -1,7 +1,7 @@
 ---
 title: 别了，超人
 date: 2016-03-01 21:40:33
-categories: 文章 
+categories: article
 tags: [碎碎念]
 ---
 ![图片名称](/img/delivery_hero.jpg)

@@ -1,7 +1,7 @@
 ---
 title: git操作命令
 date: 2016-03-01 14:40:13
-categories: 技术工具 #文章文类
+categories: tools #文章文类
 tags: [git] #文章标签，多于一项时用这种格式
 ---
 
