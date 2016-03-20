@@ -2,7 +2,7 @@
 title: How to modify andoid webview request header
 date: 2016-03-11 09:20:36
 categories: android
-tags: [webview]
+tags: [android, webview]
 ---
 
 Let's say something about android webview, when we open webpage in an andorid application, the http header would some how add a field named x-requested-with to show your app's package name. For some websites may prohibit any further access according to this field and their webpages are only available for their own app and browsers. To tackle this problem and make our app to access these webpages we need to modify webview client.
