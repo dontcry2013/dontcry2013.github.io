@@ -20,7 +20,6 @@ Some years passed. When Lucie appeared in the front of Carton, she became a moth
 　　
 At the last moment, he and Charles exchanged. That they had the same face helped them at the second time. When Lucie and her family left without knowing the truth, Carton, instead of Charles, went to be killed. How can we evaluate his action? We can’t say anything about it because all what he did was out of love. 
 　　 
-As he said to the young girl who companied him before died, “If we have no fear, we can be calm all the way.” He was so calm to greet what would be coming soon, for she would get her happiness and he loved her forever. 
-“It is a far, far better thing that I do, than I have ever done; it is a far, far better rest that I go to than I have ever known.” With her face rising before his eyes, he went to execution ground calmly. <p>It is “A Tale of Two Cities”, also a tale of Sydney Carton. 
+As he said to the young girl who companied him before died, “If we have no fear, we can be calm all the way.” He was so calm to greet what would be coming soon, for she would get her happiness and he loved her forever. “It is a far, far better thing that I do, than I have ever done; it is a far, far better rest that I go to than I have ever known.” With her face rising before his eyes, he went to execution ground calmly. <p>It is “A Tale of Two Cities”, also a tale of Sydney Carton. 
 
 ——END——
