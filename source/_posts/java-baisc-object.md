@@ -1,8 +1,8 @@
 ---
 title: java集合类型
 date: 2016-04-07 10:31:06
-categories: java
-tags: [集合]
+categories: basic
+tags: java
 ---
 Java 集合可分为 Set、List 和 Map 三种体系：
 Set：无序、不可重复的集合。
