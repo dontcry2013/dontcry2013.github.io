@@ -172,14 +172,20 @@ int main()
 # 简化的定义
 如果你认为上面所诉的函数指针的声明格式有点罗嗦，那么我们也可以利用typedef来简化声明和定义的操作。比如说在上例2的第61行，那么长一串。我们完全可以在在程序一开始利用typedef来代替：
 
+```
 typedef double (*vp)(double &,double &);
-　　这样一来，我们就可以把程序的第61行简化成：
-
+```
+这样一来，我们就可以把程序的第61行简化成：
+```
 vp p;
-　　
+```
 而且，我们在声明和定义print_area()函数的时候，就可以程序的第10行和第33行换成：
 
-//函数声明
+* 函数声明
+```
 double print_area(vp,double &x,double &y);
-//函数定义
+```
+* 函数定义
+```
 double print_area(vp p, double &x,double &y)
+```
