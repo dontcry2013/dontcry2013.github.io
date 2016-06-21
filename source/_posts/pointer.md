@@ -1,7 +1,7 @@
 ---
 title: 函数指针和指针函数
 date: 2016-04-29 18:34:12
-category: basic
+categories: basic
 tags: c
 ---
 
