@@ -36,6 +36,10 @@ $ git mv file_from file_to  #rename
 $ git log --oneline --graph  #check commit log
 $ git log --stat  #commit log lately
 
+$//30 OCT 2016增加
+$ git reset --hard HEAD  //检出最新版本
+$ git checkout hello.js  //检出版本库中指定文件
+
 ### 加入到暂存区域等待提交：
 $ git add README test.rb LICENSE
 $ git commit -m 'The initial commit of my project'
