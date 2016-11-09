@@ -1,0 +1,836 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"co",
+				"color"
+			],
+			[
+				"margin",
+				"marginBottom"
+			],
+			[
+				"if",
+				"ifOK"
+			],
+			[
+				"cou",
+				"courseid"
+			],
+			[
+				"hid",
+				"hideIntro"
+			],
+			[
+				"min",
+				"minutes"
+			],
+			[
+				"par",
+				"parseInt"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"Re",
+				"RedView"
+			],
+			[
+				"red",
+				"RedView"
+			],
+			[
+				"padding",
+				"paddingRight"
+			],
+			[
+				"al",
+				"alignItems"
+			],
+			[
+				"sub",
+				"submission"
+			],
+			[
+				"su",
+				"submission"
+			],
+			[
+				"file",
+				"filePath"
+			],
+			[
+				"stat",
+				"state"
+			],
+			[
+				"app",
+				"application"
+			],
+			[
+				"fil",
+				"fileName"
+			],
+			[
+				"in",
+				"intro"
+			],
+			[
+				"sty",
+				"style"
+			],
+			[
+				"be",
+				"space-between"
+			],
+			[
+				"user",
+				"userInfo"
+			],
+			[
+				"assign",
+				"assignment"
+			],
+			[
+				"tyr",
+				"tryNum"
+			],
+			[
+				"ty",
+				"tryNum"
+			],
+			[
+				"bo",
+				"borderColor"
+			],
+			[
+				"fo",
+				"fontWeight"
+			],
+			[
+				"ali",
+				"alignItems"
+			],
+			[
+				"se",
+				"alignSelf"
+			],
+			[
+				"fle",
+				"flex-end"
+			],
+			[
+				"s",
+				"style"
+			],
+			[
+				"ste",
+				"style"
+			],
+			[
+				"pa",
+				"paddingLeft"
+			],
+			[
+				"assin",
+				"assignment"
+			],
+			[
+				"rend",
+				"renderData"
+			],
+			[
+				"a",
+				"Assignment"
+			],
+			[
+				"on",
+				"onLoginPressed"
+			],
+			[
+				"pro",
+				"ProcessButton"
+			],
+			[
+				"te",
+				"textField"
+			],
+			[
+				"Tex",
+				"TextInput"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"flex",
+				"flexDirection"
+			],
+			[
+				"b",
+				"backgroundColor"
+			],
+			[
+				"st",
+				"style"
+			],
+			[
+				"bu",
+				"buttonText"
+			],
+			[
+				"na",
+				"navigate"
+			],
+			[
+				"Sc",
+				"Secen1"
+			],
+			[
+				"Se2",
+				"Secen2"
+			],
+			[
+				"re",
+				"redirect"
+			],
+			[
+				"render",
+				"renderScene"
+			],
+			[
+				"Se",
+				"Scene1"
+			],
+			[
+				"j",
+				"json"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "source/_posts/recent-notes.md",
+			"settings":
+			{
+				"buffer_size": 2104,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 147.0,
+		"last_filter": "console",
+		"selected_items":
+		[
+			[
+				"console",
+				"Set Syntax: R Console"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: PIS",
+				"Package Control: Satisfy Dependencies"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: e",
+				"Package Control: Enable Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 100.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts"
+	],
+	"file_history":
+	[
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/General/NaviView.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/index.common.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/index.ios.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities/FileOpener.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities/FileOpenerMime.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/General/login.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities/AppConfig.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Modules/Choice/ChoiceOption.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/FileManagement/FileLoader.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities/TextFormator.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities/JsonLoader.js",
+		"/Users/zach/Documents/DevelopStation/ws_node/kuaidi.183/loadjdNew.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities/StyleSheet.js",
+		"/Users/zach/Desktop/stack.txt",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Course/Course_List.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/react-native/Libraries/Utilities/MessageQueue.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Modules/Assignment/Assignment副本.js",
+		"/Volumes/MyPassport/zach/PTE/三件套 - 学生必备三套题 + 线下练习/PLUS(MacandWindows available)/readme.html",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/whatwg-fetch/README.md",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/.bin/babylon",
+		"/Users/zach/Documents/DevelopStation/ws_node/kuaidi.183/amazon.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Components/UserInfo.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Course/Content.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Modules/Forum/Forum.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/General/Notification.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Modules/Forum/DiscussionPost.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/contributors.txt",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/render-if/README.md",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Components/NaviBar.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/react/lib/ReactCompositeComponent.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/textversionjs/src/textversion.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/build.gradle",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/package.json",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/build.gradle",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/settings.gradle",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/General/RenderFragment.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Reference Documentation/GitHub - huangzuizui-react-native-file-opener- A React Native module that allows you to open a file (mp3, mp4, pdf, word, excel, dwg etc.) on your device with its default application.url",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/local.properties",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/src/main/AndroidManifest.xml",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/gradle.properties",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/gradlew",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/.gitignore",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/cssstyle/lib/properties/counterReset.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/ProcessButton.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/Scene2.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/Scene1.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/未命名文件夹/AEMG CC_ Administration_ Plugins_ Web services_ API Documentation.html",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react-native/packager/react-packager/src/Resolver/polyfills/require.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/index.android.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/package.json",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Course/Modules.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Components/ProcessButton.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react/lib/ReactChildReconciler.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react/lib/instantiateReactComponent.js",
+		"/Users/zach/Library/Application Support/Sublime Text 3/Packages/User/JsFormat.sublime-settings",
+		"/Users/zach/Documents/DevelopStation/ws_react/stack.txt",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/index.ios.js",
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts/git-command.md",
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts/closure.md",
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts/recent-notes.md",
+		"/Users/zach/Documents/DevelopStation/ws_node/kuaidi.183/expresstask/121.js",
+		"/Users/zach/Documents/DevelopStation/ws_node/kuaidi.183/121.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react-native/Libraries/react-native/react-native.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react/lib/ReactCompositeComponent.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react/lib/ReactReconciler.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/.flowconfig",
+		"/Users/zach/Desktop/stack 2.txt",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react-native/Libraries/CustomComponents/Navigator/Navigator.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/Reference Documentation/form/GitHub - APSL-react-native-keyboard-aware-scroll-view- A ScrollView component that handles keyboard appearance and automatically scrolls to focused TextInput-.url",
+		"/Users/zach/Documents/DevelopStation/ws_react/ModulesDemo/index.android.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/ModulesDemo/index.ios.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/index.android.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/!先看这里.txt",
+		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/Course/Modules.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/Utilities/StyleSheet.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/Components/NaviBar.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/General/login.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/ios/build/info.plist",
+		"/Users/zach/Documents/DevelopStation/ws_node/kuaidi.183/mongo.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/ModulesDemo/android/app/src/main/java/com/modules/custom/ToastCustomModule.java",
+		"/Users/zach/Documents/DevelopStation/ws_react/ModulesDemo/android/app/src/main/java/com/modulesdemo/MainActivity.java",
+		"/Users/zach/Documents/DevelopStation/ws_react/ModulesDemo/android/app/src/main/AndroidManifest.xml",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/android/build.gradle",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/android/app/build.gradle",
+		"/Users/zach/Documents/DevelopStation/workspace/andriod/polyv-android-sdk-demo-master/src/com/easefun/polyvsdk/demo/RecordActivity.java",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/cloudvideo/yui/src/button/js/button.js",
+		"/Users/zach/Desktop/polyv-upload.js",
+		"/Library/WebServer/Documents/php/upload.php",
+		"/Users/zach/Documents/DevelopStation/workspace/andriod/polyv-android-sdk-demo-master/README.md",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/cloudvideo/yui/build/moodle-atto_cloudvideo-button/moodle-atto_cloudvideo-button-debug.js",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/cloudvideo/yui/build/moodle-atto_cloudvideo-button/moodle-atto_cloudvideo-button-min.js",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/cloudvideo/yui/src/button/build.json",
+		"/Users/zach/Documents/DevelopStation/github/JavaScript-MD5/js/md5.min.js",
+		"/Users/zach/Documents/DevelopStation/github/JavaScript-MD5/js/md5.js",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/cloudvideo/version.php",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/charmap/version.php",
+		"/Volumes/Personal/Luke Liu/report/backupPublic/20160323/public/week0.php",
+		"/Volumes/Personal/Luke Liu/report/backupPublic/20160323/public/lectures.php",
+		"/Volumes/Personal/Luke Liu/report/backupPublic/20160323/public/index.php",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/yui/src/button/js/button.js",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/yui/src/button/meta/button.json",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/yui/src/button/build.json",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/version.php",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/settings.php",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/README.txt",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/lib.php",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/lang/en/atto_NEWTEMPLATE.php",
+		"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate/db/access.php",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/mine/MyModal.js",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/charmap/yui/src/button/js/button.js",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/charmap/yui/src/button/build.json",
+		"/Volumes/xampp/htdocs/moodle/lib/editor/atto/plugins/charmap/lib.php",
+		"/Volumes/xampp/htdocs/moodle/local/polyv/upload.php",
+		"/Volumes/xampp/htdocs/moodle/local/polyv/reload.php",
+		"/Library/WebServer/Documents/php/reload.php",
+		"/Volumes/xampp/htdocs/moodle/local/polyv/index.php",
+		"/private/etc/apache2/httpd.conf",
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts/php.md",
+		"/Library/WebServer/Documents/php/index.html.en",
+		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/ios/CloudProject/Info.plist",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/mine/MyModal",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/uuuindex.ios.js",
+		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react-native/Libraries/Utilities/MessageQueue.js",
+		"/Users/zach/Documents/proxy.pac",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/react-native-cache-store/index.js",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/src/main/java/com/cloudproject/MainApplication.java",
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/src/main/java/com/cloudproject/MainActivity.java",
+		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/package.json"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/zach/Documents/DevelopStation/github/cloud_campus",
+			"/Users/zach/Documents/DevelopStation/github/cloud_campus/Components,/Users/zach/Documents/DevelopStation/github/cloud_campus/General,/Users/zach/Documents/DevelopStation/github/cloud_campus/FileManagement,/Users/zach/Documents/DevelopStation/github/cloud_campus/Utilities,/Users/zach/Documents/DevelopStation/github/cloud_campus/Calendar,/Users/zach/Documents/DevelopStation/github/cloud_campus/Course",
+			"/Users/zach/Documents/DevelopStation/github/cloud_campus",
+			"/Users/zach/Documents/DevelopStation/github/cloud_campus/",
+			"/Users/zach/Documents/DevelopStation/github/cloud_campus",
+			"",
+			"/Users/zach/Documents/DevelopStation/github/moodle-atto_newtemplate",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"TF",
+			"find",
+			"courseid",
+			"itemDescription",
+			"coursemodule",
+			"RefreshControl",
+			"fresh",
+			"assignment",
+			"assign",
+			"fresh",
+			"should",
+			"borderTopWidth",
+			"top",
+			"shouldHide",
+			"assignmentHeaderText",
+			"assignmentHeader",
+			"header",
+			"JSON.stringify(",
+			"stringi",
+			"json",
+			"stringify",
+			"json",
+			"SubmissionView",
+			"MyTextView",
+			"ScrollView",
+			"scroll",
+			"{};\n",
+			"config",
+			"moodlewssettingfilter",
+			"setstate",
+			"due",
+			"&",
+			"ifval",
+			"if",
+			"ifValidToOpen",
+			"作业没有文件大小",
+			"connectInfoCheck",
+			"loadData",
+			"fileDefine",
+			"folderName",
+			"folder",
+			"FileOpenHelper",
+			"redirect",
+			"fileDefine",
+			"fileopener",
+			"testStyle",
+			"}>",
+			"reg",
+			"space-between",
+			"state",
+			"bold",
+			"'100'",
+			"subpostStyle",
+			"RenderIf",
+			"ifRender",
+			"getFormattedDate",
+			"NaviView",
+			"hello",
+			"hello4s",
+			"up",
+			"bold",
+			"createTextVersion",
+			"gra",
+			"on",
+			"onLog",
+			"disabledStyle",
+			"state",
+			"_sc",
+			"ruth",
+			"class",
+			"id",
+			"justifyContent",
+			"0",
+			"\n",
+			"Mac",
+			"adb",
+			"⌘（command）",
+			"选词（反复按快捷键，即可继续向下同时选中下一个相同的文本进行同时编辑）",
+			"difference",
+			"P",
+			"⌘（command）",
+			"选词（反复按快捷键，即可继续向下同时选中下一个相同的文本进行同时编辑）",
+			"command",
+			"dismissKeyboard",
+			"BackAndroid",
+			"props.navigator",
+			"redirect",
+			"redir",
+			"reset",
+			"navigation",
+			"redirect",
+			"onLoginPressed",
+			"navigate",
+			"\n</",
+			"navigator",
+			"container",
+			"logcat",
+			"warning",
+			"jiangqq",
+			"support-v4",
+			"23.2.1",
+			"load",
+			"md5",
+			"current",
+			"NEWTEMPLATE",
+			"login",
+			"UIExplorerBlock",
+			"configureScene",
+			"renderData",
+			"renderf",
+			"rendernavigationview",
+			"fragmentChange",
+			"shouldComponentUpdate",
+			"componentWillUpdate",
+			"componentWillMount",
+			"redirect",
+			"handleClick",
+			"storeToken",
+			"onLoginPressed",
+			"babelrc",
+			"_DEV_",
+			"VirtualHost",
+			"tfn",
+			"contractor",
+			"萨格拉斯"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"cloudvideo"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "source/_posts/recent-notes.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1598,
+								1598
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 441.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"re",
+				"recent-notes.md"
+			],
+			[
+				"index",
+				"cloud_campus/index.common.js"
+			],
+			[
+				"choiceoption",
+				"cloud_campus/Modules/Choice/ChoiceOption.js"
+			],
+			[
+				"log",
+				"cloud_campus/General/login.js"
+			],
+			[
+				"course",
+				"cloud_campus/Course/Course_List.js"
+			],
+			[
+				"sty",
+				"cloud_campus/Utilities/StyleSheet.js"
+			],
+			[
+				"assig",
+				"cloud_campus/Modules/Assignment/Assignment.js"
+			],
+			[
+				"jsonloader",
+				"cloud_campus/Utilities/JsonLoader.js"
+			],
+			[
+				"content",
+				"cloud_campus/Course/Content.js"
+			],
+			[
+				"json",
+				"cloud_campus/Utilities/JsonLoader.js"
+			],
+			[
+				"textformator",
+				"cloud_campus/Utilities/TextFormator.js"
+			],
+			[
+				"fileop",
+				"cloud_campus/Utilities/FileOpener.js"
+			],
+			[
+				"modu",
+				"cloud_campus/Course/Modules.js"
+			],
+			[
+				"m",
+				"cloud_campus/Course/Modules.js"
+			],
+			[
+				"fileopener",
+				"cloud_campus/Utilities/FileOpener.js"
+			],
+			[
+				"",
+				"cloud_campus/Utilities/FileOpener.js"
+			],
+			[
+				"login",
+				"cloud_campus/General/login.js"
+			],
+			[
+				"assgin",
+				"cloud_campus/Modules/Assignment/Assignment.js"
+			],
+			[
+				"text",
+				"cloud_campus/Utilities/TextFormator.js"
+			],
+			[
+				"mod",
+				"cloud_campus/Course/Modules.js"
+			],
+			[
+				"userin",
+				"cloud_campus/Components/UserInfo.js"
+			],
+			[
+				"navi",
+				"cloud_campus/General/NaviView.js"
+			],
+			[
+				"nav",
+				"cloud_campus/Components/NaviBar.js"
+			],
+			[
+				"jsonlo",
+				"cloud_campus/Utilities/JsonLoader.js"
+			],
+			[
+				"textver",
+				"cloud_campus/node_modules/textversionjs/src/textversion.js"
+			],
+			[
+				"forum",
+				"cloud_campus/Modules/Forum/Forum.js"
+			],
+			[
+				"androidm",
+				"cloud_campus/android/app/src/main/AndroidManifest.xml"
+			],
+			[
+				"package",
+				"AwesomeProject/package.json"
+			],
+			[
+				"style",
+				"cloud_campus/Utilities/StyleSheet.js"
+			],
+			[
+				"s",
+				"AwesomeProject/Scene2.js"
+			],
+			[
+				"navivie",
+				"cloud_campus/General/NaviView.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 189.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
