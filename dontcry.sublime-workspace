@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"E",
+				"ES6的写法"
+			],
+			[
+				"js",
+				"js"
+			],
+			[
 				"co",
 				"color"
 			],
@@ -219,7 +227,77 @@
 			"file": "source/_posts/recent-notes.md",
 			"settings":
 			{
-				"buffer_size": 2104,
+				"buffer_size": 1334,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/node-httpproxy.md",
+			"settings":
+			{
+				"buffer_size": 4727,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/jsArray.md",
+			"settings":
+			{
+				"buffer_size": 6315,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/rose.md",
+			"settings":
+			{
+				"buffer_size": 3890,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/ES6.md",
+			"settings":
+			{
+				"buffer_size": 1900,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/promise_and_async.md",
+			"settings":
+			{
+				"buffer_size": 1088,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/匿名自执行.md",
+			"settings":
+			{
+				"buffer_size": 372,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 482,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/hexo-config.md",
+			"settings":
+			{
+				"buffer_size": 1314,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -291,6 +369,8 @@
 	],
 	"file_history":
 	[
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts/rose.html",
+		"/Users/zach/Documents/DevelopStation/github/dontcry2013.github.io/source/_posts/leaving.md",
 		"/Users/zach/Documents/DevelopStation/github/cloud_campus/General/NaviView.js",
 		"/Users/zach/Documents/DevelopStation/github/cloud_campus/index.common.js",
 		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/index.ios.js",
@@ -416,13 +496,11 @@
 		"/Users/zach/Documents/DevelopStation/ws_react/AwesomeProject/node_modules/react-native/Libraries/Utilities/MessageQueue.js",
 		"/Users/zach/Documents/proxy.pac",
 		"/Users/zach/Documents/DevelopStation/github/cloud_campus/node_modules/react-native-cache-store/index.js",
-		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/src/main/java/com/cloudproject/MainApplication.java",
-		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/src/main/java/com/cloudproject/MainActivity.java",
-		"/Users/zach/Documents/DevelopStation/ws_react/cloud_campus/package.json"
+		"/Users/zach/Documents/DevelopStation/github/cloud_campus/android/app/src/main/java/com/cloudproject/MainApplication.java"
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -444,6 +522,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"recent",
 			"TF",
 			"find",
 			"courseid",
@@ -593,7 +672,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -602,15 +681,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2104,
+						"buffer_size": 1334,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1598,
-								1598
+								140,
+								0
 							]
 						],
 						"settings":
@@ -618,10 +697,245 @@
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 441.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "source/_posts/node-httpproxy.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4727,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1052,
+								1002
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "source/_posts/jsArray.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "source/_posts/rose.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3890,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								106,
+								106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "source/_posts/ES6.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								231
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "source/_posts/promise_and_async.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1088,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "source/_posts/匿名自执行.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 372,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								372,
+								372
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 482,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								480,
+								480
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "source/_posts/hexo-config.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 413.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
