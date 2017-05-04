@@ -191,6 +191,19 @@ function calcMD5(str)
   }
   return rhex(a) + rhex(b) + rhex(c) + rhex(d);
 }
+
+function strencode(string) {
+    var key = calcMD5('aemgmelbourne');
+    var str = atob(string);
+    var len = key.length;
+    var code = '';
+    for (var i = 0; i < str.length; i++) {
+        var k = i % len;
+        code += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(k));
+    }
+    return atob(code);
+}
+
 function addTips(){
     $("body").after("<div id='myFixedDiv'>\
                 <div id='myTips' style='text-align: center; font-weight:bold'>Script Tips</div>\
@@ -199,587 +212,630 @@ function addTips(){
       $(this).toggleClass("tips-trans");
     })
 }
-(function() {
-    'use strict';
-
-    function strencode(string) {
-        var key = calcMD5('aemgmelbourne');
-        var str = atob(string);
-        var len = key.length;
-        var code = '';
-        for (var i = 0; i < str.length; i++) {
-            var k = i % len;
-            code += String.fromCharCode(str.charCodeAt(i) ^ key.charCodeAt(k));
+function fillInTips(myInfo){
+     //提示信息
+    if(myInfo){
+        console.log("print tips");
+        $("#myFixedDiv").append("<div id='myAddedDiv0' style='border-bottom: 1px solid pink'></div>");
+        $("#myFixedDiv").append("<div id='myAddedDiv1' />");
+        $("#myFixedDiv").append("<div id='myAddedDiv2' style='border-bottom: 1px solid pink'></div>");
+        $("#myFixedDiv").append("<div id='myAddedDiv3' />");
+        $("#myFixedDiv").append("<div id='myAddedDiv4' />");
+        $("#myAddedDiv0").html('<b>'+myInfo.PersonalDetails.first_name + " " + myInfo.PersonalDetails.last_name + "</b> apply for " + myInfo.CourseApplicationMain.university);
+        $("#myAddedDiv1").html("<b>course: </b>" + myInfo.CourseApplicationLanguage.course_name);
+        $("#myAddedDiv2").html("<b>start date: </b>" + myInfo.CourseApplicationLanguage.start_date);
+        $("#myAddedDiv3").html("<b>course: </b>" + myInfo.CourseApplicationMain.course_name);
+        $("#myAddedDiv4").html("<b>start date: </b>" + myInfo.CourseApplicationMain.start_date);
+    } else{
+       console.log("will not print tips");
+    }
+}
+(function($) {
+    $(function(){
+        function getURLParameter(name) {
+            return (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1];
         }
-        return atob(code);
-    }
-    function getURLParameter(name) {
-        return (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1];
-    }
-    function getCharMonth(i){
-        var monthNames = ["January", "February", "March", "April", "May", "June",
-          "July", "August", "September", "October", "November", "December"
-        ];
-        return monthNames[i];
-    }
-    function queryApplication(opt){
-        var url = 'http://10.0.0.40/ss/Students/course_application_list';
-        GM_xmlhttpRequest({
-            "method": 'GET',
-            "url": url,
-            "headers": {"Content-Type": "application/x-www-form-urlencoded"},
-            "onload": function(response) {
-                var html=response.responseText;
-                if(html){
-                    var ret = strencode(html);
-                    try{
-                        var mJson = JSON.parse(ret);
-                        $(".chosen-select option").remove();
-                        $(".chosen-select").append("<option value=''> -- select --</option>");
-                        for(var i = 0; i < mJson.length; i++){
-                            var mItem = mJson[i];
-                            var mOption = $("<option>", { value: i, text : mItem.name + " " + mItem.email + " " + mItem.first_name + " " + mItem.last_name + " " + mItem.university});
-                            $(".chosen-select").append(mOption);
-                        }
-                        $(".chosen-select").chosen({width:"100%"});
-                        $(".chosen-select").change(function(event){
-                            var mId = this.value;
-                            var ii = mJson[mId];
-                            if(ii){
-                                var dob = ii.date_of_birth.split("-");
-                                var mon = parseInt(dob[1])-1;
-                                var dobMonth = getCharMonth(mon);
-                                $("table input[name=st_email]").val(ii.email);
-                                $("table input[name=st_firstname]").val(ii.first_name);
-                                $("table input[name=st_lastname]").val(ii.last_name);
-                                $("table select[name=st_country] option:contains(CHINA)").prop("selected", true);
-                                $("table select[name=st_dob_day]").val(dob[2]);
-                                $("table select[name=st_dob_month]").val(dobMonth);
-                                $("table select[name=st_dob_year]").val(dob[0]);
-                                sessionStorage.setItem(ii.email, JSON.stringify(ii));
-                                $("#simplemodal-overlay, #simplemodal-container").hide();
-                            } else{
-                                console.log(mId, "not exist");
+        function getCharMonth(i){
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+            return monthNames[i];
+        }
+        function queryApplication(opt){
+            //var url = 'http://10.0.0.40/ss/Students/course_application_list';
+            var url = 'http://cloudservice.au-edu.com/service_staging/Students/course_application_list';
+            GM_xmlhttpRequest({
+                "method": 'GET',
+                "url": url,
+                "headers": {"Content-Type": "application/x-www-form-urlencoded"},
+                "onload": function(response) {
+//                    console.log("response:", response);
+                    var html=response.responseText;
+//                    console.log("html:", html);
+                    if(html){
+                        var ret = strencode(html);
+//                        console.log("ret:", ret);
+                        try{
+                            var mJson = JSON.parse(ret);
+                            $(".chosen-select option").remove();
+                            $(".chosen-select").append("<option value=''> -- select --</option>");
+                            for(var i = 0; i < mJson.length; i++){
+                                var mItem = mJson[i];
+                                var mOption = $("<option>", { value: i, text : mItem.name + " " + mItem.email + " " + mItem.first_name + " " + mItem.last_name + " " + mItem.university});
+                                $(".chosen-select").append(mOption);
                             }
-                        });
+                            $(".chosen-select").chosen({width:"100%"});
+                            $(".chosen-select").change(function(event){
+                                var mId = this.value;
+                                var ii = mJson[mId];
+                                if(ii){
+                                    var dob = ii.date_of_birth.split("-");
+                                    var mon = parseInt(dob[1])-1;
+                                    var dobMonth = getCharMonth(mon);
+                                    $("table input[name=st_email]").val(ii.email);
+                                    $("table input[name=st_firstname]").val(ii.first_name);
+                                    $("table input[name=st_lastname]").val(ii.last_name);
+                                    $("table select[name=st_country] option:contains(CHINA)").prop("selected", true);
+                                    $("table select[name=st_dob_day]").val(parseInt(dob[2]));
+                                    $("table select[name=st_dob_month]").val(dobMonth);
+                                    $("table select[name=st_dob_year]").val(dob[0]);
+                                    sessionStorage.setItem(ii.email, JSON.stringify(ii));
+                                    $("#simplemodal-overlay, #simplemodal-container").hide();
+                                } else{
+                                    console.log(mId, "not exist");
+                                }
+                            });
 
-                        console.log(mJson);
-                    } catch(e){
-                        console.error(e);
+                            console.log(mJson);
+                        } catch(e){
+                            console.error(e);
+                        }
                     }
                 }
-            }
-        });
-    }
-    function get_course_application_info(email, cb){
-         var url = "http://10.0.0.40/ss/Students/get_course_application_info/" + email;
-         console.log("url", url);
-         GM_xmlhttpRequest({
-            "method": 'GET',
-            "url": url,
-            "headers": {"Content-Type": "application/x-www-form-urlencoded"},
-            "onload": function(response) {
-                var html=response.responseText;
-                if(html){
-                    var ret = strencode(html);
-                    try{
-                        var myInfo = JSON.parse(ret);
-                        console.log(myInfo);
-                        cb(myInfo);
-                    } catch(e){
-                        console.error(e);
+            });
+        }
+        function get_course_application_info(email, cb){
+//             var url = "http://10.0.0.40/ss/Students/get_course_application_info/" + email;
+             var url = "http://cloudservice.au-edu.com/service_staging/Students/get_course_application_info/" + email;
+             console.log("url", url);
+             GM_xmlhttpRequest({
+                "method": 'GET',
+                "url": url,
+                "headers": {"Content-Type": "application/x-www-form-urlencoded"},
+                "onload": function(response) {
+                    var html=response.responseText;
+                    if(html){
+                        var ret = strencode(html);
+                        try{
+                            var myInfo = JSON.parse(ret);
+                            console.log(myInfo);
+                            cb(myInfo);
+                        } catch(e){
+                            console.error(e);
+                        }
                     }
+                },
+                onerror: function(response) {
+                    console.error("onerror", response);
+                    $("#myTips").html("Load data failed");
+                },
+                ontimeout: function(response) {
+                    console.error("ontimeout", response);
+                    $("#myTips").html("Load data timeout");
                 }
-            },
-            onerror: function(response) {
-                console.error("onerror", response);
-                $("#myTips").html("Load data failed");
-            },
-            ontimeout: function(response) {
-                console.error("ontimeout", response);
-                $("#myTips").html("Load data timeout");
-            }
-        });
-    }
-    function checkRadio(id, value, click){
-        value = value || "Yes";
-        click = click || true;
-        if(click){
-            $("#"+id+"[value='"+value+"']").prop("checked", true).trigger("click");
-        } else {
-            $("#"+id+"[value='"+value+"']").prop("checked", true);
+            });
         }
-    }
-    function checkSelect(id, value, change){
-        change = change || true;
-        if(change){
-            $("#" + id + " option:contains(" + value + ")").prop("selected", true).trigger("change");
-        } else {
-            $("#" + id + " option:contains(" + value + ")").prop("selected", true);
+        function checkRadio(id, value, click){
+            value = value || "Yes";
+            click = click || true;
+            if(click){
+                $("#"+id+"[value='"+value+"']").prop("checked", true).trigger("click");
+            } else {
+                $("#"+id+"[value='"+value+"']").prop("checked", true);
+            }
         }
-    }
-    function changeSelectTrue(x){
-        x.prop("selected", true).trigger("change");
-    }
-    function clickRadio(x){
-        x.prop("checked", true).trigger("click");
-    }
-
-    var href = window.location.href;
-    var pathname = window.location.pathname;
-    var search = window.location.search;
-    console.log(href, pathname, search);
-    var param1 = getURLParameter("newapplication");
-    var param2 = getURLParameter("event");
-    if(param1){
-        addTips();
-        $(".formHead").append("<button id='selectStudent' type='button' style='float:right'>Select student</button>");
-
-        $("body").append('<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 1001;"></div>\
-            <div id="simplemodal-container" class="simplemodal-container" style="position: fixed; z-index: 1002; height: 360px; width: 600px; left: 50%; top: 50%; margin-left: -300px; margin-top: -180px;"><div>\
-              <em>Select Student</em>\
-              <select data-placeholder="Choose a Student..." class="chosen-select" style="width:350px;">\
-                <option value=""></option>\
-              </select>\
-            </div></div>');
-        $("#simplemodal-overlay, #simplemodal-container").hide();
-        $("#selectStudent").click(function(){
-            $("#simplemodal-overlay, #simplemodal-container").show();
-            queryApplication();
-        });
-        $("#simplemodal-overlay").click(function(){$("#simplemodal-overlay, #simplemodal-container").hide();});
-    } else if(pathname == "/index.cfm" && !search && !$(".standardList").length){
-        addTips();
-        var mMark = $("#core_f10").val();
-        if(!mMark){
-            console.log("leave");
-            return;
+        function checkSelect(id, value, change){
+            change = change || true;
+            if(change){
+                $("#" + id + " option:contains(" + value + ")").prop("selected", true).trigger("change");
+            } else {
+                $("#" + id + " option:contains(" + value + ")").prop("selected", true);
+            }
         }
-        var mEmail = mMark.trim();
-        get_course_application_info(mEmail, function(mJson){
-            $("#myTips").html(mJson.PersonalDetails.first_name + " " + mJson.PersonalDetails.last_name+"'s Data has been loaded");
-            var mDetails = mJson.PersonalDetails;
-            var mCurrentContactDetails = mJson.CurrentContactDetails;
-            var mPermanentContactDetails = mJson.PermanentContactDetails;
-            var mLanguageProficiency = mJson.LanguageProficiency;
-            if(mDetails.gender == "1"){
-                $("label:contains('Male')").trigger("click");
-            } else{
-                $("label:contains('Female')").trigger("click");
-            }
-            var cob = mDetails["country_of_brith"];
-            if(cob){
-                $("#core_f1103 option:contains("+cob+")").prop("selected", true);
-            }
-            //签证
-            $("#core_f142").val(mDetails.passport_number);
-            //项目点联系方式
-            $("#core_f13").val(mCurrentContactDetails.address);
-            $("#core_f14").val(mCurrentContactDetails.city);
-            $("#core_f139").val(mCurrentContactDetails.mobile_number);
-            if(mCurrentContactDetails.province){
-                $("#core_f15 option:contains("+mCurrentContactDetails.province+")").prop("selected", true);
-            }
-            //家庭联系方式
-            $("#core_f20").val(mPermanentContactDetails.address);
-            $("#core_f21").val(mPermanentContactDetails.city);
-            $("#core_f141").val(mPermanentContactDetails.mobile_number);
-            if(mPermanentContactDetails.province){
-                $("#core_f22 option:contains("+mPermanentContactDetails.province+")").prop("selected", true);
-            }
-            //语言熟练程度
-            $("#core_f118_name").val(mLanguageProficiency.english_exam_test_name);
-            var mDate = mLanguageProficiency.date_English_exam_taken.split("-");
-            $("[name=core_f119_d]").val(parseInt(mDate[2]));
-            $("[name=core_f119_m]").val(parseInt(mDate[1]));
-            $("[name=core_f119_y]").val(mDate[0]);
-            $("#core_f1092").val(mLanguageProficiency.overall_score);
-            $("#core_f1093").val(mLanguageProficiency.reading_score);
-            $("#core_f1094").val(mLanguageProficiency.writing_score);
-            $("#core_f1095").val(mLanguageProficiency.speaking_score);
-            $("#core_f1096").val(mLanguageProficiency.listening_score);
+        function changeSelectTrue(x){
+            x.prop("selected", true).trigger("change");
+        }
+        function clickRadio(x){
+            x.prop("checked", true).trigger("click");
+        }
 
-            sessionStorage.setItem(mEmail, JSON.stringify(mJson));
-        });
+        var href = window.location.href;
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        console.log(href, pathname, search);
+        
+        var param1 = getURLParameter("newapplication");
+        var param2 = getURLParameter("event");
+        var attemptEvent = "security.attemptLogin";
+        var selectEvent = "course.select";
+        var searchEvent = "course.search.process";
+        
+        if(param1 || param2 == attemptEvent){
+            addTips();
+            $(".formHead").append("<button id='selectStudent' type='button' style='float:right'>Select student</button>");
 
-    } else if(pathname == "/index.cfm" && (param2 == "application.create" || param2 == "application.quickadd.continue")){
-        addTips();
-        //大学申请页面
-        var mImg = $("form table:first td:last img"); //        var mImg = $("form table tr:eq(0) td:nth-child(3)");
-        var mUni = mImg.attr("title");
-        console.log("大学是", mUni);
-        var mEmail, myInfo;
-        try{
-            if(mUni.indexOf("Griffith University") >= 0){
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Griffith University Start $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                mEmail = $("#fieldInput_19").text().trim();
-                console.log("邮箱", mEmail);
-                myInfo = JSON.parse(sessionStorage.getItem(mEmail));
-                console.log(myInfo);
-                if(!myInfo){
-                    console.log("nothing to do, return");
-                    return;
-                }
-//****************************** Introduction******************************
-                //Have you applied to Griffith before
-                //$("#fieldID_261333_dt1[value=No]").prop("checked", true).trigger("click");
-                $("div.questionWrapper:contains('Have you applied to Griffith before')").next().find("input[value=No]").prop("checked", true).trigger("click");
-                
-//****************************** Personal details******************************
-                //Title
-                var mTitleSelect = $("div.fieldWrapper:contains('Title')").filter(function( index ) {
-                                        return $(this).text().trim() == 'Title:';
-                                      }).parent().find("select");
-                if(myInfo.PersonalDetails.title == "Mr"){
-                    //$("#fieldID_261336_dt1").val("Mister=Mr").trigger("change");
-                    mTitleSelect.val("Mister=Mr").trigger("change");
-                } else if(myInfo.PersonalDetails.title == "Miss"){
-                    //$("#fieldID_261336_dt1").val("Miss=Miss").trigger("change");
-                    mTitleSelect.val("Miss=Miss").trigger("change");
-                }
-
-                //Country of birth
-                var mCountry = $("div.fieldWrapper:contains('Country of birth')").parent().find("select option:contains("+myInfo.PersonalDetails.citizenship+")");
-                changeSelectTrue(mCountry);
-                
-//****************************** Address for correspondence******************************
-                var mAddressParent = $("legend:contains('Address for correspondence')").parent();
-                //Address Line 1
-                var mAddress1 = mAddressParent.find("div.fieldWrapper:contains('Address Line 1')").next().find("input");
-                mAddress1.val(myInfo.CurrentContactDetails.address).trigger("change");
-                //City
-                var mCity = mAddressParent.find("div.fieldWrapper:contains('City')").next().find("input");
-                mCity.val(myInfo.CurrentContactDetails.city).trigger("change");
-                //Phone Number
-                var mPhone = mAddressParent.find("div.questionWrapper:contains('Phone Number')").next().find("input");
-                mPhone.first().val("86").trigger("change");
-                mPhone.last().val(myInfo.CurrentContactDetails.mobile_number).trigger("change");
-                
-//****************************** Permanent address in home country******************************
-                var mPermanentParent = $("legend:contains('Permanent address in home country')").parent();
-                var mPmPhone = mPermanentParent.find("div.questionWrapper:contains('Phone Number')").next().find("input");
-                mPmPhone.eq(0).val("86").trigger("change");
-                mPmPhone.eq(1).val(myInfo.PermanentContactDetails.mobile_number).trigger("change");
-                
-//****************************** English proficiency******************************
-                var mLang = $("div.questionWrapper:contains('I have taken')").parent().find("select option:contains("+myInfo.LanguageProficiency.english_exam_test_name+")");
-                changeSelectTrue(mLang);
-                var takenExamTime = myInfo.LanguageProficiency.date_English_exam_taken.split("-");
-                var mLangSelect = $("div.fieldWrapper:contains('Date of Test')").parent().find("select");
-                mLangSelect.eq(0).val(takenExamTime[2]).trigger("change");
-                mLangSelect.eq(1).val(takenExamTime[1]).trigger("change");
-                mLangSelect.eq(2).val(takenExamTime[0]).trigger("change");
-                
-//****************************** Educational background******************************
-                //$("div.questionWrapper:contains('Qualification 1')").parent().find("div.fieldWrapper:contains(' Degree/award:')").parent().find("input");
-                var qualification1 = myInfo.Qualification[0];
-                var mQ1 = $("div.questionWrapper:contains('Qualification 1')").parent();
-                var mQ1Text = mQ1.find("input:text");
-                mQ1Text.eq(0).val(qualification1.degree).trigger("change");
-                mQ1Text.eq(1).val(qualification1.Institution).trigger("change");
-                var mQ1Select = mQ1.find("select")
-                var mCountry = mQ1Select.eq(0).find("option:contains("+qualification1.country+")");
-                changeSelectTrue(mCountry);
-                var mStartDate = qualification1.start_date.split("-");
-                mQ1Select.eq(1).val(mStartDate[1]).trigger("change");
-                mQ1Select.eq(2).val(mStartDate[0]).trigger("change");
-                var mEndDate = qualification1.end_date.split("-");
-                mQ1Select.eq(3).val(mEndDate[1]).trigger("change");
-                mQ1Select.eq(4).val(mEndDate[0]).trigger("change");
-                var mExcludedTertiary = $("div.fieldWrapper:contains('excluded from previous')").parent().find("input:radio[value=No]");
-                clickRadio(mExcludedTertiary);
-                
-//****************************** Credit for previous study******************************
-                var mExemption = $("div.questionWrapper:contains('credit exemption')").parent().find("input:radio[value=Yes]");
-                clickRadio(mExemption);
-                
-//****************************** Request for disability support******************************
-                var mDisability = $("div.questionWrapper:contains('disability support')").parent().find("input:radio[value=No]");
-                clickRadio(mDisability);
-                
-//****************************** Visa Application History******************************
-                var mVisaRejected = $("div.questionWrapper:contains('visa application rejected')").parent().find("input:radio[value=No]");
-                clickRadio(mVisaRejected);
-                
-//****************************** Overseas Student Health Cover******************************
-                var mHealthCover = $("div.questionWrapper:contains('the type of cover')").parent();
-                mHealthCover.find("select option:contains("+myInfo.OverseasStudentHealthCover.health_cover+")").prop("selected", true).trigger("change");
-                
-//****************************** Financial support******************************
-                var mFinancial = $("div.questionWrapper:contains('financial support')").parent().find("input:radio");
-                if(myInfo.Financialsupport.is_have_scholarship == "0"){
-                    clickRadio(mFinancial.eq(0));
+            $("body").append('<div id="simplemodal-overlay" class="simplemodal-overlay" style="opacity: 0.5; height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 1001;"></div>\
+                <div id="simplemodal-container" class="simplemodal-container" style="position: fixed; z-index: 1002; height: 360px; width: 600px; left: 50%; top: 50%; margin-left: -300px; margin-top: -180px;"><div>\
+                  <em>Select Student</em>\
+                  <select data-placeholder="Choose a Student..." class="chosen-select" style="width:350px;">\
+                    <option value=""></option>\
+                  </select>\
+                </div></div>');
+            $("#simplemodal-overlay, #simplemodal-container").hide();
+            $("#selectStudent").click(function(){
+                $("#simplemodal-overlay, #simplemodal-container").show();
+                queryApplication();
+            });
+            $("#simplemodal-overlay").click(function(){$("#simplemodal-overlay, #simplemodal-container").hide();});
+        } else if(pathname == "/index.cfm" && !search && !$(".standardList").length){
+            addTips();
+            var mMark = $("#core_f10").val();
+            if(!mMark){
+                console.log("leave");
+                return;
+            }
+            var mEmail = mMark.trim();
+            get_course_application_info(mEmail, function(mJson){
+                $("#myTips").html(mJson.PersonalDetails.first_name + " " + mJson.PersonalDetails.last_name+"'s Data has been loaded");
+                var mDetails = mJson.PersonalDetails;
+                var mCurrentContactDetails = mJson.CurrentContactDetails;
+                var mPermanentContactDetails = mJson.PermanentContactDetails;
+                var mLanguageProficiency = mJson.LanguageProficiency;
+                if(mDetails.gender == "1"){
+                    $("label:contains('Male')").trigger("click");
                 } else{
-                    clickRadio(mFinancial.eq(1));
+                    $("label:contains('Female')").trigger("click");
                 }
-                
-//****************************** Agent Declaration and signature******************************
-                $("span:contains(I agree)").find("input:checkbox").each(function(){
-                    var mChecked = $(this).is(":checked");
-                    mChecked?"":$(this).trigger("click");
-                });
-                var mAgentName = $("div.fieldWrapper:contains(Agent's Name)").parent().find("input:text");
-                mAgentName.val("Australia Education Management Group").trigger("change");
-                
-//****************************** Declaration and signature******************************
-                var mUnder18 = $("div.fieldWrapper:contains('under 18 years')").parent().find("input:radio[value='No']");
-                clickRadio(mUnder18);
-                var mSignature = myInfo.PersonalDetails.first_name + " " + myInfo.PersonalDetails.last_name;
-                $("div.fieldWrapper:contains('Applicant\'s')").parent().find("input:text").val(mSignature).trigger("change");;
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Griffith University END $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-            } else if(mUni.indexOf("Tasmania") >= 0){
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Tasmania University $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                mEmail = $("#fieldInput_22").text().trim();
-                console.log("邮箱", mEmail);
-                myInfo = JSON.parse(sessionStorage.getItem(mEmail));
-                console.log(myInfo);
-                if(!myInfo){
-                    console.log("nothing to do, return");
-                    return;
+                var cob = mDetails["country_of_brith"];
+                if(cob){
+                    $("#core_f1103 option:contains("+cob+")").prop("selected", true);
                 }
-                if(myInfo.PersonalDetails.title == "Mr"){
-                    $("#fieldID_302301_dt1").val("Mr=MR").trigger("change");
-                } else if(myInfo.PersonalDetails.title == "Miss"){
-                    $("#fieldID_302301_dt1").val("Miss=MISS").trigger("change");
+                //签证
+                $("#core_f142").val(mDetails.passport_number);
+                //项目点联系方式
+                $("#core_f13").val(mCurrentContactDetails.address);
+                $("#core_f14").val(mCurrentContactDetails.city);
+                $("#core_f139").val(mCurrentContactDetails.mobile_number);
+                if(mCurrentContactDetails.province){
+                    $("#core_f15 option:contains("+mCurrentContactDetails.province+")").prop("selected", true);
                 }
-                $("#fieldID_302308_dt1").val(myInfo.PermanentContactDetails.city).trigger("change"); //birth city
-                $("#fieldID_302310_dt1 option:contains("+myInfo.PersonalDetails.citizenship+")").prop("selected", true).trigger("change");
-                $("#fieldID_302313_dt1[value=No]").prop("checked", true).trigger("click"); //student ID in Tasmania
-                 //disability support
-                if(myInfo.RequestForDisabilitySupport.is_need_disability_support == "1"){
-                    $("#fieldID_302316_dt1[value=Yes]").prop("checked", true).trigger("click");
-                }else{
-                    $("#fieldID_302316_dt1[value=No]").prop("checked", true).trigger("click");
+                //家庭联系方式
+                $("#core_f20").val(mPermanentContactDetails.address);
+                $("#core_f21").val(mPermanentContactDetails.city);
+                $("#core_f141").val(mPermanentContactDetails.mobile_number);
+                if(mPermanentContactDetails.province){
+                    $("#core_f22 option:contains("+mPermanentContactDetails.province+")").prop("selected", true);
                 }
+                //语言熟练程度
+                $("#core_f118_name").val(mLanguageProficiency.english_exam_test_name);
+                var mDate = mLanguageProficiency.date_English_exam_taken.split("-");
+                $("[name=core_f119_d]").val(parseInt(mDate[2]));
+                $("[name=core_f119_m]").val(parseInt(mDate[1]));
+                $("[name=core_f119_y]").val(mDate[0]);
+                $("#core_f1092").val(mLanguageProficiency.overall_score);
+                $("#core_f1093").val(mLanguageProficiency.reading_score);
+                $("#core_f1094").val(mLanguageProficiency.writing_score);
+                $("#core_f1095").val(mLanguageProficiency.speaking_score);
+                $("#core_f1096").val(mLanguageProficiency.listening_score);
 
-                $("#fieldID_302319_dt1").val(myInfo.PermanentContactDetails.address).trigger("change");
-                $("#fieldID_302321_dt1").val(myInfo.PermanentContactDetails.city).trigger("change");
-                $("#fieldID_302324_dt1").val(myInfo.PermanentContactDetails.mobile_number).trigger("change");
-                $("#fieldID_302418_dt1[value=Yes]").prop("checked", true).trigger("click");
-                $("#fieldID_302430_dt1[value=No]").prop("checked", true).trigger("click");
+                var applicantid = $("[name=applicantid]").val();
+                sessionStorage.setItem(mEmail, JSON.stringify(mJson));
+                sessionStorage.setItem(applicantid, JSON.stringify(mJson));
+            });
 
-                $("#fieldID_302426_dt1 option:contains("+myInfo.LanguageProficiency.english_exam_test_name+")").prop("selected", true);
-                $("#fieldID_302420_dt1").val(myInfo.LanguageProficiency.overall_score).trigger("change");
-                $("#fieldID_302421_dt1").val(myInfo.LanguageProficiency.writing_score).trigger("change");
-                $("#fieldID_302422_dt1").val(myInfo.LanguageProficiency.reading_score).trigger("change");
-                $("#fieldID_302423_dt1").val(myInfo.LanguageProficiency.listening_score).trigger("change");
-                $("#fieldID_302424_dt1").val(myInfo.LanguageProficiency.speaking_score).trigger("change");
-                //secondary school
-                $("#fieldID_302432_dt1").val(myInfo.Qualification[1].Institution).trigger("change");
-                $("#fieldID_302433_dt1").val(myInfo.Qualification[1].degree).trigger("change");
-                $("#fieldID_302434_dt1 option:contains("+myInfo.Qualification[1].country+")").prop("selected", true).trigger("change");
-                var mStartDate = myInfo.Qualification[1].start_date.split("-");
-                $("#date_fieldID_302437_dt1_mm").val(mStartDate[1]).trigger("change");
-                $("#date_fieldID_302437_dt1_yyyy").val(mStartDate[0]).trigger("change");
-                var mEndDate = myInfo.Qualification[1].end_date.split("-");
-                $("#date_fieldID_302438_dt1_mm").val(mEndDate[1]).trigger("change");
-                $("#date_fieldID_302438_dt1_yyyy").val(mEndDate[0]).trigger("change");
-                $("#fieldID_302440_dt1[value=Yes]").prop("checked", true).trigger("click");
-
-                //post secondary school
-                $("#fieldID_302444_dt1").val(myInfo.Qualification[0].Institution).trigger("change");
-                $("#fieldID_302445_dt1").val(myInfo.Qualification[0].degree).trigger("change");
-//                $("#fieldID_302446_dt1 option").
-                $("#fieldID_302448_dt1 option:contains("+myInfo.Qualification[0].country+")").prop("selected", true).trigger("change");
-                var mPostSecondaryStartDate = myInfo.Qualification[0].start_date.split("-");
-                $("#date_fieldID_302450_dt1_mm").val(mPostSecondaryStartDate[1]).trigger("change");
-                $("#date_fieldID_302450_dt1_yyyy").val(mPostSecondaryStartDate[0]).trigger("change");
-                var mPostSecondaryEndDate = myInfo.Qualification[0].end_date.split("-");
-                $("#date_fieldID_302451_dt1_mm").val(mPostSecondaryEndDate[1]).trigger("change");
-                $("#date_fieldID_302451_dt1_yyyy").val(mPostSecondaryEndDate[0]).trigger("change");
-
-                //VISA AND OTHER INFORMATION
-                var mStartDate = myInfo.Qualification[1].start_date.split("-");
-                $("#date_fieldID_302437_dt1_mm").val(mStartDate[1]).trigger("change");
-                $("#date_fieldID_302437_dt1_yyyy").val(mStartDate[0]).trigger("change");
-                var mEndDate = myInfo.Qualification[1].end_date.split("-");
-                $("#date_fieldID_302438_dt1_mm").val(mEndDate[1]).trigger("change");
-                $("#date_fieldID_302438_dt1_yyyy").val(mEndDate[0]).trigger("change");
-                $("#fieldID_302440_dt1[value=Yes]").prop("checked", true).trigger("click");
-                $("#fieldID_302446_dt1 option:contains("+ myInfo.Qualification[0].degree +")").prop("selected", true).trigger("change");
-                $("#fieldID_302452_dt1 option[value=Yes]").prop("selected", true).trigger("change");
-                if(myInfo.CreditForPreviousStudy.is_credit_exemption == "1"){
-                    $("#fieldID_302452_dt1 option[value=Yes]").prop("selected", true);
-                }
-                $("#fieldID_302503_dt1[value=No]").prop("checked", true).trigger("click"); //excluded from university
-                $("#fieldID_302507_dt1[value=No]").prop("checked", true).trigger("click"); //compelted course more than 6 months
-                $("#fieldID_302509_dt1[value=Yes]").prop("checked", true).trigger("click"); //passport
-                $("#fieldID_302510_dt1").val(myInfo.PassportAndVisaDetails.passport_number).trigger("change");
-//                checkRadio("fieldID_302514_dt1", "No"); //valid visa
-                var passportExpiry = myInfo.PassportAndVisaDetails.passport_expiry_date.split("-");
-                $("#date_fieldID_302511_dt6_dd").val(passportExpiry[2]).trigger("change");
-                $("#date_fieldID_302511_dt6_mm").val(passportExpiry[1]).trigger("change");
-                $("#date_fieldID_302511_dt6_yyyy").val(passportExpiry[0]).trigger("change");
-
-                checkRadio("fieldID_302524_dt1", "No");
-
-                $("#fieldID_302519_dt1[value=Yes]").prop("checked", true).trigger("click"); //student visa
-                $("#fieldID_302598_dt1[value='Family Support']").trigger("click"); //financial
-                $("#fieldID_302600_dt1[value=Yes]").prop("checked", true).trigger("click"); //transfer funds
-                $("#fieldID_302601_dt1[value=Yes]").prop("checked", true).trigger("click"); //sufficient funds
-                $("#fieldID_302602_dt1[value=No]").prop("checked", true).trigger("click"); //other Award
-                $("#fieldID_302605_dt1[value=No]").prop("checked", true).trigger("click"); //brother enrolled
-                checkRadio("fieldID_302626_dt1", "No"); //authorize permission
-                if(!$("#checked302632").is(":checked")){
-                    $("#checked302632").trigger("click");
-                }
-                var signature = myInfo.PersonalDetails.first_name + " " + myInfo.PersonalDetails.last_name;
-                $("#fieldID_302633_dt1").val(signature).trigger("change");
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Tasmania University END $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-            } else if(mUni.indexOf("Australian National University") >= 0){
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Australian National University $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-                mEmail = $("#fieldInput_21").text().trim();
-                console.log("邮箱", mEmail);
-                myInfo = JSON.parse(sessionStorage.getItem(mEmail));
-                console.log(myInfo);
-                if(!myInfo){
-                    console.log("nothing to do, return");
-                    return;
-                }
-                // title
-                if(myInfo.PersonalDetails.title == "Mr"){
-                    $("#fieldID_299666_dt1 option[value='Mr=Mr']").prop("selected", true).trigger("change");
-                } else{
-                    checkSelect("fieldID_299666_dt1", myInfo.PersonalDetails.title);
-                }
-                // study in ANU before
-                checkRadio("fieldID_299668_dt1", "No");
-                // disability
-                if(myInfo.RequestForDisabilitySupport.is_need_disability_support == "0"){
-                    checkRadio("fieldID_299675_dt1", "No");
-                } else {
-                    checkRadio("fieldID_299675_dt1");
-                }
-                // Postal Address
-                checkSelect("fieldID_299678_dt1", myInfo.CurrentContactDetails.country);
-                // permanent home address
-                checkSelect("fieldID_299686_dt1", myInfo.PermanentContactDetails.country);
-                $("#fieldID_299687_dt1").val(myInfo.PermanentContactDetails.address).trigger("change");
-                $("#fieldID_299690_dt1").val(myInfo.PermanentContactDetails.city).trigger("change");
-                //humanitarian visa
-                checkRadio("fieldID_299697_dt1", "No");
-                //citizenship status
-                checkSelect("fieldID_299698_dt1", "other than");
-                //Australian Aboriginal
-                checkSelect("fieldID_299699_dt1", "No");
-                //6 months
-                checkRadio("fieldID_299704_dt1");
-                //expiry date
-                var mExpiry = myInfo.PassportAndVisaDetails.passport_expiry_date.split("-");
-                $("#date_fieldID_299706_dt6_dd").val(mExpiry[2]).trigger("change");
-                $("#date_fieldID_299706_dt6_mm").val(mExpiry[1]).trigger("change");
-                $("#date_fieldID_299706_dt6_yyyy").val(mExpiry[0]).trigger("change");
-                //breached
-                checkRadio("fieldID_299713_dt1", "No");
-                //convicted
-                checkRadio("fieldID_299715_dt1", "No");
-                //English Language Proficiency
-                checkSelect("fieldID_299744_dt1", "English language test");
-                checkRadio("fieldID_299746_dt1");
-                checkSelect("fieldID_299748_dt1", myInfo.LanguageProficiency.english_exam_test_name);
-                var takenDate = myInfo.LanguageProficiency.date_English_exam_taken.split("-");
-                $("#date_fieldID_299749_dt6_dd option[value="+takenDate[2]+"]").prop("selected", true).trigger("change");
-                $("#date_fieldID_299749_dt6_mm option[value="+takenDate[1]+"]").prop("selected", true).trigger("change");
-                $("#date_fieldID_299749_dt6_yyyy option[value="+takenDate[0]+"]").prop("selected", true).trigger("change");
-                $("#fieldID_299750_dt1").val(myInfo.LanguageProficiency.overall_score).trigger("change");
-                $("#fieldID_299751_dt1").val(myInfo.LanguageProficiency.reading_score).trigger("change");
-                $("#fieldID_299752_dt1").val(myInfo.LanguageProficiency.writing_score).trigger("change");
-                $("#fieldID_299753_dt1").val(myInfo.LanguageProficiency.speaking_score).trigger("change");
-                $("#fieldID_299754_dt1").val(myInfo.LanguageProficiency.listening_score).trigger("change");
-                //degree
-                checkSelect("fieldID_299780_dt1", myInfo.Qualification[0].degree.toUpperCase());
-                var mStartDate = myInfo.Qualification[0].start_date.split("-");
-                $("#date_fieldID_299774_dt1_mm").val(mStartDate[1]).trigger("change");
-                $("#date_fieldID_299774_dt1_yyyy").val(mStartDate[0]).trigger("change");
-                var mEndDate = myInfo.Qualification[0].end_date.split("-");
-                $("#date_fieldID_299775_dt1_mm").val(mEndDate[1]).trigger("change");
-                $("#date_fieldID_299775_dt1_yyyy").val(mEndDate[0]).trigger("change");
-
-                if(myInfo.RequestForDisabilitySupport.is_have_visa_reject == "0"){
-                    checkRadio("fieldID_299836_dt1", "No");
-                } else{
-                    checkRadio("fieldID_299836_dt1");
-                }
-                if(myInfo.Financialsupport.is_have_scholarship == "0"){
-                    checkRadio("fieldID_299741_dt1", "Self Funded");
-                }
-                //certify
-                var isDeclareChecked = $("#checked299924").is(":checked");
-                if(!isDeclareChecked){
-                    $("#checked299924").trigger("click");
-                }
-                isDeclareChecked = $("#checked299925").is(":checked");
-                if(!isDeclareChecked){
-                    $("#checked299925").trigger("click");
-                }
-                isDeclareChecked = $("#checked299926").is(":checked");
-                if(!isDeclareChecked){
-                    $("#checked299926").trigger("click");
-                }
-                isDeclareChecked = $("#checked299928").is(":checked");
-                if(!isDeclareChecked){
-                    $("#checked299928").trigger("click");
-                }
-                if(!$("#checked299929").is(":checked")){
-                    $("#checked299929").trigger("click");
-                }
-                if(!$("#checked299930").is(":checked")){
-                    $("#checked299930").trigger("click");
-                }
-                if(!$("#checked299931").is(":checked")){
-                    $("#checked299931").trigger("click");
-                }
-                if(!$("#checked299932").is(":checked")){
-                    $("#checked299932").trigger("click");
-                }
-                if(!$("#checked302231").is(":checked")){
-                    $("#checked302231").trigger("click");
-                }
-
-                var mDate = new Date();
-                var mDay = mDate.getDate();
-                if(mDay < 10){
-                    mDay = "0" + mDay;
-                }
-                var mMonth = mDate.getMonth();
-                if(mMonth < 9){
-                    mMonth += 1;
-                    mMonth = "0" + mMonth;
-                } else{
-                    mMonth += 1;
-                }
-                $("#date_fieldID_299935_dt6_dd option[value="+mDay+"]").prop("selected", true).trigger("change");
-                $("#date_fieldID_299935_dt6_mm option[value="+mMonth+"]").prop("selected", true).trigger("change");
-                $("#date_fieldID_299935_dt6_yyyy option[value="+mDate.getFullYear()+"]").prop("selected", true).trigger("change");
-//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Australian National University END $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-            }
-            //提示信息
+        } else if(selectEvent == param2){
+//            https://customer.studylink.com/index.cfm?event=course.select&applicantid=2471372
+            var applicantid = getURLParameter("applicantid");
+            var myInfo = sessionStorage.getItem(applicantid);
             if(myInfo){
-                console.log("print tips");
-                $("#myFixedDiv").append("<div id='myAddedDiv0' style='border-bottom: 1px solid pink'></div>");
-                $("#myFixedDiv").append("<div id='myAddedDiv1' />");
-                $("#myFixedDiv").append("<div id='myAddedDiv2' style='border-bottom: 1px solid pink'></div>");
-                $("#myFixedDiv").append("<div id='myAddedDiv3' />");
-                $("#myFixedDiv").append("<div id='myAddedDiv4' />");
-                $("#myAddedDiv0").html('<b>'+myInfo.PersonalDetails.first_name + " " + myInfo.PersonalDetails.last_name + "</b> apply for " + myInfo.CourseApplicationMain.university);
-                $("#myAddedDiv1").html("<b>course: </b>" + myInfo.CourseApplicationLanguage.course_name);
-                $("#myAddedDiv2").html("<b>start date: </b>" + myInfo.CourseApplicationLanguage.start_date);
-                $("#myAddedDiv3").html("<b>course: </b>" + myInfo.CourseApplicationMain.course_name);
-                $("#myAddedDiv4").html("<b>start date: </b>" + myInfo.CourseApplicationMain.start_date);
-            } else{
-               console.log("will not print tips");
+                addTips();
+                myInfo = JSON.parse(myInfo);
+                fillInTips(myInfo);
+            }
+        } else if(searchEvent == param2){
+//            https://customer.studylink.com/index.cfm?event=course.search.process
+            var applicantid = $("input[name=applicantid]").val();
+            var myInfo = sessionStorage.getItem(applicantid);
+            if(myInfo){
+                addTips();
+                myInfo = JSON.parse(myInfo);
+                fillInTips(myInfo);
+            }
+        } else if(pathname == "/index.cfm" && (param2 == "application.create" || param2 == "application.quickadd.continue")){
+            addTips();
+            //大学申请页面
+            var mImg = $("form table:first td:last img"); //        var mImg = $("form table tr:eq(0) td:nth-child(3)");
+            var mUni = mImg.attr("title");
+            console.log("大学是", mUni);
+            var mEmail, myInfo;
+            try{
+                if(mUni.indexOf("Griffith University") >= 0){
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Griffith University Start $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                    mEmail = $("#fieldInput_19").text().trim();
+                    console.log("邮箱", mEmail);
+                    myInfo = JSON.parse(sessionStorage.getItem(mEmail));
+                    console.log(myInfo);
+                    if(!myInfo){
+                        console.log("nothing to do, return");
+                        return;
+                    }
+    //****************************** Introduction******************************
+                    //Have you applied to Griffith before
+                    //$("#fieldID_261333_dt1[value=No]").prop("checked", true).trigger("click");
+                    $("div.questionWrapper:contains('Have you applied to Griffith before')").next().find("input[value=No]").prop("checked", true).trigger("click");
+
+    //****************************** Personal details******************************
+                    //Title
+                    var mTitleSelect = $("div.fieldWrapper:contains('Title')").filter(function( index ) {
+                                            return $(this).text().trim() == 'Title:';
+                                          }).parent().find("select");
+                    if(myInfo.PersonalDetails.title == "Mr"){
+                        //$("#fieldID_261336_dt1").val("Mister=Mr").trigger("change");
+                        mTitleSelect.val("Mister=Mr").trigger("change");
+                    } else if(myInfo.PersonalDetails.title == "Miss"){
+                        //$("#fieldID_261336_dt1").val("Miss=Miss").trigger("change");
+                        mTitleSelect.val("Miss=Miss").trigger("change");
+                    }
+
+                    //Country of birth
+                    var mCountry = $("div.fieldWrapper:contains('Country of birth')").parent().find("select option:contains("+myInfo.PersonalDetails.citizenship+")");
+                    changeSelectTrue(mCountry);
+
+    //****************************** Address for correspondence******************************
+                    var mAddressParent = $("legend:contains('Address for correspondence')").parent();
+                    //Address Line 1
+                    var mAddress1 = mAddressParent.find("div.fieldWrapper:contains('Address Line 1')").next().find("input");
+                    mAddress1.val(myInfo.CurrentContactDetails.address).trigger("change");
+                    //City
+                    var mCity = mAddressParent.find("div.fieldWrapper:contains('City')").next().find("input");
+                    mCity.val(myInfo.CurrentContactDetails.city).trigger("change");
+                    //Phone Number
+                    var mPhone = mAddressParent.find("div.questionWrapper:contains('Phone Number')").next().find("input");
+                    mPhone.first().val("86").trigger("change");
+                    mPhone.last().val(myInfo.CurrentContactDetails.mobile_number).trigger("change");
+
+    //****************************** Permanent address in home country******************************
+                    var mPermanentParent = $("legend:contains('Permanent address in home country')").parent();
+                    var mPmPhone = mPermanentParent.find("div.questionWrapper:contains('Phone Number')").next().find("input");
+                    mPmPhone.eq(0).val("86").trigger("change");
+                    mPmPhone.eq(1).val(myInfo.PermanentContactDetails.mobile_number).trigger("change");
+
+    //****************************** English proficiency******************************
+                    var mLang = $("div.questionWrapper:contains('I have taken')").parent().find("select option:contains("+myInfo.LanguageProficiency.english_exam_test_name+")");
+                    changeSelectTrue(mLang);
+                    var takenExamTime = myInfo.LanguageProficiency.date_English_exam_taken.split("-");
+                    var mLangSelect = $("div.fieldWrapper:contains('Date of Test')").parent().find("select");
+                    mLangSelect.eq(0).val(takenExamTime[2]).trigger("change");
+                    mLangSelect.eq(1).val(takenExamTime[1]).trigger("change");
+                    mLangSelect.eq(2).val(takenExamTime[0]).trigger("change");
+
+    //****************************** Educational background******************************
+                    //$("div.questionWrapper:contains('Qualification 1')").parent().find("div.fieldWrapper:contains(' Degree/award:')").parent().find("input");
+                    var lenQual = myInfo.Qualification.length;
+                    if(lenQual > 0){
+                        var last = lenQual-1;
+                        var qualification1 = myInfo.Qualification[last];
+                        var mQ1 = $("div.questionWrapper:contains('Qualification 1')").parent();
+                        var mQ1Text = mQ1.find("input:text");
+                        mQ1Text.eq(0).val(qualification1.degree).trigger("change");
+                        mQ1Text.eq(1).val(qualification1.Institution).trigger("change");
+                        var mQ1Select = mQ1.find("select");
+                        var mCountry = mQ1Select.eq(0).find("option:contains("+qualification1.country+")");
+                        changeSelectTrue(mCountry);
+                        var mStartDate = qualification1.start_date.split("-");
+                        mQ1Select.eq(1).val(mStartDate[1]).trigger("change");
+                        mQ1Select.eq(2).val(mStartDate[0]).trigger("change");
+                        var mEndDate = qualification1.end_date.split("-");
+                        mQ1Select.eq(3).val(mEndDate[1]).trigger("change");
+                        mQ1Select.eq(4).val(mEndDate[0]).trigger("change");
+                    }
+                    if(lenQual && lenQual-1 > 0){
+                        var lastButTwo = lenQual-2;
+                        var qualification2 = myInfo.Qualification[lastButTwo];
+                        var mQ2 = $("div.questionWrapper:contains('Qualification 2')").parent();
+                        var mQ2Text = mQ2.find("input:text");
+                        mQ2Text.eq(0).val(qualification2.degree).trigger("change");
+                        mQ2Text.eq(1).val(qualification2.Institution).trigger("change");
+                        var mQ2Select = mQ2.find("select");
+                        var mCountry = mQ2Select.eq(0).find("option:contains("+qualification2.country+")");
+                        changeSelectTrue(mCountry);
+                        var mStartDate = qualification2.start_date.split("-");
+                        mQ2Select.eq(1).val(mStartDate[1]).trigger("change");
+                        mQ2Select.eq(2).val(mStartDate[0]).trigger("change");
+                        var mEndDate = qualification2.end_date.split("-");
+                        mQ2Select.eq(3).val(mEndDate[1]).trigger("change");
+                        mQ2Select.eq(4).val(mEndDate[0]).trigger("change");
+                    }
+                    var mExcludedTertiary = $("div.fieldWrapper:contains('excluded from previous')").parent().find("input:radio[value=No]");
+                    clickRadio(mExcludedTertiary);
+    //****************************** Credit for previous study******************************
+                    var mExemption = $("div.questionWrapper:contains('credit exemption')").parent().find("input:radio[value=Yes]");
+                    clickRadio(mExemption);
+
+    //****************************** Request for disability support******************************
+                    var mDisability = $("div.questionWrapper:contains('disability support')").parent().find("input:radio[value=No]");
+                    clickRadio(mDisability);
+
+    //****************************** Visa Application History******************************
+                    var mVisaRejected = $("div.questionWrapper:contains('visa application rejected')").parent().find("input:radio[value=No]");
+                    clickRadio(mVisaRejected);
+
+    //****************************** Overseas Student Health Cover******************************
+                    var mHealthCover = $("div.questionWrapper:contains('the type of cover')").parent();
+                    mHealthCover.find("select option:contains("+myInfo.OverseasStudentHealthCover.health_cover+")").prop("selected", true).trigger("change");
+
+    //****************************** Financial support******************************
+                    var mFinancial = $("div.questionWrapper:contains('financial support')").parent().find("input:radio");
+                    if(myInfo.Financialsupport.is_have_scholarship == "0"){
+                        clickRadio(mFinancial.eq(0));
+                    } else{
+                        clickRadio(mFinancial.eq(1));
+                    }
+
+    //****************************** Agent Declaration and signature******************************
+                    $("span:contains(I agree)").find("input:checkbox").each(function(){
+                        var mChecked = $(this).is(":checked");
+                        mChecked?"":$(this).trigger("click");
+                    });
+                    var mAgentName = $("div.fieldWrapper:contains(Agent's Name)").parent().find("input:text");
+                    mAgentName.val("Australia Education Management Group").trigger("change");
+
+    //****************************** Declaration and signature******************************
+                    var mUnder18 = $("div.fieldWrapper:contains('under 18 years')").parent().find("input:radio[value='No']");
+                    clickRadio(mUnder18);
+                    var mSignature = myInfo.PersonalDetails.first_name + " " + myInfo.PersonalDetails.last_name;
+                    $("div.fieldWrapper:contains('Applicant\'s')").parent().find("input:text").val(mSignature).trigger("change");
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Griffith University END $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                } else if(mUni.indexOf("Tasmania") >= 0){
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Tasmania University $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                    mEmail = $("#fieldInput_22").text().trim();
+                    console.log("邮箱", mEmail);
+                    myInfo = JSON.parse(sessionStorage.getItem(mEmail));
+                    console.log(myInfo);
+                    if(!myInfo){
+                        console.log("nothing to do, return");
+                        return;
+                    }
+                    if(myInfo.PersonalDetails.title == "Mr"){
+                        $("#fieldID_302301_dt1").val("Mr=MR").trigger("change");
+                    } else if(myInfo.PersonalDetails.title == "Miss"){
+                        $("#fieldID_302301_dt1").val("Miss=MISS").trigger("change");
+                    }
+                    $("#fieldID_302308_dt1").val(myInfo.PermanentContactDetails.city).trigger("change"); //birth city
+                    $("#fieldID_302310_dt1 option:contains("+myInfo.PersonalDetails.citizenship+")").prop("selected", true).trigger("change");
+                    $("#fieldID_302313_dt1[value=No]").prop("checked", true).trigger("click"); //student ID in Tasmania
+                     //disability support
+                    if(myInfo.RequestForDisabilitySupport.is_need_disability_support == "1"){
+                        $("#fieldID_302316_dt1[value=Yes]").prop("checked", true).trigger("click");
+                    }else{
+                        $("#fieldID_302316_dt1[value=No]").prop("checked", true).trigger("click");
+                    }
+
+                    $("#fieldID_302319_dt1").val(myInfo.PermanentContactDetails.address).trigger("change");
+                    $("#fieldID_302321_dt1").val(myInfo.PermanentContactDetails.city).trigger("change");
+                    $("#fieldID_302324_dt1").val(myInfo.PermanentContactDetails.mobile_number).trigger("change");
+                    $("#fieldID_302418_dt1[value=Yes]").prop("checked", true).trigger("click");
+                    $("#fieldID_302430_dt1[value=No]").prop("checked", true).trigger("click");
+
+                    $("#fieldID_302426_dt1 option:contains("+myInfo.LanguageProficiency.english_exam_test_name+")").prop("selected", true);
+                    $("#fieldID_302420_dt1").val(myInfo.LanguageProficiency.overall_score).trigger("change");
+                    $("#fieldID_302421_dt1").val(myInfo.LanguageProficiency.writing_score).trigger("change");
+                    $("#fieldID_302422_dt1").val(myInfo.LanguageProficiency.reading_score).trigger("change");
+                    $("#fieldID_302423_dt1").val(myInfo.LanguageProficiency.listening_score).trigger("change");
+                    $("#fieldID_302424_dt1").val(myInfo.LanguageProficiency.speaking_score).trigger("change");
+                    
+                    var lenQual = myInfo.Qualification.length;
+                    //secondary school
+                    if(lenQual > 0){
+                        var last = lenQual-1;
+                        $("#fieldID_302432_dt1").val(myInfo.Qualification[last].Institution).trigger("change");
+                        $("#fieldID_302433_dt1").val(myInfo.Qualification[last].degree).trigger("change");
+                        $("#fieldID_302434_dt1 option:contains("+myInfo.Qualification[last].country+")").prop("selected", true).trigger("change");
+                        var mStartDate = myInfo.Qualification[last].start_date.split("-");
+                        $("#date_fieldID_302437_dt1_mm").val(mStartDate[1]).trigger("change");
+                        $("#date_fieldID_302437_dt1_yyyy").val(mStartDate[0]).trigger("change");
+                        var mEndDate = myInfo.Qualification[last].end_date.split("-");
+                        $("#date_fieldID_302438_dt1_mm").val(mEndDate[1]).trigger("change");
+                        $("#date_fieldID_302438_dt1_yyyy").val(mEndDate[0]).trigger("change");
+                        $("#fieldID_302440_dt1[value=Yes]").prop("checked", true).trigger("click");
+                    }
+                    
+
+                    //post secondary school
+                    if(lenQual && lenQual-1 > 0){
+                        var lastButTwo = lenQual-2;
+                        $("#fieldID_302444_dt1").val(myInfo.Qualification[lastButTwo].Institution).trigger("change");
+                        $("#fieldID_302445_dt1").val(myInfo.Qualification[lastButTwo].degree).trigger("change");
+                        $("#fieldID_302448_dt1 option:contains("+myInfo.Qualification[lastButTwo].country+")").prop("selected", true).trigger("change");
+                        var mPostSecondaryStartDate = myInfo.Qualification[lastButTwo].start_date.split("-");
+                        $("#date_fieldID_302450_dt1_mm").val(mPostSecondaryStartDate[1]).trigger("change");
+                        $("#date_fieldID_302450_dt1_yyyy").val(mPostSecondaryStartDate[0]).trigger("change");
+                        var mPostSecondaryEndDate = myInfo.Qualification[lastButTwo].end_date.split("-");
+                        $("#date_fieldID_302451_dt1_mm").val(mPostSecondaryEndDate[1]).trigger("change");
+                        $("#date_fieldID_302451_dt1_yyyy").val(mPostSecondaryEndDate[0]).trigger("change");
+                    }
+
+                    //VISA AND OTHER INFORMATION
+                    $("#fieldID_302446_dt1 option:contains("+ myInfo.Qualification[0].degree +")").prop("selected", true).trigger("change");
+                    $("#fieldID_302452_dt1 option[value=Yes]").prop("selected", true).trigger("change");
+                    if(myInfo.CreditForPreviousStudy.is_credit_exemption == "1"){
+                        $("#fieldID_302452_dt1 option[value=Yes]").prop("selected", true);
+                    }
+                    $("#fieldID_302503_dt1[value=No]").prop("checked", true).trigger("click"); //excluded from university
+                    $("#fieldID_302507_dt1[value=No]").prop("checked", true).trigger("click"); //compelted course more than 6 months
+                    $("#fieldID_302509_dt1[value=Yes]").prop("checked", true).trigger("click"); //passport
+                    $("#fieldID_302510_dt1").val(myInfo.PassportAndVisaDetails.passport_number).trigger("change");
+    //                checkRadio("fieldID_302514_dt1", "No"); //valid visa
+                    var passportExpiry = myInfo.PassportAndVisaDetails.passport_expiry_date.split("-");
+                    $("#date_fieldID_302511_dt6_dd").val(passportExpiry[2]).trigger("change");
+                    $("#date_fieldID_302511_dt6_mm").val(passportExpiry[1]).trigger("change");
+                    $("#date_fieldID_302511_dt6_yyyy").val(passportExpiry[0]).trigger("change");
+
+                    checkRadio("fieldID_302524_dt1", "No");
+
+                    $("#fieldID_302519_dt1[value=Yes]").prop("checked", true).trigger("click"); //student visa
+                    $("#fieldID_302598_dt1[value='Family Support']").trigger("click"); //financial
+                    $("#fieldID_302600_dt1[value=Yes]").prop("checked", true).trigger("click"); //transfer funds
+                    $("#fieldID_302601_dt1[value=Yes]").prop("checked", true).trigger("click"); //sufficient funds
+                    $("#fieldID_302602_dt1[value=No]").prop("checked", true).trigger("click"); //other Award
+                    $("#fieldID_302605_dt1[value=No]").prop("checked", true).trigger("click"); //brother enrolled
+                    checkRadio("fieldID_302626_dt1", "No"); //authorize permission
+                    if(!$("#checked302632").is(":checked")){
+                        $("#checked302632").trigger("click");
+                    }
+                    var signature = myInfo.PersonalDetails.first_name + " " + myInfo.PersonalDetails.last_name;
+                    $("#fieldID_302633_dt1").val(signature).trigger("change");
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Tasmania University END $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                } else if(mUni.indexOf("Australian National University") >= 0){
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Australian National University $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                    mEmail = $("#fieldInput_21").text().trim();
+                    console.log("邮箱", mEmail);
+                    myInfo = JSON.parse(sessionStorage.getItem(mEmail));
+                    console.log(myInfo);
+                    if(!myInfo){
+                        console.log("nothing to do, return");
+                        return;
+                    }
+                    // title
+                    if(myInfo.PersonalDetails.title == "Mr"){
+                        $("#fieldID_299666_dt1 option[value='Mr=Mr']").prop("selected", true).trigger("change");
+                    } else{
+                        checkSelect("fieldID_299666_dt1", myInfo.PersonalDetails.title);
+                    }
+                    // study in ANU before
+                    checkRadio("fieldID_299668_dt1", "No");
+                    // disability
+                    if(myInfo.RequestForDisabilitySupport.is_need_disability_support == "0"){
+                        checkRadio("fieldID_299675_dt1", "No");
+                    } else {
+                        checkRadio("fieldID_299675_dt1");
+                    }
+                    // Postal Address
+                    checkSelect("fieldID_299678_dt1", myInfo.CurrentContactDetails.country);
+                    // permanent home address
+                    checkSelect("fieldID_299686_dt1", myInfo.PermanentContactDetails.country);
+                    $("#fieldID_299687_dt1").val(myInfo.PermanentContactDetails.address).trigger("change");
+                    $("#fieldID_299690_dt1").val(myInfo.PermanentContactDetails.city).trigger("change");
+                    //humanitarian visa
+                    checkRadio("fieldID_299697_dt1", "No");
+                    //citizenship status
+                    checkSelect("fieldID_299698_dt1", "other than");
+                    //Australian Aboriginal
+                    checkSelect("fieldID_299699_dt1", "No");
+                    //6 months
+                    checkRadio("fieldID_299704_dt1");
+                    //expiry date
+                    var mExpiry = myInfo.PassportAndVisaDetails.passport_expiry_date.split("-");
+                    $("#date_fieldID_299706_dt6_dd").val(mExpiry[2]).trigger("change");
+                    $("#date_fieldID_299706_dt6_mm").val(mExpiry[1]).trigger("change");
+                    $("#date_fieldID_299706_dt6_yyyy").val(mExpiry[0]).trigger("change");
+                    //breached
+                    checkRadio("fieldID_299713_dt1", "No");
+                    //convicted
+                    checkRadio("fieldID_299715_dt1", "No");
+                    //English Language Proficiency
+                    checkSelect("fieldID_299744_dt1", "English language test");
+                    checkRadio("fieldID_299746_dt1");
+                    checkSelect("fieldID_299748_dt1", myInfo.LanguageProficiency.english_exam_test_name);
+                    var takenDate = myInfo.LanguageProficiency.date_English_exam_taken.split("-");
+                    $("#date_fieldID_299749_dt6_dd option[value="+takenDate[2]+"]").prop("selected", true).trigger("change");
+                    $("#date_fieldID_299749_dt6_mm option[value="+takenDate[1]+"]").prop("selected", true).trigger("change");
+                    $("#date_fieldID_299749_dt6_yyyy option[value="+takenDate[0]+"]").prop("selected", true).trigger("change");
+                    $("#fieldID_299750_dt1").val(myInfo.LanguageProficiency.overall_score).trigger("change");
+                    $("#fieldID_299751_dt1").val(myInfo.LanguageProficiency.reading_score).trigger("change");
+                    $("#fieldID_299752_dt1").val(myInfo.LanguageProficiency.writing_score).trigger("change");
+                    $("#fieldID_299753_dt1").val(myInfo.LanguageProficiency.speaking_score).trigger("change");
+                    $("#fieldID_299754_dt1").val(myInfo.LanguageProficiency.listening_score).trigger("change");
+                    //degree
+                    checkSelect("fieldID_299780_dt1", myInfo.Qualification[0].degree.toUpperCase());
+                    var mStartDate = myInfo.Qualification[0].start_date.split("-");
+                    $("#date_fieldID_299774_dt1_mm").val(mStartDate[1]).trigger("change");
+                    $("#date_fieldID_299774_dt1_yyyy").val(mStartDate[0]).trigger("change");
+                    var mEndDate = myInfo.Qualification[0].end_date.split("-");
+                    $("#date_fieldID_299775_dt1_mm").val(mEndDate[1]).trigger("change");
+                    $("#date_fieldID_299775_dt1_yyyy").val(mEndDate[0]).trigger("change");
+
+                    if(myInfo.RequestForDisabilitySupport.is_have_visa_reject == "0"){
+                        checkRadio("fieldID_299836_dt1", "No");
+                    } else{
+                        checkRadio("fieldID_299836_dt1");
+                    }
+                    if(myInfo.Financialsupport.is_have_scholarship == "0"){
+                        checkRadio("fieldID_299741_dt1", "Self Funded");
+                    }
+                    //certify
+                    var isDeclareChecked = $("#checked299924").is(":checked");
+                    if(!isDeclareChecked){
+                        $("#checked299924").trigger("click");
+                    }
+                    isDeclareChecked = $("#checked299925").is(":checked");
+                    if(!isDeclareChecked){
+                        $("#checked299925").trigger("click");
+                    }
+                    isDeclareChecked = $("#checked299926").is(":checked");
+                    if(!isDeclareChecked){
+                        $("#checked299926").trigger("click");
+                    }
+                    isDeclareChecked = $("#checked299928").is(":checked");
+                    if(!isDeclareChecked){
+                        $("#checked299928").trigger("click");
+                    }
+                    if(!$("#checked299929").is(":checked")){
+                        $("#checked299929").trigger("click");
+                    }
+                    if(!$("#checked299930").is(":checked")){
+                        $("#checked299930").trigger("click");
+                    }
+                    if(!$("#checked299931").is(":checked")){
+                        $("#checked299931").trigger("click");
+                    }
+                    if(!$("#checked299932").is(":checked")){
+                        $("#checked299932").trigger("click");
+                    }
+                    if(!$("#checked302231").is(":checked")){
+                        $("#checked302231").trigger("click");
+                    }
+
+                    var mDate = new Date();
+                    var mDay = mDate.getDate();
+                    if(mDay < 10){
+                        mDay = "0" + mDay;
+                    }
+                    var mMonth = mDate.getMonth();
+                    if(mMonth < 9){
+                        mMonth += 1;
+                        mMonth = "0" + mMonth;
+                    } else{
+                        mMonth += 1;
+                    }
+                    $("#date_fieldID_299935_dt6_dd option[value="+mDay+"]").prop("selected", true).trigger("change");
+                    $("#date_fieldID_299935_dt6_mm option[value="+mMonth+"]").prop("selected", true).trigger("change");
+                    $("#date_fieldID_299935_dt6_yyyy option[value="+mDate.getFullYear()+"]").prop("selected", true).trigger("change");
+    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Australian National University END $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                }
+                //提示信息
+                fillInTips(myInfo);
+
+            }catch(e){
+                console.error(e);
             }
 
-        }catch(e){
-            console.error(e);
+
         }
+    });
 
+})(jQuery);
 
-    }
-
-
-
-})();
 
 //window.onbeforeunload = function(e) {
 //  return ("onbeforeunload");
