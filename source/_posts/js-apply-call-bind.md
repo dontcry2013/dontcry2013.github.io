@@ -109,3 +109,26 @@ function jam() {}();
 这样就定义了一个函数同时也执行它，详情参见 ECMAScript 的 Expression Statement 章节。
 
 出处http://rangercyh.blog.51cto.com/1444712/1615809
+
+
+# 一些应用
+``` js
+// min/max number in an array
+var numbers = [5, 6, 2, 3, 7];
+
+// using Math.min/Math.max apply
+var max = Math.max.apply(null, numbers); 
+// This about equal to Math.max(numbers[0], ...)
+// or Math.max(5, 6, ...)
+
+var min = Math.min.apply(null, numbers);
+```
+
+``` js
+function myConcat(separator) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return args.join(separator);
+}
+// returns "red, orange, blue"
+myConcat(', ', 'red', 'orange', 'blue');
+```
