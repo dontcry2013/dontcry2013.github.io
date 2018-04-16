@@ -307,7 +307,16 @@
 			"file": "source/_posts/user-script.md",
 			"settings":
 			{
-				"buffer_size": 52158,
+				"buffer_size": 56741,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "source/_posts/tips-of-js-and-css.md",
+			"settings":
+			{
+				"buffer_size": 2162,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -701,7 +710,7 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -731,7 +740,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -763,7 +772,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -793,7 +802,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -825,7 +834,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -856,7 +865,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -872,12 +881,13 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								338,
+								327
 							]
 						],
 						"settings":
 						{
+							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
@@ -888,7 +898,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -910,6 +920,7 @@
 						],
 						"settings":
 						{
+							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
@@ -920,7 +931,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -952,7 +963,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -968,7 +979,7 @@
 						"selection":
 						[
 							[
-								80,
+								117,
 								59
 							]
 						],
@@ -985,7 +996,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -994,15 +1005,48 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 52158,
+						"buffer_size": 56741,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								261,
-								261
+								772,
+								772
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "source/_posts/tips-of-js-and-css.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35,
+								35
 							]
 						],
 						"settings":
@@ -1020,7 +1064,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "source/_posts/hexo-config.md",
 					"semi_transient": false,
 					"settings":
@@ -1046,11 +1090,11 @@
 						"translation.y": 274.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "source/_posts/delivery-hero.md",
 					"semi_transient": false,
 					"settings":
@@ -1076,7 +1120,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1134,6 +1178,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"tips",
+				"tips-of-js-and-css.md"
+			],
 			[
 				"obj",
 				"objective-c.md"
