@@ -36,23 +36,23 @@ https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/dontcry2013/dontcry2013.github.io">
+    <img src="source/img/litten.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">YOUR_TITLE</h3>
+  <h3 align="center">Zachary</h3>
 
   <p align="center">
     YOUR_SHORT_DESCRIPTION
     <br />
-    <a href="https://github.com/github_username/repo"><strong>Explore the docs Â»</strong></a>
+    <a href="https://github.com/dontcry2013/dontcry2013.github.io"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo">View Demo</a>
-    Â·
-    <a href="https://github.com/github_username/repo/issues">Report Bug</a>
-    Â·
-    <a href="https://github.com/github_username/repo/issues">Request Feature</a>
+    <a href="https://github.com/dontcry2013/dontcry2013.github.io">View Demo</a>
+    ·
+    <a href="https://github.com/dontcry2013/dontcry2013.github.io/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/dontcry2013/dontcry2013.github.io/issues">Request Feature</a>
   </p>
 </p>
 
@@ -78,7 +78,7 @@ https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://dontcry2013.github.io)
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
@@ -110,7 +110,7 @@ npm install npm@latest -g
  
 1. Clone the repo
 ```sh
-git clone https://github.com/github_username/repo.git
+git clone https://github.com/dontcry2013/dontcry2013.github.io.git
 ```
 2. Install NPM packages
 ```sh
@@ -131,7 +131,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/dontcry2013/dontcry2013.github.io/issues) for a list of proposed features (and known issues).
 
 
 
@@ -189,5 +189,5 @@ Project Link: [https://github.com/github_username/repo](https://github.com/githu
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: source/img/screenshot.png
 
