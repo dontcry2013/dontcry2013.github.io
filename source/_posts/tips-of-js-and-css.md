@@ -1,18 +1,18 @@
 ---
-title: Tips of js, css and html
+title: Tips Of JavaScript, CSS And HTML
 date: 2017-06-23 10:30:26
 categories: Web #文章文类
-tags: [javascript, css, html] #文章标签，多于一项时用这种格式
+tags: [JavaScript, CSS, HTML] #文章标签，多于一项时用这种格式
 ---
 
-# Difference between auto and 100%
+# Difference Between Auto and 100%
 
 parent div height by default is auto, which will be regulated by their children div.
 childern div height 100%, will match and follow parent's height. 
 
 <!--more-->
  
-# Automatic correction in textarea
+# Automatic Correction in Textarea
 
 ``` html
 <textarea name="nTa" id="iTa" cols="30" rows="10" spellcheck="true" autocapitalize="true" autocomplete="true" autocorrect="true"></textarea>

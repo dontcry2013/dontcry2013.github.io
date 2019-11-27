@@ -1,10 +1,10 @@
 ---
-title: Pull request
+title: Pull Request
 date: 2019-11-25 23:31:22
 categories: Git #文章文类
-tags: [Github] #文章标签，多于一项时用这种格式
+tags: [GitHub] #文章标签，多于一项时用这种格式
 ---
-# Pull request is a feature of GitHub
+# Pull Request is a Feature of GitHub
 Pull request can be used in GitHub and platforms like GitLab and GitBucks.
 It is not supported in your server if you make a repository by using git.
 
@@ -19,7 +19,7 @@ $ curl https://github.com/sclasen/jcommander/commit/bd770141029f49bcfa2e0d6e6e62
 ```
 You can also merge a specific commit. In github, navigate to the pull request tab, and you will find similar url and adding '.patch' as suffix to get the patch.
 
-# Add PR submitter as remote  
+# Add PR Submitter as Remote  
 ```
 # create the remote repository
 $ git remote add nullin git://github.com/nullin/testng.git
@@ -34,7 +34,7 @@ $ git merge kneath/error-page
 $ git push origin master
 ```
 
-# How to create a PR with specific commits
+# How to Create a PR With Specific Commits
 You cannot really do anything on the GitHub UI to remove any commits.
 You are suppose to create a branch with the latest changes and cherry-pick the ones that you want. And then compare that branch with the repository that you would like to contribute.
 The differences will only be the ones that you cherry-picked. Then, you are done. 

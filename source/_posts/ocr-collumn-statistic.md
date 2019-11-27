@@ -1,8 +1,8 @@
 ---
 title: 图像识别之像素列统计
 date: 2016-04-19 15:16:18
-categories: ocr
-tags: [c]
+categories: OCR
+tags: [C]
 ---
 
 prerequisite：经过二值化，每个像素点只有0（黑色）和255（白色）两个值。

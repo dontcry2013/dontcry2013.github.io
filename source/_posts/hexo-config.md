@@ -1,8 +1,8 @@
 ---
 title: Hexo Configuration
 date: 2016-02-26 19:59:13
-categories: tools #文章文类
-tags: [hexo, node.js] #文章标签，多于一项时用这种格式
+categories: Tools #文章文类
+tags: [Hexo, Node.js] #文章标签，多于一项时用这种格式
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 

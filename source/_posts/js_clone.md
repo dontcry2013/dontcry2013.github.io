@@ -1,8 +1,8 @@
 ---
-title: js clone an object
+title: JavaScript Object Clone
 date: 2017-05-04 10:03:37
-categories: javascript #文章文类
-tags: [javascript] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [prototype] #文章标签，多于一项时用这种格式
 ---
 
 To do clone for any object in JavaScript will not be simple or straightforward. You will run into the problem of erroneously picking up attributes from the object's prototype that should be left in the prototype and not copied to the new instance. If, for instance, you are adding a clone method to Object.prototype, as someone depict, you will need to explicitly skip that attribute. But what if there are other additional methods added to Object.prototype, or other intermediate prototypes, that you don't know about? In that case, you will copy attributes you shouldn't, so you need to detect unforeseen, non-local attributes with the hasOwnProperty method.

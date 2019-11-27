@@ -1,8 +1,8 @@
 ---
-title: Linux commands
+title: Linux Commands
 date: 2016-04-12 09:47:11
 categories: Linux
-tags: [command]
+tags: [Command]
 ---
 一些常用的Linux命令
 <!--more-->

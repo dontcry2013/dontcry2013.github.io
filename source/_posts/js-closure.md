@@ -1,8 +1,8 @@
 ---
 title: JavaScript Closure
 date: 2016-07-07 10:06:07
-categories: javascript
-tags: closure
+categories: JavaScript
+tags: Closure
 ---
 # 一、变量的作用域
 函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！

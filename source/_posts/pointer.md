@@ -1,8 +1,8 @@
 ---
 title: 函数指针和指针函数
 date: 2016-04-29 18:34:12
-categories: basic
-tags: c
+categories: Basic
+tags: C
 ---
 
 Unix C语言环境下的多线程编程使用到函数指针来传递需要执行的函数体到线程，使用的方式就是通过函数指针来指向需要执行的代码。

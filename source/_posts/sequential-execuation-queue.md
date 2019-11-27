@@ -1,8 +1,8 @@
 ---
-title: Sequential execution queue
+title: Sequential Execution Queue
 date: 2018-05-01 09:48:28
 categories: JavaScript #文章文类
-tags: [nodejs, es6, es2017] #文章标签，多于一项时用这种格式
+tags: [Node.js, ES6, ES2017] #文章标签，多于一项时用这种格式
 ---
 There are a lot of scenarios that we want a queue executed sequentially, like we have a list of video url, and we want to download all of the video, after finish one we have to check the integrity, start next job if it is OK. Normally, we have three methods to do that.
 <!--more-->

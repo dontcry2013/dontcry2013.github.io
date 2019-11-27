@@ -1,8 +1,8 @@
 ---
 title: application-mk
 date: 2016-05-18 18:37:59
-categories: ocr
-tags: [android]
+categories: OCR
+tags: [Android]
 ---
 
 # 生成jni头文件：

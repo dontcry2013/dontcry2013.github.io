@@ -1,8 +1,8 @@
 ---
-title: promise and async
+title: Promise and Async
 date: 2016-11-24 15:20:02
-categories: javascript #文章文类
-tags: [javascript, es6] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [ES6, ES2017] #文章标签，多于一项时用这种格式
 ---
 # Promise对象的简单例子。
 ```js
@@ -37,7 +37,7 @@ async muiltiPromise(){
   console.warn(JSON.stringify(ret));
 }
 
-muiltiPromise2(){
+multiPromise2(){
   var ret = AsyncStorage.getItem('access_token')
   .then(token=>{
     console.warn(token);

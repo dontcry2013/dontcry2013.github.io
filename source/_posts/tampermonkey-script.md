@@ -1,8 +1,8 @@
 ---
-title: TamperMonkey user script
+title: Tampermonkey Script
 date: 2017-03-31 11:48:34
-categories: javascript #文章文类
-tags: [jquery, work] #文章标签，多于一项时用这种格式
+categories: [Tools, JavaScript] #文章文类
+tags: [jQuery] #文章标签，多于一项时用这种格式
 ---
 
 Using tampermonkey to fill studylink automatically which used a lot of jquery api, this is a good backup to remind the usage of  a practical scenario.

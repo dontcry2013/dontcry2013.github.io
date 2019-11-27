@@ -1,7 +1,7 @@
 ---
-title: 5 minutes trivial
+title: 5 Minutes Trivial
 date: 2017-05-20 09:34:49
-categories: article
+categories: Article
 tags: [碎碎念]
 ---
 

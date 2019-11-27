@@ -1,8 +1,8 @@
 ---
 title: 函数指针和指针函数
 date: 2016-04-29 18:34:12
-categories: basic
-tags: c
+categories: Basic
+tags: C
 ---
 
 开启Apache：sudo apachectl start

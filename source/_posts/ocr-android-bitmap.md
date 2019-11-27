@@ -1,8 +1,8 @@
 ---
 title: 图像识别之jni返回图片到java
 date: 2016-04-22 14:51:58
-categories: ocr
-tags: [android, jni]
+categories: OCR
+tags: [Android, JNI]
 ---
 
 在jni中操作图像并返回给java层有两种方式，第一种直接传递空图片到jni，在jni层锁定后操作像素再返回给java层，类似指针操作。第二种直接在jni层新建图片返回。

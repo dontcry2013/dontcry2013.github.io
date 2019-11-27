@@ -1,8 +1,8 @@
 ---
-title: NSNumber and NSDictionary
+title: NSNumber And NSDictionary
 date: 2016-12-28 00:12:43
 categories: iOS #文章文类
-tags: [objective-c] #文章标签，多于一项时用这种格式
+tags: [Objective-C] #文章标签，多于一项时用这种格式
 ---
 NSNumber and NSDictionary are the basic class and most useful class in objective c.
 <!--more-->

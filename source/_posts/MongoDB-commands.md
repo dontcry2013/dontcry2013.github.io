@@ -1,8 +1,8 @@
 ---
-title: MongoDB-commands
+title: MongoDB Commands
 date: 2016-04-13 09:51:09
-categories: db
-tags: [command, mongodb]
+categories: Database
+tags: [Command, MongoDB]
 ---
 
 一些常用的mongo命令

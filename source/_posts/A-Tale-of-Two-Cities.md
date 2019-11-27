@@ -1,7 +1,7 @@
 ---
-title: A Tale of Two Cities
+title: A Tale Of Two Cities
 date: 2016-03-20 19:25:12
-categories: article
+categories: Article
 tags: [碎碎念, 英语]
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: Examples of understanding js apply, call and bind
+title: Examples Of Understanding JavaScript Apply, Call And Bind
 date: 2018-04-16 09:57:24
-categories: javascript #文章文类
-tags: [example] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [Example] #文章标签，多于一项时用这种格式
 ---
 
 # apply, call and bind

@@ -1,8 +1,8 @@
 ---
-title: javascript common utility
+title: JavaScript Common Utility
 date: 2016-11-22 22:26:02
-categories: javascript #文章文类
-tags: [es5, es6] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [ES5, ES6] #文章标签，多于一项时用这种格式
 ---
 
 # Array manipulation
@@ -227,7 +227,7 @@ static unique(array){
 
 
 
-# What is the difference between .map, .every, and .forEach in javascript array?
+# What is the difference between .map, .every, and .forEach in JavaScript array?
 
 .map() returns a new Array of objects created by taking some action on the original item.
 

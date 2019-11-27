@@ -1,10 +1,10 @@
 ---
-title: The difference between __proto__ and prototype
+title: The Difference Between __proto__ And prototype
 date: 2017-02-21 16:03:37
-categories: javascript #文章文类
-tags: [javascript] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [Prototype] #文章标签，多于一项时用这种格式
 ---
-![js proto chain](/img/js_proto_chain.png)
+![JavaScript proto chain](/img/js_proto_chain.png)
 There are several answers here how to check if a property exists in an object.
 
 I was always using

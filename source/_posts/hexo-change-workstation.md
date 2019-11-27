@@ -1,10 +1,10 @@
 ---
-title: hexo换电脑麻烦解决
+title: Hexo Project Workstation Change Solution
 date: 2016-03-02 22:51:51
-categories: tools #文章文类
-tags: [git,hexo] #文章标签，多于一项时用这种格式
+categories: Tools #文章文类
+tags: [Git,Hexo] #文章标签，多于一项时用这种格式
 ---
-hexo部署blog到github确实很方便，下载相关插件，然后一条命令就搞定了。不明白？参考这篇[hexo配置](http://dontcry2013.github.io/2016/02/26/hello-world/)，神马？不知道怎么配置nodejs环境？那就参考[这里](http://jingyan.baidu.com/article/9113f81b01c4e72b3214c7d3.html)。
+hexo部署blog到GitHub确实很方便，下载相关插件，然后一条命令就搞定了。不明白？参考这篇[Hexo配置](http://dontcry2013.github.io/2016/02/26/hello-world/)，神马？不知道怎么配置nodejs环境？那就参考[这里](http://jingyan.baidu.com/article/9113f81b01c4e72b3214c7d3.html)。
 
 如果只满足于简单的部署发布，现在就完全够用了。可是有人就喜欢在不同时间、不同地点、不同电脑上写文章( •̀ ω •́ )y！(嗯，那个人就是我～)。这样的问题如何解决呢，总体思路是使用github的分支思想，将所有文件放在hexo分支下，将public文件夹通过插件自动发布放在master分支以供加载展示。同时因为有配置.gitignore文件，无需担心node_modules等文件被手动发布到hexo分支下，达到文件分类存放的目的。follow下面几步让你赏心悦目、随心所欲写文章。
 <!-- more -->

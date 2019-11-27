@@ -1,8 +1,8 @@
 ---
-title: ip审查
+title: IP审查
 date: 2016-06-21 13:35:21
-categories: [防御]
-tags: [java]
+categories: [Security]
+tags: [Java]
 ---
 公共服务难免有诸多接口暴露给外部调用，其中不乏有恶意请求，再没有针对性的业务处理之前，ip审查是行之有效的防御办法。
 <!--more-->

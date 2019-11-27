@@ -1,8 +1,8 @@
 ---
-title: Android studio ndk development setup
+title: Android Studio NDK Development Environment Setup
 date: 2016-04-01 18:56:39
-categories: android
-tags: [ndk]
+categories: Android
+tags: [NDK]
 ---
 
 最近在做的文字识别采用了卷积神经网络技术，这种方式需要大量使用循环计算，无疑c++是高效处理这种密集运算的语言。在测试识别mnist样本库10K个测试图片时，识别率正确率达到了92%以上。实际使用中，在识别手写和印刷体字符时还是存在一些很复杂的问题，比如字体粗细、偏移极大影响识别正确率，实际上卷积神经网络的特征提取是位置不相关的，这也是以后要着重优化的地方。回到主题，c++工程要通过ndk编译成so库才能在Android端使用，以前主要使用eclipse开发，现在Android studio成为了行业主流，在配置使用过程中碰到了很多的坑，用了一天的时间才使项目正常运行。

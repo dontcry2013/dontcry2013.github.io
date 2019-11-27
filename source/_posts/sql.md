@@ -1,8 +1,8 @@
 ---
-title: sql
+title: SQL
 date: 2016-05-30 15:31:28
-categories: db
-tags: [oracle,sql]
+categories: Database
+tags: [Oracle, SQL]
 ---
 oracle以及sql的常用语句
 <!--more-->

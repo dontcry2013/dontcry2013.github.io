@@ -1,8 +1,8 @@
 ---
-title: Jsonp tricky trap
+title: Jsonp Tricky Trap
 date: 2016-11-28 17:10:12
-categories: javascript #文章文类
-tags: [jquery, issue] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [jQuery, Issue] #文章标签，多于一项时用这种格式
 ---
 在使用polyv的web上传插件时遇到语言问题，官方插件是中文没有切换英文的借口。想到保存到本地修改后使用。
 幸好提供了jsonp借口，但是在调用上踩了一下坑。

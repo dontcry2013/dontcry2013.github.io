@@ -1,5 +1,5 @@
 ---
-title: Javascript versions
+title: JavaScript Versions
 date: 2019-11-27 11:28:57
 categories: JavaScript #文章文类
 ---

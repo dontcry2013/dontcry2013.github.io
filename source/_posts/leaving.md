@@ -1,7 +1,7 @@
 ---
-title: leaving
+title: Leaving
 date: 2016-08-09 19:14:08
-categories: article
+categories: Article
 tags: [碎碎念, Mandarin]
 ---
 

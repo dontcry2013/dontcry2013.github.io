@@ -1,11 +1,11 @@
 ---
-title: js tips and tricks
+title: JavaScript Tips And Tricks
 date: 2017-05-04 10:03:37
-categories: javascript #文章文类
-tags: [javascript] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [ES5, ES6, ES2017] #文章标签，多于一项时用这种格式
 ---
 
-little tips and tricks in javascript, but often to use
+Little tips and tricks in JavaScript, but often to use
 
 <!-- more -->
 

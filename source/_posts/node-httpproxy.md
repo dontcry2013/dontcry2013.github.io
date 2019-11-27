@@ -1,11 +1,11 @@
 ---
-title: Use node.js to implement a http proxy
+title: Use Node.js To Implement HTTP Proxy
 date: 2016-03-06 22:23:11
-categories: front-end
-tags: [http, node.js]
+categories: Front-end
+tags: [HTTP, Node.js]
 ---
 ## Demand
-When I have username and password to simulate a login action on a website, how can I pass the verification algorithm or validation routines, sometimes this kind of program is really complicated which is the biggest obstacle to hack in. For instance, when you have plenty [taobao](https://login.m.taobao.com/login.htm) usernames and passwords how can you figure out what the customer bought, as this b2c mogul uses an algorithm to check all http request if they are legal.
+When I have username and password to simulate a login action on a website, how can I pass the verification algorithm or validation routines, sometimes this kind of program is really complicated which is the biggest obstacle to hack in. For instance, when you have plenty [Taobao](https://login.m.taobao.com/login.htm) usernames and passwords how can you figure out what the customer bought, as this b2c mogul uses an algorithm to check all http request if they are legal.
 <!-- more -->
 
 ## Analysis
@@ -63,7 +63,7 @@ var requestHandler = function(clientRequest, clientResponse) {
 		fs.readFile('./taobaof.js', function (err, data) {
 			if (err) throw err;
 			console.log('just here\n\n\n\n\n\n');
-			clientResponse.setHeader('content-type','application/x-javascript');
+			clientResponse.setHeader('content-type','application/x-JavaScript');
 			clientResponse.write(data);
 			clientResponse.end();
 		});

@@ -1,15 +1,15 @@
 ---
 title: 图像识别之灰度，二值化，高斯模糊处理
 date: 2016-04-26 11:43:24
-categories: ocr
-tags: [c]
+categories: OCR
+tags: [C]
 ---
 在图像处理中，灰度和二值化是其他操作的前提。灰度的方式有多种，比较简单的处理就是取RGB平均值，从而使RGBA8888格式的图片转化为了单色道的灰度图，每个像素存储在一个char中而非四个char。
 高斯模糊，图像处理软件会提供"模糊"（blur）滤镜，使图片产生模糊的效果。"模糊"的算法有很多种，其中有一种叫做"高斯模糊"（Gaussian Blur）。它将正态分布（又名"高斯分布"）用于图像处理。
 二值化，设定某个条件将像素转为黑白两种色，这里设置的条件为：是否大于色素平均值再减去40，即buffer_temp[x]>avage_char-40?255:0。
 <!-- more -->
 
-```javascript
+```JavaScript
 typedef struct {
     unsigned char * buffer;
     int width;

@@ -1,13 +1,13 @@
 ---
 title: Recent notes
 date: 2016-10-30 22:35:02
-categories: tools #文章文类
-tags: [sublime, android studio, reactnative] #文章标签，多于一项时用这种格式
+categories: Tools #文章文类
+tags: [Sublime, Android Studio, React Native] #文章标签，多于一项时用这种格式
 ---
 
 # Keyboard Shortcuts
 
-## sublime：
+## Sublime：
 ⌘（command）+]/[ 智能行缩进
 ⌘（command）+D 选词（反复按快捷键，即可继续向下同时选中下一个相同的文本进行同时编辑）
 ⌘（command）+P 搜索项目中的文件

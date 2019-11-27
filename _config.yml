@@ -4,7 +4,7 @@
 
 # Site
 title: Zachary's blog
-subtitle: no pain, no gain
+subtitle: No pain, no gain
 description:
 author: Zachary
 language: en #zh-CN
@@ -12,7 +12,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://dontcry2013.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

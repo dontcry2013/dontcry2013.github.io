@@ -1,7 +1,7 @@
 ---
 title: 别了，超人
 date: 2016-03-01 21:40:33
-categories: article
+categories: Article
 tags: [碎碎念, Mandarin]
 ---
 ![外卖超人](/img/delivery_hero.jpg)

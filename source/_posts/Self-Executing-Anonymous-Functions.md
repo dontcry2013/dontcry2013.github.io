@@ -1,8 +1,8 @@
 ---
 title: Self-Executing Anonymous Functions
 date: 2016-11-28 17:10:12
-categories: javascript #文章文类
-tags: [javascript, TODO] #文章标签，多于一项时用这种格式
+categories: JavaScript #文章文类
+tags: [ES5, TODO] #文章标签，多于一项时用这种格式
 ---
 自执行函数写法很诡异，mark一下，需要学习。
 <!--more-->
@@ -24,5 +24,5 @@ tags: [javascript, TODO] #文章标签，多于一项时用这种格式
   });
 })(jQuery);
 ```
-[self executing function jquery vs javascript difference](http://stackoverflow.com/questions/19491650/self-executing-function-jquery-vs-javascript-difference)
+[self executing function jquery vs JavaScript difference](http://stackoverflow.com/questions/19491650/self-executing-function-jquery-vs-javascript-difference)
 
