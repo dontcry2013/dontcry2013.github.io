@@ -1,7 +1,7 @@
 ---
-title: js-apply,call,bind
+title: JavaScript apply,call,bind
 date: 2016-09-06 22:38:56
-tags:
+categories: javascript #文章文类
 ---
 
 js 里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。

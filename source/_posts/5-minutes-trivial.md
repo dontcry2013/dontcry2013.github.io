@@ -1,5 +1,5 @@
 ---
-title: 5minutesTrivial
+title: 5 minutes trivial
 date: 2017-05-20 09:34:49
 categories: article
 tags: [碎碎念]

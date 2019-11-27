@@ -1,5 +1,5 @@
 ---
-title: recent notes
+title: Recent notes
 date: 2016-10-30 22:35:02
 categories: tools #文章文类
 tags: [sublime, android studio, reactnative] #文章标签，多于一项时用这种格式

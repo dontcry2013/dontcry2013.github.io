@@ -1,11 +1,11 @@
 ---
-title: How to modify andoid webview request header
+title: How to modify android webview request header
 date: 2016-03-11 09:20:36
 categories: android
-tags: [android, webview]
+tags: [webview]
 ---
 
-Let's say something about android webview, when we open webpage in an andorid application, the http header would some how add a field named x-requested-with to show your app's package name. For some websites may prohibit any further access according to this field and their webpages are only available for their own app and browsers. To tackle this problem and make our app to access these webpages we need to modify webview client.
+Let's say something about android webview, when we open webpage in an android application, the http header would some how add a field named x-requested-with to show your app's package name. For some websites may prohibit any further access according to this field and their webpages are only available for their own app and browsers. To tackle this problem and make our app to access these webpages we need to modify webview client.
 
 <!-- more -->
 
@@ -85,7 +85,7 @@ public static String injectIsParams(String url) {
 }
 ```
 
-Attention: to do differnt opertion by identify http and https.
+Attention: to do different operation by identify http and https.
 
 ## More
 
@@ -112,12 +112,12 @@ public Map<String, String> getRequestHeaders() {
 }
 ```
 
-* distingush the different request from Get to Post by use this fuction and could be used to identify some differences about AJAX .
+* distinguish the different request from Get to Post by use this function and could be used to identify some differences about AJAX .
 
 
 ## Problems
 
-the webpage which I tended to modify actually did not rendered by the android browser, they are just some html raw characters, which is not a successfull experiment apparently, and I will keep looking for the reasons and if success I'll refresh this blog.
+the webpage which I tended to modify actually did not rendered by the android browser, they are just some html raw characters, which is not a successfully experiment apparently, and I will keep looking for the reasons and if success I'll refresh this blog.
 
 
 

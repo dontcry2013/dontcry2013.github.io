@@ -5,13 +5,13 @@ categories: front-end
 tags: [http, node.js]
 ---
 ## Demand
-When I have username and password to simulate a login action on a website, how can I pass the verification algorithm or validation routines, sometimes this kind of program is really complicated which is the biggest obstacle to hack in. For instance, when you have plenty [taobao](https://login.m.taobao.com/login.htm) usenames and passwords how can you figure out what the customer bought, as this b2c mogul uses an algorithm to check all http resquest if they are legal.
+When I have username and password to simulate a login action on a website, how can I pass the verification algorithm or validation routines, sometimes this kind of program is really complicated which is the biggest obstacle to hack in. For instance, when you have plenty [taobao](https://login.m.taobao.com/login.htm) usernames and passwords how can you figure out what the customer bought, as this b2c mogul uses an algorithm to check all http request if they are legal.
 <!-- more -->
 
 ## Analysis
 We need that signature program to disguise our http request.
 
-before we dig it out from the website we really need a workstation to do some expriments as a handy tool may save us loads of time. The longer answer is that we could use http proxy to falsify a normal http request and to verify our speculation.
+before we dig it out from the website we really need a workstation to do some experiments as a handy tool may save us loads of time. The longer answer is that we could use http proxy to falsify a normal http request and to verify our speculation.
 
 
 ## Tools & Implementation
@@ -21,7 +21,7 @@ SwitchyOmega chrome plugin
 
 With switchyOmega we can get a proxy server interface locally, use 127.0.0.1 and a specific port, let's say 8000.
 
-Now, all the requests will pass through this port before rendered by the brower.
+Now, all the requests will pass through this port before rendered by the browser.
 
 Download requirejs, we need it to load our js in local.
 
@@ -75,7 +75,7 @@ var requestHandler = function(clientRequest, clientResponse) {
     /* Do the request */
     var client = proxy.request(clientRequest.method, clientRequest.url, clientRequest.headers);
 
-    /* Hanlde on response event */
+    /* Handle on response event */
     client.on("response", function(response) {
 
         sys.puts("Status Code: " + response.statusCode);
@@ -148,5 +148,5 @@ exports.handlers = [{
 ```
 As above scripts block facebook and show a message to manifest our workstation is built up .
 
-Finally, it's time to use chrome to open a login web page of the website - https://login.m.taobao.com/login.htm. Listen all the http & https resquests and analyse & verify the signature program.
+Finally, it's time to use chrome to open a login web page of the website - https://login.m.taobao.com/login.htm. Listen all the http & https requests and analyse & verify the signature program.
 

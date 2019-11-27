@@ -1,5 +1,5 @@
 ---
-title: android studio ndk development setup
+title: Android studio ndk development setup
 date: 2016-04-01 18:56:39
 categories: android
 tags: [ndk]

@@ -1,5 +1,5 @@
 ---
-title: NSNumber&NSDictionary
+title: NSNumber and NSDictionary
 date: 2016-12-28 00:12:43
 categories: iOS #文章文类
 tags: [objective-c] #文章标签，多于一项时用这种格式

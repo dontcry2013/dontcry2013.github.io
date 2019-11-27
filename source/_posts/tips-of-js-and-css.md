@@ -1,5 +1,5 @@
 ---
-title: tips of js, css and html
+title: Tips of js, css and html
 date: 2017-06-23 10:30:26
 categories: Web #文章文类
 tags: [javascript, css, html] #文章标签，多于一项时用这种格式

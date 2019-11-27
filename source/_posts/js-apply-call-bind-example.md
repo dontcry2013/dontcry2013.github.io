@@ -1,12 +1,12 @@
 ---
-title: Example understanding js apply, call and bind
+title: Examples of understanding js apply, call and bind
 date: 2018-04-16 09:57:24
 categories: javascript #文章文类
-tags: [javascript] #文章标签，多于一项时用这种格式
+tags: [example] #文章标签，多于一项时用这种格式
 ---
 
 # apply, call and bind
-They are the embeded mothod of a function. The following examples show usage to bind this object to a callback function to replacet the global this. 
+They are the embedded method of a function. The following examples show usage to bind this object to a callback function to replace the global this. 
 
 <!--more-->
 

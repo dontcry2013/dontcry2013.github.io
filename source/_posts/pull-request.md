@@ -1,10 +1,11 @@
 ---
-title: pull request
+title: Pull request
 date: 2019-11-25 23:31:22
-tags:
+categories: Git #文章文类
+tags: [Github] #文章标签，多于一项时用这种格式
 ---
 # Pull request is a feature of GitHub
-Pull request can be use in GitHub and platforms like GitLab and GitBucks.
+Pull request can be used in GitHub and platforms like GitLab and GitBucks.
 It is not supported in your server if you make a repository by using git.
 
 <!--more-->
@@ -33,7 +34,7 @@ $ git merge kneath/error-page
 $ git push origin master
 ```
 
-# How to create a PR with a specific commits
+# How to create a PR with specific commits
 You cannot really do anything on the GitHub UI to remove any commits.
 You are suppose to create a branch with the latest changes and cherry-pick the ones that you want. And then compare that branch with the repository that you would like to contribute.
 The differences will only be the ones that you cherry-picked. Then, you are done. 

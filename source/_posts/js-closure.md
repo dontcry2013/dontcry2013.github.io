@@ -1,7 +1,7 @@
 ---
-title: js闭包
+title: JavaScript Closure
 date: 2016-07-07 10:06:07
-categories: js
+categories: javascript
 tags: closure
 ---
 # 一、变量的作用域

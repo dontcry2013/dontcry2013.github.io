@@ -1,7 +1,8 @@
 ---
-title: sequential execuation queue
+title: Sequential execution queue
 date: 2018-05-01 09:48:28
-tags:
+categories: JavaScript #文章文类
+tags: [nodejs, es6, es2017] #文章标签，多于一项时用这种格式
 ---
 There are a lot of scenarios that we want a queue executed sequentially, like we have a list of video url, and we want to download all of the video, after finish one we have to check the integrity, start next job if it is OK. Normally, we have three methods to do that.
 <!--more-->
@@ -55,7 +56,7 @@ while(taskList.length){
 
 ```
 
-# event
+# Event
 ``` js
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
@@ -73,7 +74,7 @@ eventEmitter.on("start", function(){
 })
 ```
 
-# ES6 async
+# ES2017 async
 ``` js
 var sleep = function (time) {
     return new Promise(function (resolve, reject) {

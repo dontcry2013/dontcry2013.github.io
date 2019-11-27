@@ -1,8 +1,8 @@
 ---
 title: javascript common utility
 date: 2016-11-22 22:26:02
-categories: tools #文章文类
-tags: [javascript, es6] #文章标签，多于一项时用这种格式
+categories: javascript #文章文类
+tags: [es5, es6] #文章标签，多于一项时用这种格式
 ---
 
 # Array manipulation

@@ -1,5 +1,5 @@
 ---
-title: jsonp tricky trap
+title: Jsonp tricky trap
 date: 2016-11-28 17:10:12
 categories: javascript #文章文类
 tags: [jquery, issue] #文章标签，多于一项时用这种格式

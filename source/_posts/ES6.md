@@ -2,7 +2,7 @@
 title: ES6
 date: 2016-11-24 14:40:02
 categories: javascript #文章文类
-tags: [javascript, es6] #文章标签，多于一项时用这种格式
+tags: [es6] #文章标签，多于一项时用这种格式
 ---
 # 函数参数的默认值 
 在ES6之前，不能直接为函数的参数指定默认值，只能采用变通的方法。

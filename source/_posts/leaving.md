@@ -2,7 +2,7 @@
 title: leaving
 date: 2016-08-09 19:14:08
 categories: article
-tags: [碎碎念]
+tags: [碎碎念, Mandarin]
 ---
 
 沙泽流漫，聚散随风。
