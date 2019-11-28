@@ -72,3 +72,5 @@ deploy:
   #repo: git@github.com:dontcry2013/dontcry2013.github.io.git
   repo: https://github.com/dontcry2013/dontcry2013.github.io.git
   branch: master
+  name: Zach
+  email: zach.qin@gmail.com
