@@ -45,3 +45,29 @@ $ git cherry-pick a51afa6
 $ git cherry-pick 07f39f7
 $ git push -u origin new-branch-name
 ```
+Or if you have a an existing branch which tracking the remote repo, for example, named main(upstream branch would be like [main/master])
+```
+# In branch main
+$ git checkout -b new-branch-name
+# And then do the above cherry-pick steps
+```
+After this, GitHub repo page will display a button to let you to create a PR directly.
+When the owner of the forked repo concluded your PR, you can view the owners closed PR page, in there, you can delete the branch created for the PR solely.
+Note: This move only delete your upstream branch located in GitHub, you have to delete it manually in local.
+```
+# sync and remove the stale branch
+$ git fetch --all --prune
+$ git branch -d new-branch-name
+```
+When development keeps going on, you can sync with the forked repo and create another PR. To do this, checkout main branch which tracking with [main/master], and pull from main/master
+```
+$ git checkout main
+$ git pull main master
+$ git checkout -b another-branch-name
+$ git checkout master
+$ git merge main
+$ git checkout another-branch-name
+$ git cherry-pick a51afae
+$ git cherry-pick v313cva
+$ git push -u origin another-branch-name
+```
