@@ -1,21 +1,20 @@
 ---
-title: JavaScript Common Utility
+title: JavaScript Array
 date: 2016-11-22 22:26:02
-categories: JavaScript #文章文类
-tags: [ES5, ES6] #文章标签，多于一项时用这种格式
+categories: JavaScript
+tags: [ES5, ES6]
 ---
 
 # Array manipulation
 
-之前一直看w3cschool的文档，确实很基础的东西都是，现在还是觉得mozilla的文档更全面，例子也更多更透彻。
-[Array Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
+**`w3cschool`** is a good place to learn basic things, and [mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) documents are more detailed.
 <!--more-->
 
 ## Array.prototype.filter()
 The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 ``` js
-//Filtering invalid entries from JSON
-//The following example uses filter() to create a filtered json of all elements with non-zero, numeric id.
+// Filtering invalid entries from JSON
+// The following example uses filter() to create a filtered json of all elements with non-zero, numeric id.
 
 var arr = [
   { id: 15 },
@@ -53,8 +52,20 @@ console.log('Number of Invalid Entries = ', invalidEntries);
 ## Array.prototype.sort()
 The sort() method sorts the elements of an array in place and returns the array. 
 ``` js
-//4按id去重复
-var uniq = TF.uniqueObject(temp.concat(ret), function(a, b){
+// Remove duplicates id
+function uniqueObject(a, compareFunc){
+	a.sort(compareFunc);
+	for(var i = 1; i < a.length; ){
+	    if(compareFunc(a[i-1], a[i]) === 0){
+	        a.splice(i, 1);
+	    } else {
+	        i++;
+	    }
+	}
+	return a;
+}
+
+var uniq = uniqueObject(temp.concat(ret), function(a, b){
 	if (a.id > b.id) {
 	  return 1;
 	}
@@ -63,7 +74,8 @@ var uniq = TF.uniqueObject(temp.concat(ret), function(a, b){
 	}
 	return 0;
 });
-//5按时间排序
+
+// Sort by time
 uniq.sort((a, b)=>{
 	if (a.id > b.id) {
 	  return 1;
@@ -83,22 +95,6 @@ uniq.forEach((v,i)=>{
 	};
 	LocalNotification.localNotificationSchedule(detail);
 });
-```
-
-下面的代码用于比较除掉重复元素
-``` js
-// the mentioned TF.uniqueObject function
-static uniqueObject(a, compareFunc){
-	a.sort(compareFunc);
-	for(var i = 1; i < a.length; ){
-	    if(compareFunc(a[i-1], a[i]) === 0){
-	        a.splice(i, 1);
-	    } else {
-	        i++;
-	    }
-	}
-	return a;
-}
 ```
 
 ## Array.prototype.splice()
@@ -221,11 +217,6 @@ static unique(array){
     return n;
 }
 ```
-
-
-
-
-
 
 # What is the difference between .map, .every, and .forEach in JavaScript array?
 

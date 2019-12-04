@@ -1,10 +1,10 @@
 ---
 title: Promise and Async
 date: 2016-11-24 15:20:02
-categories: JavaScript #文章文类
-tags: [ES6, ES2017] #文章标签，多于一项时用这种格式
+categories: JavaScript
+tags: [ES6, ES2017]
 ---
-# Promise对象的简单例子。
+# Promise Simple Example
 ```js
 function timeout(ms) {
   return new Promise((resolve, reject) => {
@@ -57,7 +57,7 @@ multiPromise2(){
 }
 ```
 
-# Promise的一个错误的例子。
+# A **WRONG** Promise Example
 ``` js
 resolveAfter2Seconds(x) {
   return new Promise(resolve => {
@@ -69,29 +69,27 @@ resolveAfter2Seconds(x) {
 
 testPromise(){
   var x = this.resolveAfter2Seconds(1)
-          .then(v=>{
-            console.log("内部内部的testPromise是：", v);         
-            return v;
-          }); 
-  console.log("内部的testPromise是：", x);  //此时是promise对象
+  .then(v=>{
+    console.log("1:", v);         
+    return v;
+  }); 
+  console.log("11:", x);  // it is a promise object
   return x;
 }
 
 var tPromise = this.testPromise();
-console.log("tPromise是：", tPromise);  //此时依然是promise对象
-
+console.log("tPromise is:", tPromise);  // still is a promise object
 ```
 
 
-# 正确写法
+# Correct Example
 ``` js
 class Test{
   constructor(props) {
     super(props);
     this.testPromise(60).then(v => {
-      console.log("tPromise是：", tPromise);  // prints 60 after 2 seconds.
+      console.log("tPromise is:", tPromise);  // prints 60 after 2 seconds.
     });
-
     console.log("another thing happens");
   } 
 
@@ -105,20 +103,21 @@ class Test{
 
   testPromise(arg){
     var x = this.resolveAfter2Seconds(arg)
-            .then(v=>{
-              console.log("内部内部的testPromise是：", v);         
-              return v;
-            }); 
-    console.log("内部的testPromise是：", x);  //此时是promise对象
+    .then(v=>{
+      console.log("1:", v);         
+      return v;
+    }); 
+    console.log("11:", x);  // promise object
     return x;
   }
 }
 
 ```
-你可以无限制的then下去，但是最终结果的依然是在then中处理。
-"another thing happens"是最先输出的，promise没有阻塞代码块的顺序执行。
+You can write infinitive then functions, but in the end, the final result need to be solved in then function.
 
-# async的一些不同
+"another thing happens" is printed firstly, promise does not block the function to execute in sequence.
+
+# async
 ``` js
 resolveAfter2Seconds(x) {
   return new Promise(resolve => {
@@ -130,13 +129,15 @@ resolveAfter2Seconds(x) {
 
 async testPromise(arg){
   var x = await this.resolveAfter2Seconds(arg);
-  console.log("内部的testPromise是：", x);  //此时x的值确是arg
-  return x;  //此时返回的是promise对象
+  console.log("testPromise is:", x);
+  return x;  // promise object
 }
 
 this.testPromise(60).then(v => {
-  console.log("tPromise是：", tPromise);  // 依然要这样处理返回值
+  console.log("tPromise is:", tPromise);
 });
 
 ```
-总结：处理返回值要在then中。
+
+# Conclusion
+In order to handle the return value, we still need to do it in then function.

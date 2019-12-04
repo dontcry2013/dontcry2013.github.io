@@ -64,4 +64,4 @@ After further investigation, wrapping your code with lines that consist of three
 * xml - XML and also used for HTML with inline CSS and Javascript
 * yaml
 
-quoted from [rubycoloredglasses](http://www.rubycoloredglasses.com/2013/04/languages-supported-by-github-flavored-markdown/)
+Quoted from [rubycoloredglasses](http://www.rubycoloredglasses.com/2013/04/languages-supported-by-github-flavored-markdown/)

@@ -1,14 +1,14 @@
 ---
 title: Tips Of JavaScript, CSS And HTML
 date: 2017-06-23 10:30:26
-categories: Web #文章文类
-tags: [JavaScript, CSS, HTML] #文章标签，多于一项时用这种格式
+categories: Web
+tags: [JavaScript, CSS, HTML]
 ---
 
 # Difference Between Auto and 100%
 
-parent div height by default is auto, which will be regulated by their children div.
-childern div height 100%, will match and follow parent's height. 
+Parent div height by default is auto, which will be regulated by their children div.
+Children div height 100%, will match and follow parent's height. 
 
 <!--more-->
  
@@ -17,10 +17,10 @@ childern div height 100%, will match and follow parent's height.
 ``` html
 <textarea name="nTa" id="iTa" cols="30" rows="10" spellcheck="true" autocapitalize="true" autocomplete="true" autocorrect="true"></textarea>
 ```
-spellcheck is the attribute to set to determine if to check user's spell, just like its name said.
+Spellcheck is the attribute to set to determine if to check user's spell, just like its name said.
 
 
-# float and clear left to make div display in a line 
+# Float and Clear Left to Make div Display in a Line
 
 ``` html
 <div style="margin: 10px">
@@ -43,10 +43,10 @@ spellcheck is the attribute to set to determine if to check user's spell, just l
 </div>
 ```
 
-alternative if use div's display attribute, set it to inline-block, which could by easier. But in some cases, display need to set to another value, like block, if you changed it, that could change the whole style of the element. In such cases, combination of float and clear would be a good idea.
+Alternative if use div's display attribute, set it to inline-block, which could by easier. But in some cases, display need to set to another value, like block, if you changed it, that could change the whole style of the element. In such cases, combination of float and clear would be a good idea.
 
 
-# js prototype function: call
+# JavaScript Prototype Function: call
 
 ``` js
 $("#idBtn1").click(function(argument) {
