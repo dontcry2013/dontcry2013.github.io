@@ -9,6 +9,14 @@ branches:
 script:
   - hexo generate # generate static files
 after_script:
+  - cd ./public
+  - git init
+  - git config user.name "Zach"
+  - git config user.email "zach.qi@gmail.com"
+  - git add .
+  - git commit -m "Update blog content by Travis CI"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+after_script:
  - hexo deploy
 # deploy:
 #   provider: pages
