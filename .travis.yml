@@ -8,6 +8,8 @@ branches:
     - hexo # build hexo branch only
 script:
   - hexo generate # generate static files
+after_script:
+ - hexo deploy
 # deploy:
 #   provider: pages
 #   skip-cleanup: true
@@ -16,10 +18,3 @@ script:
 #   on:
 #     branch: master
 #   local-dir: public
-deploy:
-  type: git
-  #repo: git@github.com:dontcry2013/dontcry2013.github.io.git
-  repo: https://github.com/dontcry2013/dontcry2013.github.io.git
-  branch: master
-  name: Zach
-  email: zach.qin@gmail.com
