@@ -1,7 +1,7 @@
 ---
 title: Travis Practice
 date: 2019-12-06 23:46:03
-categories: CI
+categories: [CI, Basic, Tools]
 tags: [GitHub, Travis]
 ---
 Coding is just part of the software development, and more time usually spent on building and testing.

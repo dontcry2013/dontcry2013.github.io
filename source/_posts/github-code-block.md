@@ -2,7 +2,7 @@
 title: Languages Supported by Github Flavored Markdown
 date: 2019-12-02 14:39:38
 categories: Git
-tags: [GitHub]
+tags: [GitHub, Markdown]
 ---
 
 Github uses Linguist to perform language detection and syntax highlighting. Here a list of common languages that can be used with the backtick (see full list in [Linguist - languages.yml](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)).

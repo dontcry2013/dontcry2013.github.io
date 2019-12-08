@@ -2,7 +2,7 @@
 title: Tips Of JavaScript, CSS And HTML
 date: 2017-06-23 10:30:26
 categories: Web
-tags: [JavaScript, CSS, HTML]
+tags: [ES5, CSS, HTML]
 ---
 
 # Difference Between Auto and 100%
