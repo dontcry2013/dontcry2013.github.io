@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>IP审查 | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="公共服务难免有诸多接口暴露给外部调用，其中不乏有恶意请求，再没有针对性的业务处理之前，ip审查是行之有效的防御办法。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IP审查">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/06/21/ip-check/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="公共服务难免有诸多接口暴露给外部调用，其中不乏有恶意请求，再没有针对性的业务处理之前，ip审查是行之有效的防御办法。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IP审查">
+<meta name="twitter:description" content="公共服务难免有诸多接口暴露给外部调用，其中不乏有恶意请求，再没有针对性的业务处理之前，ip审查是行之有效的防御办法。">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ip-check" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/21/ip-check/" class="article-date">
+  	<time datetime="2016-06-21T13:35:21.000Z" itemprop="datePublished">2016-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IP审查
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">Java</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/security/">Security</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公共服务难免有诸多接口暴露给外部调用，其中不乏有恶意请求，再没有针对性的业务处理之前，ip审查是行之有效的防御办法。<br><a id="more"></a></p>
+<p>在servlet中的调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> IpCounter ipSmsCounter;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">checkSmsIP</span><span class="params">(HttpServletRequest req)</span></span>&#123;</span><br><span class="line">	String sIp = IPUtils.getIpAddr(req);</span><br><span class="line">	Long lIp = IPUtils.ipToLong(sIp);</span><br><span class="line">	Boolean isInBlackList = BlackIpFileHelper.getInst().checkIp(lIp);</span><br><span class="line">	<span class="keyword">if</span> (isInBlackList) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Boolean isInWhiteList = WhiteIpFileHelper.getInst().checkIp(lIp);</span><br><span class="line">	<span class="keyword">if</span> (isInWhiteList) &#123;</span><br><span class="line">		<span class="comment">// 白名单中，跳过计数</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		Boolean isInTempBlackList = TempBlackIpFileHelper.getInst().checkIp(lIp);</span><br><span class="line">		<span class="keyword">if</span> (isInTempBlackList) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(ipSmsCounter==<span class="keyword">null</span>)&#123;</span><br><span class="line">			ipSmsCounter = <span class="keyword">new</span> IpCounter(<span class="number">8</span>, <span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000L</span>); <span class="comment">//一天8次</span></span><br><span class="line">		&#125;</span><br><span class="line">		ipSmsCounter.add(lIp);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.ippermit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ConcurrentHashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IpCounter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> lastCheckTime = <span class="number">0L</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> maxCount = <span class="number">7</span>;</span><br><span class="line">	<span class="keyword">private</span> Long interval = <span class="number">30000L</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">IpCounter</span><span class="params">(<span class="keyword">int</span> maxCount, Long interval)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.maxCount = maxCount;</span><br><span class="line">		<span class="keyword">this</span>.interval = interval;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ip计数池</span></span><br><span class="line">	<span class="keyword">private</span> ConcurrentHashMap&lt;Long, Integer&gt; ipCounter = <span class="keyword">new</span> ConcurrentHashMap&lt;Long, Integer&gt;();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(Long lIp)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (ipCounter.containsKey(lIp)) &#123;</span><br><span class="line">			<span class="keyword">int</span> times = ipCounter.get(lIp) + <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> (times &gt; maxCount) &#123;</span><br><span class="line">				TempBlackIpFileHelper.getInst().addIp(lIp, <span class="keyword">new</span> Date().getTime() + <span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>);</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			ipCounter.put(lIp, times);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			ipCounter.put(lIp, <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 指定间隔时间后，将计数器中超过限制的加入临时黑名单</span></span><br><span class="line">		Long curTime = (<span class="keyword">new</span> Date()).getTime();</span><br><span class="line">		<span class="keyword">if</span> (lastCheckTime == <span class="number">0</span>) &#123;</span><br><span class="line">			lastCheckTime = curTime;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> ((curTime - lastCheckTime) &gt; interval) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">				<span class="keyword">for</span> (Entry&lt;Long, Integer&gt; e : ipCounter.entrySet()) &#123;</span><br><span class="line">					<span class="keyword">if</span> (e.getValue() &gt; maxCount) &#123;</span><br><span class="line">						TempBlackIpFileHelper.getInst().addIp(lIp, <span class="keyword">new</span> Date().getTime() + <span class="number">24</span> * <span class="number">3600</span> * <span class="number">1000</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				lastCheckTime = (<span class="keyword">new</span> Date()).getTime();</span><br><span class="line">				ipCounter.clear();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.ippermit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.BufferedReader;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"><span class="keyword">import</span> java.net.InetAddress;</span><br><span class="line"><span class="keyword">import</span> java.net.UnknownHostException;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ConcurrentHashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.xxx.utils.FileHelper;</span><br><span class="line"><span class="keyword">import</span> com.xxx.utils.IPUtils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TempBlackIpFileHelper</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> TempBlackIpFileHelper inst = <span class="keyword">new</span> TempBlackIpFileHelper(FileHelper.combinPath(Configuration.getStorePath(), <span class="string">"ippermit/tempblackip.txt"</span>));</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TempBlackIpFileHelper <span class="title">getInst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> inst;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> ConcurrentHashMap&lt;Long, Long&gt; ipMap = <span class="keyword">new</span> ConcurrentHashMap&lt;Long, Long&gt;();</span><br><span class="line">	<span class="keyword">private</span> String fileName = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">private</span> Long codeFileDate = <span class="number">0L</span>;</span><br><span class="line">	<span class="keyword">private</span> File file = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">private</span> Long lastCheckTime = <span class="number">0L</span>;</span><br><span class="line">	<span class="keyword">private</span> Long lastWriteTime = <span class="number">0L</span>;</span><br><span class="line">	<span class="keyword">private</span> SimpleDateFormat formatter = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">TempBlackIpFileHelper</span><span class="params">(String sFileName)</span> </span>&#123;</span><br><span class="line">		fileName = sFileName;</span><br><span class="line">		file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">checkReload</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Long curTime = (<span class="keyword">new</span> Date()).getTime();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (lastWriteTime == <span class="number">0</span>) &#123;</span><br><span class="line">			lastWriteTime = curTime;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 重写文件</span></span><br><span class="line">		<span class="keyword">if</span> ((curTime - lastWriteTime) &gt; <span class="number">600000</span>) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (inst) &#123;</span><br><span class="line">				<span class="comment">// 10秒检查一次</span></span><br><span class="line">				lastWriteTime = curTime;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 重新输出文件</span></span><br><span class="line">				file.delete();</span><br><span class="line">				FileWriter fWriter = <span class="keyword">null</span>;</span><br><span class="line">				PrintWriter pWriter = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					fWriter = <span class="keyword">new</span> FileWriter(file, <span class="keyword">true</span>);</span><br><span class="line">					pWriter = <span class="keyword">new</span> PrintWriter(fWriter);</span><br><span class="line">					<span class="keyword">for</span> (Entry&lt;Long, Long&gt; e : ipMap.entrySet()) &#123;</span><br><span class="line">						<span class="keyword">if</span> (e.getValue() &gt; curTime) &#123;</span><br><span class="line">							pWriter.println(IPUtils.longToIp(e.getKey()) + <span class="string">"|"</span> + formatter.format(<span class="keyword">new</span> Date(e.getValue())));</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">				&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						<span class="keyword">if</span> (pWriter != <span class="keyword">null</span>) &#123;</span><br><span class="line">							pWriter.close();</span><br><span class="line">						&#125;</span><br><span class="line"></span><br><span class="line">						<span class="keyword">if</span> (fWriter != <span class="keyword">null</span>) &#123;</span><br><span class="line">							fWriter.close();</span><br><span class="line">						&#125;</span><br><span class="line">					&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				codeFileDate = file.lastModified();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 重加载文件</span></span><br><span class="line">		<span class="keyword">if</span> ((curTime - lastCheckTime) &gt; <span class="number">10000</span>) &#123;</span><br><span class="line">			<span class="comment">// 10秒检查一次</span></span><br><span class="line">			lastCheckTime = curTime;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">				<span class="keyword">if</span> (file.lastModified() != codeFileDate) &#123;</span><br><span class="line">					ipMap = loadMap(<span class="keyword">null</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> ConcurrentHashMap&lt;Long, Long&gt; <span class="title">loadMap</span><span class="params">(ConcurrentHashMap&lt;Long, Long&gt; map)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (map == <span class="keyword">null</span>) &#123;</span><br><span class="line">			map = <span class="keyword">new</span> ConcurrentHashMap&lt;Long, Long&gt;();</span><br><span class="line">		&#125;</span><br><span class="line">		BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">			InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(fis, <span class="string">"UTF-8"</span>);</span><br><span class="line">			reader = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">			String tempString = <span class="keyword">null</span>;</span><br><span class="line">			<span class="keyword">while</span> ((tempString = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (StringUtils.isNotEmpty(tempString)) &#123;</span><br><span class="line">					String[] arr = tempString.split(<span class="string">"\\|"</span>);</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						map.put(IPUtils.ipToLong(arr[<span class="number">0</span>]), formatter.parse(arr[<span class="number">1</span>].trim()).getTime());</span><br><span class="line">					&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">						System.out.println(<span class="string">"动态ip黑名单加载失败"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			reader.close();</span><br><span class="line">			codeFileDate = file.lastModified();</span><br><span class="line">			<span class="keyword">return</span> map;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			System.out.println(<span class="string">"动态ip黑名单加载失败"</span>);</span><br><span class="line">			<span class="keyword">return</span> map;</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (reader != <span class="keyword">null</span>) &#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					reader.close();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">append</span><span class="params">(String data)</span> </span>&#123;</span><br><span class="line">		FileWriter fWriter = <span class="keyword">null</span>;</span><br><span class="line">		PrintWriter pWriter = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			fWriter = <span class="keyword">new</span> FileWriter(file, <span class="keyword">true</span>);</span><br><span class="line">			pWriter = <span class="keyword">new</span> PrintWriter(fWriter);</span><br><span class="line">			pWriter.println(data);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (pWriter != <span class="keyword">null</span>) &#123;</span><br><span class="line">					pWriter.close();</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (fWriter != <span class="keyword">null</span>) &#123;</span><br><span class="line">					fWriter.close();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkIp</span><span class="params">(Long lIp)</span> </span>&#123;</span><br><span class="line">		checkReload();</span><br><span class="line">		<span class="keyword">if</span> (ipMap.containsKey(lIp)) &#123;</span><br><span class="line">			<span class="keyword">return</span> ipMap.get(lIp) &gt; <span class="keyword">new</span> Date().getTime();</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 百度蜘蛛反IP地址查询</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> inetAddress</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> lIp</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkBaiduSpider</span><span class="params">(Long lIp)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line">		InetAddress inetAddress;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			String ip = IPUtils.longToIp(lIp);</span><br><span class="line">			inetAddress = InetAddress.getByName(ip);</span><br><span class="line">			<span class="keyword">if</span> (inetAddress != <span class="keyword">null</span>) &#123;</span><br><span class="line">				String hostName = inetAddress.getHostName();</span><br><span class="line">				<span class="keyword">if</span> (StringUtils.isNotEmpty(hostName)) &#123;</span><br><span class="line">					<span class="keyword">if</span> (hostName.contains(<span class="string">"baidu.com"</span>) || hostName.contains(<span class="string">"baidu.jp"</span>)) &#123;</span><br><span class="line">						flag = <span class="keyword">true</span>;</span><br><span class="line">						System.out.println(ip + <span class="string">"|"</span> + inetAddress.getHostName() + <span class="string">"|"</span> + inetAddress.getHostAddress() + <span class="string">"|"</span> + inetAddress.getAddress());</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> flag;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addIp</span><span class="params">(Long lIp, Long time)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (checkBaiduSpider(lIp) == <span class="keyword">false</span>) &#123;</span><br><span class="line">			<span class="keyword">synchronized</span> (inst) &#123;</span><br><span class="line">				ipMap.put(lIp, time);</span><br><span class="line">				append(IPUtils.longToIp(lIp) + <span class="string">"|"</span> + formatter.format(<span class="keyword">new</span> Date(time)));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Configuration读取文件路径<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.ippermit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Configuration</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> Properties properties;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			properties = <span class="keyword">new</span> Properties();</span><br><span class="line">			properties.load(Configuration.class.getResourceAsStream("/xxx.properties"));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			System.out.print(<span class="string">"读取xxx.properties配置文件出错"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getObject</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> properties.getProperty(key);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getStorePath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getObject(<span class="string">"storePath"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一些工具代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileHelper</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">combinPath</span><span class="params">(String path1, String path2)</span> </span>&#123;</span><br><span class="line">		path1 = path1.trim().replace(<span class="string">"\\"</span>, <span class="string">"/"</span>);</span><br><span class="line">		path2 = path2.trim().replace(<span class="string">"\\"</span>, <span class="string">"/"</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (path1.endsWith(<span class="string">"/"</span>)) &#123;</span><br><span class="line">			<span class="keyword">if</span> (path2.startsWith(<span class="string">"/"</span>)) &#123;</span><br><span class="line">				<span class="keyword">return</span> path1.substring(<span class="number">0</span>, path1.length() - <span class="number">1</span>) + path2;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> path1 + path2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (path2.startsWith(<span class="string">"/"</span>)) &#123;</span><br><span class="line">				<span class="keyword">return</span> path1 + path2;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> path1 + <span class="string">"/"</span> + path2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xxx.utils;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IPUtils</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@info</span>:通过request 获得用户的真实的Ip</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> request</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> String</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getIpAddr</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">		String ip = request.getHeader(<span class="string">"x-forwarded-for"</span>);</span><br><span class="line">		<span class="keyword">if</span> (ip == <span class="keyword">null</span> || ip.length() == <span class="number">0</span> || <span class="string">"unknown"</span>.equalsIgnoreCase(ip)) &#123;</span><br><span class="line">			ip = request.getHeader(<span class="string">"Proxy-Client-IP"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ip == <span class="keyword">null</span> || ip.length() == <span class="number">0</span> || <span class="string">"unknown"</span>.equalsIgnoreCase(ip)) &#123;</span><br><span class="line">			ip = request.getHeader(<span class="string">"WL-Proxy-Client-IP"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ip == <span class="keyword">null</span> || ip.length() == <span class="number">0</span> || <span class="string">"unknown"</span>.equalsIgnoreCase(ip)) &#123;</span><br><span class="line">			ip = request.getRemoteAddr();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// String ip = request.getRemoteAddr();</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (ip != <span class="keyword">null</span> &amp;&amp; ip.length() != <span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span> (ip.indexOf(<span class="string">","</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">				String[] array = ip.split(<span class="string">","</span>);</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">					<span class="keyword">if</span> (array[i] != <span class="keyword">null</span></span><br><span class="line">							&amp;&amp; !(<span class="string">"unknown"</span>.equalsIgnoreCase(array[i]))) &#123;</span><br><span class="line">						ip = array[i];</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ip == <span class="keyword">null</span>)</span><br><span class="line">			ip = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">return</span> ip.trim();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Long <span class="title">ipToLong</span><span class="params">(String ip)</span> </span>&#123;</span><br><span class="line">		String[] arr = ip.split(<span class="string">"\\."</span>);</span><br><span class="line">		<span class="keyword">return</span> (Long.parseLong(arr[<span class="number">0</span>]) &lt;&lt; <span class="number">24</span>) <span class="comment">//</span></span><br><span class="line">				+ (Long.parseLong(arr[<span class="number">1</span>]) &lt;&lt; <span class="number">16</span>) <span class="comment">//</span></span><br><span class="line">				+ (Long.parseLong(arr[<span class="number">2</span>]) &lt;&lt; <span class="number">8</span>) <span class="comment">//</span></span><br><span class="line">				+ (Long.parseLong(arr[<span class="number">3</span>]));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">longToIp</span><span class="params">(<span class="keyword">long</span> ipLong)</span> </span>&#123;</span><br><span class="line">		String strip = <span class="string">""</span>;</span><br><span class="line">		Long ip1, ip2, ip3, ip4;</span><br><span class="line">		ip1 = (ipLong &gt;&gt; <span class="number">24</span>) &amp; <span class="number">255</span>;</span><br><span class="line">		ip2 = (ipLong &gt;&gt; <span class="number">16</span>) &amp; <span class="number">255</span>;</span><br><span class="line">		ip3 = (ipLong &gt;&gt; <span class="number">8</span>) &amp; <span class="number">255</span>;</span><br><span class="line">		ip4 = ipLong &amp; <span class="number">255</span>;</span><br><span class="line">		strip = ip1.toString() + <span class="string">"."</span> + ip2.toString() + <span class="string">"."</span> + ip3.toString()</span><br><span class="line">				+ <span class="string">"."</span> + ip4.toString();</span><br><span class="line">		<span class="keyword">return</span> strip;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/30/java-path/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Java get user dir
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/30/sql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ip-check" data-title="IP审查" data-url="http://dontcry2013.github.io/2016/06/21/ip-check/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

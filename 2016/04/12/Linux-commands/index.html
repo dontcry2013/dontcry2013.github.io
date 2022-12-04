@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Linux Commands | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一些常用的Linux命令">
+<meta name="keywords" content="Command">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Commands">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/04/12/Linux-commands/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="一些常用的Linux命令">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux Commands">
+<meta name="twitter:description" content="一些常用的Linux命令">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Linux-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/Linux-commands/" class="article-date">
+  	<time datetime="2016-04-12T09:47:11.000Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux Commands
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/command/">Command</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/linux/">Linux</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一些常用的Linux命令<br><a id="more"></a><br>grep选项<br>    -c 只输出匹配行的计数<br>    -i 不区分大小写（用于单字符）<br>    -n 显示匹配的行号<br>    -v 不显示不包含匹配文本的所以有行<br>    -s 不显示错误信息<br>    -E 使用扩展正则表达式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">top    </span><br><span class="line">ps -ef    </span><br><span class="line">ps aux</span><br><span class="line"></span><br><span class="line">df -lh</span><br><span class="line">du -sh </span><br><span class="line">ls -lh</span><br><span class="line"></span><br><span class="line">tail -f catalina.out </span><br><span class="line">tail -n20 /var/<span class="built_in">log</span>/mail/info |tee results.txt |head -n1  <span class="comment">#选择最后 20 行，将其保存到 results.txt，但是只在屏幕上显示这 20 行中的第一行</span></span><br><span class="line"><span class="comment">#tee 命令有一个非常有用的选项(-a)，它允许您将数据追加到已有文件。</span></span><br><span class="line"></span><br><span class="line">cat -n <span class="comment">#打印行号</span></span><br><span class="line">cat &gt; filename  <span class="comment">#创建文件</span></span><br><span class="line">cat pushcourier.log.2015-04-20|grep DIANHUA|wc -l</span><br><span class="line"></span><br><span class="line">cat api.log | grep -inE --color=auto <span class="string">"优速速递|doMessage"</span></span><br><span class="line">cat catalina.out | grep -C 5 method_saveavatar  <span class="comment">#前后五行</span></span><br><span class="line"></span><br><span class="line">cat /etc/passwd | sort -t<span class="string">':'</span> -k 7 -u  <span class="comment">#第七个域进行排序，然后去重</span></span><br><span class="line">cat logsn_2015-11-22.txt | grep saveCookie |awk -F<span class="string">'&gt;'</span> <span class="string">'&#123;print $4&#125;'</span> | sort -u | wc -l</span><br><span class="line">cat logsn_2015-11-22.txt | grep insertOrder | grep <span class="literal">true</span> | awk -F<span class="string">'&gt;'</span> <span class="string">'&#123;print $3&#125;'</span> | sort | uniq -c |wc </span><br><span class="line"></span><br><span class="line">cat search.log | grep poll | awk -F[\|] <span class="string">'&#123;print $5"#"$6&#125;'</span>| sort | uniq -c | sort -n</span><br><span class="line">cat api.log.150706 | grep <span class="string">'|poll|'</span> | awk -F[\|] <span class="string">'&#123;print $5","$6&#125;'</span> | sort | uniq -c | wc -l </span><br><span class="line">cat search.log.150708 | grep <span class="string">'|query|'</span> | awk -F[\|] <span class="string">'&#123;print $5","$6&#125;'</span> | sort | uniq -c | wc -l</span><br><span class="line">cat search.log.150708 | awk -F[\|] <span class="string">'&#123;print $5","$6&#125;'</span> | sort | uniq -c | wc -l</span><br><span class="line"></span><br><span class="line">iostat -xm 2</span><br><span class="line">free -m</span><br><span class="line">find ~/ -name node  </span><br><span class="line">find -name <span class="string">'logjd_*'</span> | xargs rm -f</span><br><span class="line"></span><br><span class="line">netstat -lnap | grep 1134</span><br><span class="line"></span><br><span class="line">curl -H <span class="string">'X-Real-IP:192.168.0.1'</span> -H <span class="string">'X-Forwarded-For:192.168.0.2'</span> -v <span class="string">'http://192.168.248.201:9101/query?type=yuantong&amp;postid=888888888'</span></span><br><span class="line">wget</span><br><span class="line"></span><br><span class="line">grep <span class="string">'jin'</span> a.txt |grep <span class="string">'qi'</span></span><br><span class="line">grep -n <span class="string">"A\|B"</span> *</span><br><span class="line"></span><br><span class="line">uptime</span><br></pre></td></tr></table></figure></p>
+<h1 id="vi命令"><a href="#vi命令" class="headerlink" title="vi命令"></a>vi命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:<span class="built_in">set</span> nu    <span class="comment">#设置显示行号  </span></span><br><span class="line">:<span class="built_in">set</span> number  <span class="comment">#设置显示行号  </span></span><br><span class="line">:0		<span class="comment">#文件首</span></span><br><span class="line">:$		<span class="comment">#文件尾        </span></span><br><span class="line">dd     	<span class="comment">#删除行        </span></span><br><span class="line">u  		<span class="comment">#撤销改变</span></span><br><span class="line">w   	<span class="comment">#向后移动一个单词</span></span><br><span class="line">/abc&lt;Enter&gt;      <span class="comment">#查找abc, 输入n字符查找下一个。</span></span><br></pre></td></tr></table></figure>
+<h1 id="java调试过程"><a href="#java调试过程" class="headerlink" title="java调试过程"></a>java调试过程</h1><p>1、ps -ef | grep kd_mobile | grep -v grep<br>2、找出该进程内最耗费CPU的线程，可以使用ps -Lfp pid或者ps -mp pid -o THREAD, tid, time或者top -Hp pid<br>3、printf “%x\n” 24730<br>4、jstack 24715 | grep 609a</p>
+<h1 id="node命令"><a href="#node命令" class="headerlink" title="node命令"></a>node命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重启node服务</span></span><br><span class="line">ssh kuaidi@192.168.248.203 -p2222</span><br><span class="line"><span class="built_in">kill</span> -s 9 1772</span><br><span class="line">nohup node loadjd.js &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># forever命令</span></span><br><span class="line">mv macloadjd.js loadjd.js</span><br><span class="line">forever stop app.js </span><br><span class="line">forever start -e ./<span class="built_in">log</span>/jdforever.error.log -o out.log -a loadjd.js</span><br><span class="line">./node /home/kuaidi/node_modules/forever/bin/forever start -o /home/kuaidi/out.log -e /home/kuaidi/err.log -a /home/kuaidi/proxyclientadsl.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置临时环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/kuaidi100/node/node-v0.10.28-linux-x64/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<h1 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h1><p>iptables<br>iptables -t mangle -F<br>vi /etc/sysctl.conf</p>
+<p>#半连接攻击 syn flood</p>
+<p>#启用这个在高并发的时候，部分连接会丢失，确保端口可以打开</p>
+<p>#编辑 net.ipv4.tcp_syncookies = 1</p>
+<p>iptables -I INPUT -s 42.62.37.0/24 -j DROP</p>
+<p>＃ 常用解压缩命令<br>.tar<br>解包：tar xvf FileName.tar<br>打包：tar cvf FileName.tar DirName<br>（注：tar是打包，不是压缩！）<br>———————————————<br>.gz<br>解压1：gunzip FileName.gz<br>解压2：gzip -d FileName.gz<br>压缩：gzip FileName</p>
+<p>.tar.gz 和 .tgz<br>解压：tar zxvf FileName.tar.gz<br>压缩：tar zcvf FileName.tar.gz DirName<br>———————————————<br>.bz2<br>解压1：bzip2 -d FileName.bz2<br>解压2：bunzip2 FileName.bz2<br>压缩： bzip2 -z FileName</p>
+<p>.tar.bz2<br>解压：tar jxvf FileName.tar.bz2<br>压缩：tar jcvf FileName.tar.bz2 DirName<br>———————————————<br>.bz<br>解压1：bzip2 -d FileName.bz<br>解压2：bunzip2 FileName.bz<br>压缩：未知</p>
+<p>.tar.bz<br>解压：tar jxvf FileName.tar.bz<br>压缩：未知<br>———————————————<br>.zip<br>解压：unzip FileName.zip<br>压缩：zip FileName.zip DirName<br>———————————————<br>.rar<br>解压：rar x FileName.rar<br>压缩：rar a FileName.rar DirName<br>安装：sudo brew install unrar</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/13/MongoDB-commands/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          MongoDB Commands
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/07/java-baisc-object/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java集合类型</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Linux-commands" data-title="Linux Commands" data-url="http://dontcry2013.github.io/2016/04/12/Linux-commands/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JavaScript Array | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Array manipulationw3cschool is a good place to learn basic things, and mozilla documents are more detailed.">
+<meta name="keywords" content="ES6,ES5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Array">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/11/22/js-array/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="Array manipulationw3cschool is a good place to learn basic things, and mozilla documents are more detailed.">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Array">
+<meta name="twitter:description" content="Array manipulationw3cschool is a good place to learn basic things, and mozilla documents are more detailed.">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-js-array" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/11/22/js-array/" class="article-date">
+  	<time datetime="2016-11-22T22:26:02.000Z" itemprop="datePublished">2016-11-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript Array
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es5/">ES5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/es6/">ES6</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/javascript/">JavaScript</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-manipulation"><a href="#Array-manipulation" class="headerlink" title="Array manipulation"></a>Array manipulation</h1><p><strong><code>w3cschool</code></strong> is a good place to learn basic things, and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">mozilla</a> documents are more detailed.<br><a id="more"></a></p>
+<h2 id="Array-prototype-filter"><a href="#Array-prototype-filter" class="headerlink" title="Array.prototype.filter()"></a>Array.prototype.filter()</h2><p>The filter() method creates a new array with all elements that pass the test implemented by the provided function.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Filtering invalid entries from JSON</span></span><br><span class="line"><span class="comment">// The following example uses filter() to create a filtered json of all elements with non-zero, numeric id.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">15</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">-1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">0</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">12.2</span> &#125;,</span><br><span class="line">  &#123; &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="literal">NaN</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="string">'undefined'</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> invalidEntries = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filterByID</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (obj.id !== <span class="literal">undefined</span> &amp;&amp; <span class="keyword">typeof</span>(obj.id) === <span class="string">'number'</span> &amp;&amp; !<span class="built_in">isNaN</span>(obj.id)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    invalidEntries++;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arrByID = arr.filter(filterByID);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Filtered Array\n'</span>, arrByID); </span><br><span class="line"><span class="comment">// Filtered Array</span></span><br><span class="line"><span class="comment">// [&#123; id: 15 &#125;, &#123; id: -1 &#125;, &#123; id: 0 &#125;, &#123; id: 3 &#125;, &#123; id: 12.2 &#125;]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Number of Invalid Entries = '</span>, invalidEntries); </span><br><span class="line"><span class="comment">// Number of Invalid Entries = 4</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h2><p>The sort() method sorts the elements of an array in place and returns the array.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Remove duplicates id</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqueObject</span>(<span class="params">a, compareFunc</span>)</span>&#123;</span><br><span class="line">	a.sort(compareFunc);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; a.length; )&#123;</span><br><span class="line">	    <span class="keyword">if</span>(compareFunc(a[i<span class="number">-1</span>], a[i]) === <span class="number">0</span>)&#123;</span><br><span class="line">	        a.splice(i, <span class="number">1</span>);</span><br><span class="line">	    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	        i++;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> uniq = uniqueObject(temp.concat(ret), <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a.id &gt; b.id) &#123;</span><br><span class="line">	  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (a.id &lt; b.id) &#123;</span><br><span class="line">	  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sort by time</span></span><br><span class="line">uniq.sort(<span class="function">(<span class="params">a, b</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a.id &gt; b.id) &#123;</span><br><span class="line">	  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (a.id &lt; b.id) &#123;</span><br><span class="line">	  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">uniq.forEach(<span class="function">(<span class="params">v,i</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="keyword">let</span> detail = &#123;</span><br><span class="line">	  id:v.id,</span><br><span class="line">	  message: v.SUMMARY,</span><br><span class="line">	  date: <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.now() + (<span class="number">10</span> * <span class="number">1000</span>)),</span><br><span class="line">	  number: i+<span class="number">1</span></span><br><span class="line">	&#125;;</span><br><span class="line">	LocalNotification.localNotificationSchedule(detail);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Array-prototype-splice"><a href="#Array-prototype-splice" class="headerlink" title="Array.prototype.splice()"></a>Array.prototype.splice()</h2><p>The splice() method changes the content of an array by removing existing elements and/or adding new elements.</p>
+<p>Remove 0 elements from index 2, and insert “drum”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"mandarin"</span>, <span class="string">"surgeon"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = myFish.splice(<span class="number">2</span>, <span class="number">0</span>, <span class="string">"drum"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish is ["angel", "clown", "drum", "mandarin", "surgeon"] </span></span><br><span class="line"><span class="comment">// removed is [], no elements removed</span></span><br></pre></td></tr></table></figure></p>
+<p>Remove 1 element from index 3<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"drum"</span>, <span class="string">"mandarin"</span>, <span class="string">"surgeon"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = myFish.splice(<span class="number">3</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// removed is ["mandarin"]</span></span><br><span class="line"><span class="comment">// myFish is ["angel", "clown", "drum", "surgeon"]</span></span><br></pre></td></tr></table></figure></p>
+<p>Remove 1 element from index 2, and insert “trumpet”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"drum"</span>, <span class="string">"surgeon"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = myFish.splice(<span class="number">2</span>, <span class="number">1</span>, <span class="string">'trumpet'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish is ["angel", "clown", "trumpet", "surgeon"]</span></span><br><span class="line"><span class="comment">// removed is ["drum"]</span></span><br></pre></td></tr></table></figure></p>
+<p>Remove 2 elements from index 0, and insert “parrot”, “anemone” and “blue”<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"trumpet"</span>, <span class="string">"surgeon"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = myFish.splice(<span class="number">0</span>, <span class="number">2</span>, <span class="string">"parrot"</span>, <span class="string">"anemone"</span>, <span class="string">"blue"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish is ["parrot", "anemone", "blue", "trumpet", "surgeon"] </span></span><br><span class="line"><span class="comment">// removed is ["angel", "clown"]</span></span><br></pre></td></tr></table></figure></p>
+<p>Remove 2 elements from index 2<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFish = [<span class="string">"parrot"</span>, <span class="string">"anemone"</span>, <span class="string">"blue"</span>, <span class="string">"trumpet"</span>, <span class="string">"surgeon"</span>]</span><br><span class="line"><span class="keyword">var</span> removed = myFish.splice(myFish.length <span class="number">-3</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish is ["parrot", "anemone", "surgeon"] </span></span><br><span class="line"><span class="comment">// removed is ["blue", "trumpet"]</span></span><br></pre></td></tr></table></figure></p>
+<p>Remove 1 element from index -2<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFish = [<span class="string">"angel"</span>, <span class="string">"clown"</span>, <span class="string">"mandarin"</span>, <span class="string">"surgeon"</span>];</span><br><span class="line"><span class="keyword">var</span> removed = myFish.splice(<span class="number">-2</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// myFish is ["angel", "clown", "surgeon"] </span></span><br><span class="line"><span class="comment">// removed is ["mandarin"]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Array-prototype-slice"><a href="#Array-prototype-slice" class="headerlink" title="Array.prototype.slice()"></a>Array.prototype.slice()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">"zero"</span>, <span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>];</span><br><span class="line"><span class="keyword">var</span> sliced = a.slice(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);      <span class="comment">// [ "zero", "one", "two", "three" ]</span></span><br><span class="line"><span class="built_in">console</span>.log(sliced); <span class="comment">// [ "one", "two" ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Array-prototype-slice-1"><a href="#Array-prototype-slice-1" class="headerlink" title="Array.prototype.slice()"></a>Array.prototype.slice()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">"zero"</span>, <span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>];</span><br><span class="line"><span class="keyword">var</span> sliced = a.slice(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);      <span class="comment">// [ "zero", "one", "two", "three" ]</span></span><br><span class="line"><span class="built_in">console</span>.log(sliced); <span class="comment">// [ "one", "two" ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Array-prototype-shift"><a href="#Array-prototype-shift" class="headerlink" title="Array.prototype.shift()"></a>Array.prototype.shift()</h2><p>The shift() method removes the first element from an array and returns that element. This method changes the length of the array.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">a.shift();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// [2, 3]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Array-prototype-unshift"><a href="#Array-prototype-unshift" class="headerlink" title="Array.prototype.unshift()"></a>Array.prototype.unshift()</h2><p>The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">a.unshift(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// [4, 5, 1, 2, 3]</span></span><br><span class="line"><span class="string">``</span><span class="string">` js</span></span><br><span class="line"><span class="string">## Array.prototype.push()</span></span><br><span class="line"><span class="string">The push() method adds one or more elements to the end of an array and returns the new length of the array.</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> js</span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">a.push(<span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Array-prototype-pop"><a href="#Array-prototype-pop" class="headerlink" title="Array.prototype.pop()"></a>Array.prototype.pop()</h2><p>The pop() method removes the last element from an array and returns that element. This method changes the length of the array.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">a.pop();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Array-prototype-indexOf"><a href="#Array-prototype-indexOf" class="headerlink" title="Array.prototype.indexOf()"></a>Array.prototype.indexOf()</h2><p>The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">2</span>, <span class="number">9</span>, <span class="number">9</span>]; </span><br><span class="line">a.indexOf(<span class="number">2</span>); <span class="comment">// 0 </span></span><br><span class="line">a.indexOf(<span class="number">7</span>); <span class="comment">// -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a.indexOf(<span class="number">7</span>) === <span class="number">-1</span>) &#123;</span><br><span class="line">  <span class="comment">// element doesn't exist in array</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> unique(array)&#123;</span><br><span class="line">    <span class="keyword">var</span> n = [];<span class="comment">//临时数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; array.length; i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(n.indexOf(array[i]) == <span class="number">-1</span>) </span><br><span class="line">        n.push(array[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="What-is-the-difference-between-map-every-and-forEach-in-JavaScript-array"><a href="#What-is-the-difference-between-map-every-and-forEach-in-JavaScript-array" class="headerlink" title="What is the difference between .map, .every, and .forEach in JavaScript array?"></a>What is the difference between .map, .every, and .forEach in JavaScript array?</h1><p>.map() returns a new Array of objects created by taking some action on the original item.</p>
+<p>.every() returns a boolean - true if every element in this array satisfies the provided testing function. An important difference with .every() is that the test function may not always be called for every element in the array. Once the testing function returns false for any element, no more array elements are iterated. Therefore, the testing function should usually have no side effects.</p>
+<p>.forEach() returns nothing - It iterates the Array performing a given action for each item in the Array.</p>
+<p>.find() method returns a value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/22/rose/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Rose
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/30/recent-notes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Recent Notes</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="js-array" data-title="JavaScript Array" data-url="http://dontcry2013.github.io/2016/11/22/js-array/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

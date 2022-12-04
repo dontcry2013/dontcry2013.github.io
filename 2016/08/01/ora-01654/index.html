@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ora-01654 | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="tomcat突然大量报错，服务多功能不能使用，影响非常大。根据报错信息是数据库索引空间无法扩展。使用以下命令查看表空间使用情况。">
+<meta name="keywords" content="Oracle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ora-01654">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/08/01/ora-01654/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="tomcat突然大量报错，服务多功能不能使用，影响非常大。根据报错信息是数据库索引空间无法扩展。使用以下命令查看表空间使用情况。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://dontcry2013.github.io/img/ora-01654.png">
+<meta property="og:image" content="http://dontcry2013.github.io/img/oracle-space.png">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ora-01654">
+<meta name="twitter:description" content="tomcat突然大量报错，服务多功能不能使用，影响非常大。根据报错信息是数据库索引空间无法扩展。使用以下命令查看表空间使用情况。">
+<meta name="twitter:image" content="http://dontcry2013.github.io/img/ora-01654.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ora-01654" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/01/ora-01654/" class="article-date">
+  	<time datetime="2016-08-01T10:15:49.000Z" itemprop="datePublished">2016-08-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ora-01654
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">Oracle</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/database/">Database</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/img/ora-01654.png" alt="ora-01654"><br>tomcat突然大量报错，服务多功能不能使用，影响非常大。根据报错信息是数据库索引空间无法扩展。使用以下命令查看表空间使用情况。<br><a id="more"></a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 表空间使用比</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UPPER</span>(F.TABLESPACE_NAME) <span class="string">"表空间名"</span>,</span><br><span class="line">D.TOT_GROOTTE_MB <span class="string">"表空间大小(M)"</span>,</span><br><span class="line">D.TOT_GROOTTE_MB - F.TOTAL_BYTES <span class="string">"已使用空间(M)"</span>,</span><br><span class="line">TO_CHAR(<span class="keyword">ROUND</span>((D.TOT_GROOTTE_MB - F.TOTAL_BYTES) / D.TOT_GROOTTE_MB * <span class="number">100</span>,<span class="number">2</span>),<span class="string">'990.99'</span>) <span class="string">"使用比"</span>,</span><br><span class="line">F.TOTAL_BYTES <span class="string">"空闲空间(M)"</span>,</span><br><span class="line">F.MAX_BYTES <span class="string">"最大块(M)"</span></span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> TABLESPACE_NAME,</span><br><span class="line"><span class="keyword">ROUND</span>(<span class="keyword">SUM</span>(<span class="keyword">BYTES</span>) / (<span class="number">1024</span> * <span class="number">1024</span>), <span class="number">2</span>) TOTAL_BYTES,</span><br><span class="line"><span class="keyword">ROUND</span>(<span class="keyword">MAX</span>(<span class="keyword">BYTES</span>) / (<span class="number">1024</span> * <span class="number">1024</span>), <span class="number">2</span>) MAX_BYTES</span><br><span class="line"><span class="keyword">FROM</span> SYS.DBA_FREE_SPACE</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> TABLESPACE_NAME) F,</span><br><span class="line">(<span class="keyword">SELECT</span> DD.TABLESPACE_NAME,</span><br><span class="line"><span class="keyword">ROUND</span>(<span class="keyword">SUM</span>(DD.BYTES) / (<span class="number">1024</span> * <span class="number">1024</span>), <span class="number">2</span>) TOT_GROOTTE_MB</span><br><span class="line"><span class="keyword">FROM</span> SYS.DBA_DATA_FILES DD</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> DD.TABLESPACE_NAME) D</span><br><span class="line"><span class="keyword">WHERE</span> D.TABLESPACE_NAME = F.TABLESPACE_NAME</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="number">4</span> <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 表空间分页大小</span></span><br><span class="line"><span class="keyword">SELECT</span> T.TABLESPACE_NAME,D.FILE_NAME,D.AUTOEXTENSIBLE,D.BYTES,D.MAXBYTES,D.STATUS</span><br><span class="line"><span class="keyword">FROM</span> DBA_TABLESPACES T,DBA_DATA_FILES D</span><br><span class="line"><span class="keyword">WHERE</span> T.TABLESPACE_NAME =D.TABLESPACE_NAME</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> TABLESPACE_NAME,FILE_NAME;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/oracle-space.png" alt="ora-01654"></p>
+<p>看到表空间的扩展已经到了第五个dbf，应该使用以下sql扩展</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> KUAIDIBUSINESS <span class="keyword">add</span> <span class="keyword">datafile</span> <span class="string">'/oracle/oradata/ZSDB/kuaidibusiness_06.dbf'</span> <span class="keyword">size</span> <span class="number">1</span>G <span class="keyword">autoextend</span> <span class="keyword">on</span> <span class="keyword">next</span> <span class="number">1</span>G;</span><br></pre></td></tr></table></figure>
+<p>其中03.dbf是错误使用了</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">tablespace</span> KUAIDIBUSINESS <span class="keyword">add</span> <span class="keyword">datafile</span> <span class="string">'/oracle/oradata/ZSDB/kuaidibusiness_03.dbf'</span> <span class="keyword">size</span> <span class="number">2</span>G;</span><br></pre></td></tr></table></figure>
+<p>导致不能扩展</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/09/leaving/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Leaving
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/07/js-closure/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript Closure</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ora-01654" data-title="ora-01654" data-url="http://dontcry2013.github.io/2016/08/01/ora-01654/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

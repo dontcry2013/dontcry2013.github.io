@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JavaScript Apply, Call And Bind | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="js 里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。arguments 不涉及到上述 3 个函数，所以这里只谈 this。this 的值，在上面 4 中调用模式下，分别会绑定不同的值。分别来说一说：方法调用：这个很好理解，函数是一个对象">
+<meta name="keywords" content="Prototype">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Apply, Call And Bind">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/09/06/js-apply-call-bind/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="js 里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。arguments 不涉及到上述 3 个函数，所以这里只谈 this。this 的值，在上面 4 中调用模式下，分别会绑定不同的值。分别来说一说：方法调用：这个很好理解，函数是一个对象">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Apply, Call And Bind">
+<meta name="twitter:description" content="js 里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。arguments 不涉及到上述 3 个函数，所以这里只谈 this。this 的值，在上面 4 中调用模式下，分别会绑定不同的值。分别来说一说：方法调用：这个很好理解，函数是一个对象">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-js-apply-call-bind" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/06/js-apply-call-bind/" class="article-date">
+  	<time datetime="2016-09-06T22:38:56.000Z" itemprop="datePublished">2016-09-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript Apply, Call And Bind
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prototype/">Prototype</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/javascript/">JavaScript</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>js 里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。<br>arguments 不涉及到上述 3 个函数，所以这里只谈 this。this 的值，在上面 4 中调用模式下，分别会绑定不同的值。分别来说一说：<br>方法调用：<br>这个很好理解，函数是一个对象的属性，比如</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;    </span><br><span class="line">    v : <span class="number">0</span>,    </span><br><span class="line">    f : <span class="function"><span class="keyword">function</span>(<span class="params">xx</span>) </span>&#123;                </span><br><span class="line">        <span class="keyword">this</span>.v = xx;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">a.f(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>这个时候，上面函数里的 this 就绑定的是这个对象 a。所以 this.v 可以取到对象 a 的属性 v。</p>
+<p>正常函数调用：<br>依然看代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">xx</span>) </span>&#123;        </span><br><span class="line">    <span class="keyword">this</span>.x = xx;</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>这个时候，函数 f 里的 this 绑定的是全局对象，如果是在浏览器运行的解释器中，一般来说是 window 对象。所以这里 this.x 访问的其实是 window.x ，当然，如果 window 没有 x 属性，那么你这么一写，按照 js 的坑爹语法，就是给 window 对象添加了一个 x 属性，同时赋值。</p>
+<p>构造器函数调用：<br>构造函数一直是我认为是 js 里最坑爹的部分，因为它和 js 最初设计的基于原型的面向对象实现方式格格不入，就好像是特意为了迎合大家已经被其他基于类的面相对象实现给惯坏了的习惯。<br>如果你在一个函数前面带上 new 关键字来调用，那么 js 会创建一个 prototype 属性是此函数的一个新对象，同时在调用这个函数的时候，把 this 绑定到这个新对象上。当然 new 关键字也会改变 return 语句的行为，不过这里就不谈了。看代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">xx</span>) </span>&#123;        </span><br><span class="line">    <span class="keyword">this</span>.m = xx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> a(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>上面这个函数和正常调用的函数写法上没什么区别，只不过在调用的时候函数名前面加了关键字 new 罢了，这么一来，this 绑定的就不再是前面讲到的全局对象了，而是这里说的创建的新对象，所以说这种方式其实很危险，因为光看函数，你不会知道这个函数到底是准备拿来当构造函数用的，还是一般函数用的。所以我们可以看到，在 jslint 里，它会要求你写的所有构造函数，也就是一旦它发现你用了 new 关键字，那么后面那个函数的首字母必须大写，这样通过函数首字母大写的方式来区分，我个人只有一个看法：坑爹：）</p>
+<p>apply/call 调用：<br>我们知道，在 js 里，函数其实也是一个对象，那么函数自然也可以拥有它自己的方法，有点绕，在 js 里，每个函数都有一个公共的 prototype —— Function，而这个原型自带有好几个属性和方法，其中就有这里困惑的 bind、call、apply 方法。先说 apply 方法，它让我们构造一个参数数组传递给函数，同时可以自己来设置 this 的值，这就是它最强大的地方，上面的 3 种函数调用方式，你可以看到，this 都是自动绑定的，没办法由你来设，当你想设的时候，就可以用 apply() 了。apply 函数接收 2 个参数，第一个是传递给这个函数用来绑定 this 的值，第二个是一个参数数组。看代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">xx</span>) </span>&#123;        </span><br><span class="line">    <span class="keyword">this</span>.b = xx;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">a.apply(o, [<span class="number">5</span>]);</span><br><span class="line">alert(a.b);    <span class="comment">// undefined</span></span><br><span class="line">alert(o.b);    <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<p>是不是很神奇，函数 a 居然可以给 o 加属性值。当然，如果你 apply 的第一个参数传递 null，那么在函数 a 里面 this 指针依然会绑定全局对象。</p>
+<p>call() 方法和 apply() 方法很类似，它们的存在都是为了改变 this 的绑定，那 call() 和 apply() 有什么区别呢？就我个人看来，没啥鸟区别。。。开玩笑！刚刚说了，上面 apply() 接收两个参数，第一个是绑定 this 的值，第二个是一个参数数组，注意它是一个数组，你想传递给这个函数的所有参数都放在数组里，然后 apply() 函数会在调用函数时自动帮你把数组展开。而 call() 呢，它的第一个参数也是绑定给 this 的值，但是后面接受的是不定参数，而不再是一个数组，也就是说你可以像平时给函数传参那样把这些参数一个一个传递。所以如果一定要说有什么区别的话，看起来是这样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">xx, yy</span>) </span>&#123;    </span><br><span class="line">    alert(xx, yy);    </span><br><span class="line">    alert(<span class="keyword">this</span>);    </span><br><span class="line">    alert(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line">a.apply(<span class="literal">null</span>, [<span class="number">5</span>, <span class="number">55</span>]);</span><br><span class="line">a.call(<span class="literal">null</span>, <span class="number">5</span>, <span class="number">55</span>);</span><br></pre></td></tr></table></figure>
+<p>仅此而已。</p>
+<p>最后再来说 bind() 函数，上面讲的无论是 call() 也好， apply() 也好，都是立马就调用了对应的函数，而 bind() 不会， bind() 会生成一个新的函数，bind() 函数的参数跟 call() 一致，第一个参数也是绑定 this 的值，后面接受传递给函数的不定参数。 bind() 生成的新函数返回后，你想什么时候调就什么时候调，看下代码就明白了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = &#123;   </span><br><span class="line">    <span class="string">"x"</span> : <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.x + y);</span><br><span class="line">&#125;</span><br><span class="line">foo.apply(m, [<span class="number">5</span>]);</span><br><span class="line">foo.call(m, <span class="number">5</span>);</span><br><span class="line"><span class="keyword">var</span> foo1 = foo.bind(m, <span class="number">5</span>);</span><br><span class="line">foo1();</span><br></pre></td></tr></table></figure>
+<p>末了来个吐槽，你在 js 里想定义一个函数，于是你会这么写:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jam</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>其实这是 js 里的一种语法糖，它等价于：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jam = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>然后你想执行这个函数，脑洞大开的你会这么写：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jam</span>(<span class="params"></span>) </span>&#123;&#125;();</span><br></pre></td></tr></table></figure></p>
+<p>但是这么写就报错了，其实这种写法也不算错，因为它确实是 js 支持的函数表达式，但是同时 js 又规定以 function 开头的语句被认为是函数语句，而函数语句后面是肯定不会带 () 的，所以才报错，于是聪明的人想出来，加上一对括号就可以了。于是就变成了这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">jam</span>(<span class="params"></span>) </span>&#123;&#125;());</span><br></pre></td></tr></table></figure></p>
+<p>这样就定义了一个函数同时也执行它，详情参见 ECMAScript 的 Expression Statement 章节。</p>
+<p>出处<a href="http://rangercyh.blog.51cto.com/1444712/1615809" target="_blank" rel="noopener">http://rangercyh.blog.51cto.com/1444712/1615809</a></p>
+<h1 id="一些应用"><a href="#一些应用" class="headerlink" title="一些应用"></a>一些应用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// min/max number in an array</span></span><br><span class="line"><span class="keyword">var</span> numbers = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// using Math.min/Math.max apply</span></span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, numbers); </span><br><span class="line"><span class="comment">// This about equal to Math.max(numbers[0], ...)</span></span><br><span class="line"><span class="comment">// or Math.max(5, 6, ...)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> min = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, numbers);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myConcat</span>(<span class="params">separator</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> args.join(separator);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// returns "red, orange, blue"</span></span><br><span class="line">myConcat(<span class="string">', '</span>, <span class="string">'red'</span>, <span class="string">'orange'</span>, <span class="string">'blue'</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/09/qa/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Q&amp;A
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/09/leaving/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Leaving</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="js-apply-call-bind" data-title="JavaScript Apply, Call And Bind" data-url="http://dontcry2013.github.io/2016/09/06/js-apply-call-bind/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

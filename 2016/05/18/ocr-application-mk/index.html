@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>application-mk | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="生成jni头文件： 第一种比如包的名字是 com.example.test，类的名字是 hellojni，类文件路径是src/com/example/test/hellojni.class那么我们需要在src目录下，使用命令1javah -jni com.example.test.hellojni">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="application-mk">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/05/18/ocr-application-mk/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="生成jni头文件： 第一种比如包的名字是 com.example.test，类的名字是 hellojni，类文件路径是src/com/example/test/hellojni.class那么我们需要在src目录下，使用命令1javah -jni com.example.test.hellojni">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="application-mk">
+<meta name="twitter:description" content="生成jni头文件： 第一种比如包的名字是 com.example.test，类的名字是 hellojni，类文件路径是src/com/example/test/hellojni.class那么我们需要在src目录下，使用命令1javah -jni com.example.test.hellojni">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ocr-application-mk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/18/ocr-application-mk/" class="article-date">
+  	<time datetime="2016-05-18T18:37:59.000Z" itemprop="datePublished">2016-05-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      application-mk
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">Android</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/ocr/">OCR</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="生成jni头文件："><a href="#生成jni头文件：" class="headerlink" title="生成jni头文件："></a>生成jni头文件：</h1><ul>
+<li>第一种<br>比如包的名字是 com.example.test，类的名字是 hellojni，<br>类文件路径是src/com/example/test/hellojni.class<br>那么我们需要在src目录下，使用命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah -jni com.example.test.hellojni</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>第二种</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">javah -classpath build/intermediates/classes/armv7/debug:libs/opencv-sdk.jar -o jni/ocr_jni.h com.polysfactory.opencvocr.jni.NativeMarkerDetector</span><br></pre></td></tr></table></figure>
+<p>1、编译路径为build/intermediates/classes/armv7/debug，名为com.polysfactory.opencvocr.jni.NativeMarkerDetector的class文件。<br>2、输出路径为jni，在jni目录下生成名为ocr_jni.h文件。<br>3、编译依赖libs/opencv-sdk.jar。</p>
+<p>因为源文件中使用了opencv的类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.polysfactory.opencvocr.jni;</span><br><span class="line"><span class="keyword">import</span> org.opencv.core.Mat;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NativeMarkerDetector</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> mNativeObj;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NativeMarkerDetector</span><span class="params">(String nm1File, String nm2File)</span> </span>&#123;</span><br><span class="line">        mNativeObj = nativeCreateObject(nm1File, nm2File);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doOcr</span><span class="params">(Mat imageBgra, <span class="keyword">float</span> scale)</span> </span>&#123;</span><br><span class="line">        Mat transformationsMat = <span class="keyword">new</span> Mat();</span><br><span class="line">        nativeFindMarkers(mNativeObj, imageBgra.nativeObj, transformationsMat.nativeObj, scale);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        nativeDestroyObject(mNativeObj);</span><br><span class="line">        mNativeObj = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">long</span> <span class="title">nativeCreateObject</span><span class="params">(String nm1File, String nm2File)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">nativeFindMarkers</span><span class="params">(<span class="keyword">long</span> thiz, <span class="keyword">long</span> imageBgra, <span class="keyword">long</span> transformations, <span class="keyword">float</span> scale)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">nativeDestroyObject</span><span class="params">(<span class="keyword">long</span> thiz)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="Application-mk"><a href="#Application-mk" class="headerlink" title="Application.mk"></a>Application.mk</h1><h3 id="一个实例："><a href="#一个实例：" class="headerlink" title="一个实例："></a>一个实例：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">APP_STL := gnustl_static</span><br><span class="line">APP_CPPFLAGS := -frtti -fexceptions</span><br><span class="line">APP_ABI := armeabi armeabi-v7a x86 mips arm64-v8a x86_64 mips64</span><br><span class="line">APP_PLATFORM := android-14</span><br><span class="line">APP_OPTIM := release</span><br></pre></td></tr></table></figure>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Application.mk目的是描述在你的应用程序中所需要的模块(即静态库或动态库)。<br>Application.mk文件通常被放置在 <code>$PROJECT/jni/Application.mk</code>下，$PROJECT指的是您的项目。<br>要将C\C++代码编译为so文件，光有Android.mk文件还不行，还需要一个Application.mk文件。</p>
+<ol>
+<li><p>APP_PROJECT_PATH  ： 这个变量是强制性的，并且会给出应用程序工程的根目录的一个绝对路径。这是用来复制或者安装一个没有任何版本限制的JNI库，从而给APK生成工具一个详细的路径。</p>
+</li>
+<li><p>APP_MODULES  ：   这个变量是可选的，如果没有定义，这个模块名字被定义在Android.mk文件中的 LOCAL_MODULE 中。NDK将由在Android.mk中声明的默认的模块编译，并且包含所有的子文件（makefile文), NDK会自动计算模块的依赖。<br>如果APP_MODULES定义了，它必须是一个空格分隔的模块列表( 注意：NDK在R4开始改变了这个变量的行为，在此之前： 在Application.mk中，该变量是强制的必须明确列出所有需要的模块)</p>
+</li>
+<li><p>APP_OPTIM ：   这个变量是可选的，用来定义“release”或”debug”。在编译您的应用程序模块的时候，可以用来改变优先级。“release”模式是默认的，并且会生成高度优化的二进制代码。”debug”模式生成的是未优化的二进制代码，但可以检测出很多的BUG，可以用于调试。<br>注意：如果你的应用程序是可调试的（即，如果你的清单文件在它的<application>标签中把android:debuggable属性设为true），默认将是debug而非release。把APP_OPTIM设置为release可以覆写它。注意：可以调试release和debug版二进制，但release版构建倾向于在调试会话中提供较少信息：一些变量被优化并且不能被检测，代码重新排序可能致使代码步进变得困难，堆栈跟踪可能不可靠，等等。</application></p>
+</li>
+<li><p>APP_CFLAGS ： 一个C编译器开关集合，在编译任意模块的任意C或C++源代码时传递。它可以用于改变一个给定的应用程序需要依赖的模块的构建，而不是修改它自身的Android.mk文件。APP_CPPFLAGS在Android NDK-1.5_r1中，这个标志可以应用于C和C++源文件中，现已不建议使用。</p>
+</li>
+<li><p>APP_BUILD_SCRIPT ： 默认，NDK构建系统将在 $(APP_PROJECT_PATH)/jni 下寻找一个名为 Android.mk 的文件。即，对于这个文件$(APP_PROJECT_PATH)/jni/Android.mk 如果你想重载这个行为，你可以定义APP_BUILD_SCRIPT指向一个不同的构建脚本。 一个非绝对路径将总是被解析为相对于NDK顶级目录的路径。</p>
+</li>
+<li><p>APP_ABI ： 默认情况下，NDK的编译系统根据 “armeabi” ABI生成机器代码。可以使用APP_ABI 来选择一个不同的ABI。比如：为了在ARMv7的设备上支持硬件FPU指令。可以使用  APP_ABI := armeabi-v7a<br>或者为了支持IA-32指令集，可以使用      APP_ABI := x86<br>或者为了同时支持这三种，可以使用       APP_ABI := armeabi armeabi-v7a x86</p>
+</li>
+<li><p>APP_STL ：默认，NDK构建系统提供由Android系统给出的最小C++运行时库（/system/lib/libstdc++.so）的C++头文件。 然而，NDK带有另一个C++实现，你可以在你自己的应用程序中使用或链接它。<br>定义APP_STL以选择它们其中的一个：<br>APP_STL := stlport_static    –&gt;     static STLport library<br>APP_STL := stlport_shared    –&gt;     shared STLport library<br>APP_STL := system            –&gt;      default C++ runtime library</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/30/sql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          SQL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/29/pointer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数指针和指针函数</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ocr-application-mk" data-title="application-mk" data-url="http://dontcry2013.github.io/2016/05/18/ocr-application-mk/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

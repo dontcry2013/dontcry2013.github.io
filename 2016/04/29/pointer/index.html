@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>函数指针和指针函数 | Zachary&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Unix C语言环境下的多线程编程使用到函数指针来传递需要执行的函数体到线程，使用的方式就是通过函数指针来指向需要执行的代码。函数原型：1int pthread_create(pthread_t *thread, pthread_attr_t *attr, void *(*func)(void*), void *arg);">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数指针和指针函数">
+<meta property="og:url" content="http://dontcry2013.github.io/2016/04/29/pointer/index.html">
+<meta property="og:site_name" content="Zachary&#39;s blog">
+<meta property="og:description" content="Unix C语言环境下的多线程编程使用到函数指针来传递需要执行的函数体到线程，使用的方式就是通过函数指针来指向需要执行的代码。函数原型：1int pthread_create(pthread_t *thread, pthread_attr_t *attr, void *(*func)(void*), void *arg);">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2022-12-04T21:58:13.904Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数指针和指针函数">
+<meta name="twitter:description" content="Unix C语言环境下的多线程编程使用到函数指针来传递需要执行的函数体到线程，使用的方式就是通过函数指针来指向需要执行的代码。函数原型：1int pthread_create(pthread_t *thread, pthread_attr_t *attr, void *(*func)(void*), void *arg);">
+  
+    <link rel="alternative" href="/atom.xml" title="Zachary&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e907b20dbb2f8d2eb9402532629ec091";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/litten.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Zachary</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">No pain, no gain</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>About</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">homepage</a></li>
+				        
+							<li><a href="/archives">archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/android/" style="font-size: 14px;">Android</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/css/" style="font-size: 10px;">CSS</a> <a href="/tags/closure/" style="font-size: 10px;">Closure</a> <a href="/tags/command/" style="font-size: 12px;">Command</a> <a href="/tags/es2017/" style="font-size: 14px;">ES2017</a> <a href="/tags/es5/" style="font-size: 18px;">ES5</a> <a href="/tags/es6/" style="font-size: 18px;">ES6</a> <a href="/tags/example/" style="font-size: 10px;">Example</a> <a href="/tags/fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/git/" style="font-size: 12px;">Git</a> <a href="/tags/github/" style="font-size: 14px;">GitHub</a> <a href="/tags/html/" style="font-size: 10px;">HTML</a> <a href="/tags/http/" style="font-size: 10px;">HTTP</a> <a href="/tags/hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/issue/" style="font-size: 10px;">Issue</a> <a href="/tags/jni/" style="font-size: 10px;">JNI</a> <a href="/tags/java/" style="font-size: 14px;">Java</a> <a href="/tags/mandarin/" style="font-size: 16px;">Mandarin</a> <a href="/tags/markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/mongodb/" style="font-size: 10px;">MongoDB</a> <a href="/tags/ndk/" style="font-size: 10px;">NDK</a> <a href="/tags/node-js/" style="font-size: 14px;">Node.js</a> <a href="/tags/objective-c/" style="font-size: 10px;">Objective-C</a> <a href="/tags/oracle/" style="font-size: 12px;">Oracle</a> <a href="/tags/php/" style="font-size: 10px;">PHP</a> <a href="/tags/prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/react-native/" style="font-size: 10px;">React Native</a> <a href="/tags/sql/" style="font-size: 10px;">SQL</a> <a href="/tags/sublime/" style="font-size: 10px;">Sublime</a> <a href="/tags/todo/" style="font-size: 10px;">TODO</a> <a href="/tags/travis/" style="font-size: 10px;">Travis</a> <a href="/tags/ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/webview/" style="font-size: 10px;">Webview</a> <a href="/tags/jquery/" style="font-size: 12px;">jQuery</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/碎碎念/" style="font-size: 20px;">碎碎念</a> <a href="/tags/英语/" style="font-size: 10px;">英语</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.thirdtea.com/">三号茶馆</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/users/c2f3ff613436/latest_articles">猫哥学前班</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Zachary</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/litten.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Zachary</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">No pain, no gain</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">homepage</a></li>
+		        
+					<li><a href="/archives">archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/dontcry2013" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2278451152" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-pointer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/29/pointer/" class="article-date">
+  	<time datetime="2016-04-29T18:34:12.000Z" itemprop="datePublished">2016-04-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      函数指针和指针函数
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">C</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/basic/">Basic</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Unix C语言环境下的多线程编程使用到函数指针来传递需要执行的函数体到线程，使用的方式就是通过函数指针来指向需要执行的代码。<br>函数原型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int pthread_create(pthread_t *thread, pthread_attr_t *attr, void *(*func)(void*), void *arg);</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<ul>
+<li>参数：<br>Thread 指向pthread_t类型变量的指针<br>attr         指向pthread_attr_t类型变量的指针，或者为NULL<br>func        指向新线程所运行函数的指针<br>arg          传递给func的参数</li>
+<li>返回值：<br>0            成功返回<br>errcode    错误</li>
+</ul>
+<p>我们可以使用函数pthread_join等待某进程结束。<br>函数原型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int pthread_join(pthread_t thread,void ** retval);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>参数：<br>thread         所等待的进程<br>retval          指向某存储线程返回值的变量</li>
+<li>返回值：<br>0                成功返回<br>errorcode    错误<br>以上两个函数都包含在头文件pthread.h中。</li>
+</ul>
+<h1 id="多线程demo"><a href="#多线程demo" class="headerlink" title="多线程demo"></a>多线程demo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/* Mhello1.c</span><br><span class="line">   Hello,world -- Multile Thread</span><br><span class="line">*/</span><br><span class="line"><span class="comment">#include</span></span><br><span class="line"><span class="comment">#include</span></span><br><span class="line"><span class="comment">#define NUM 6</span></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    void print_msg(void*);</span><br><span class="line">   </span><br><span class="line">    pthread_t t1,t2;</span><br><span class="line">    pthread_create(&amp;t1,NULL,print_msg,(void *)<span class="string">"hello,"</span>);</span><br><span class="line">    pthread_create(&amp;t2,NULL,print_msg,(void *)<span class="string">"world!\n"</span>);</span><br><span class="line">   </span><br><span class="line">    pthread_join(t1,NULL);</span><br><span class="line">    pthread_join(t2,NULL);  </span><br><span class="line">&#125;</span><br><span class="line">void print_msg(void* m)</span><br><span class="line">&#123;</span><br><span class="line">    char *cp=(char*)m;</span><br><span class="line">    int i;</span><br><span class="line">    <span class="keyword">for</span>(i=0;i</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>,m);</span><br><span class="line">        fflush(stdout);</span><br><span class="line">        sleep(1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">$ gcc mhello1.c -o mhello1.exe</span><br><span class="line">$ ./mhello1.exe</span><br><span class="line">hello,world!</span><br><span class="line">hello,world!</span><br><span class="line">hello,world!</span><br><span class="line">hello,world!</span><br><span class="line">hello,world!</span><br><span class="line">hello,world!</span><br></pre></td></tr></table></figure>
+<h1 id="函数指针demo"><a href="#函数指针demo" class="headerlink" title="函数指针demo"></a>函数指针demo</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">//例2 函数指针示例</span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">//函数声明</span><br><span class="line">double triangle_area(double &amp;x,double &amp;y);//三角形面积</span><br><span class="line">double rectangle_area(double &amp;x,double &amp;y);//矩形面积</span><br><span class="line">double swap_value(double &amp;x,double &amp;y);//交换值</span><br><span class="line">double set_value(double &amp;x,double &amp;y);//设定长宽（高）</span><br><span class="line">// double print_area(double &amp;x,double &amp;y);//输出面积</span><br><span class="line">double print_area(double(*p)(double&amp;,double&amp;), double &amp;x,double &amp;y);//利用函数指针输出面积</span><br><span class="line">//函数定义</span><br><span class="line">double triangle_area(double &amp;x,double &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">"三角形的面积为：\t"</span>&lt;&lt;x*y*0.5&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0.0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">double rectangle_area(double &amp;x,double &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">"矩形的面积为：\t"</span>&lt;&lt;x*y&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0.0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">double swap_value(double &amp;x,double &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">    double temp;</span><br><span class="line">    temp=x;</span><br><span class="line">    x=y;</span><br><span class="line">    y=temp;</span><br><span class="line">    <span class="built_in">return</span> 0.0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">double print_area(double(*p)(double &amp;x,double &amp;y), double &amp;x,double &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">"执行函数前:\n"</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">"x="</span>&lt;&lt;x&lt;&lt;<span class="string">"  y="</span>&lt;&lt;y&lt;&lt;endl;</span><br><span class="line">    //it is coming!...</span><br><span class="line">    p(x,y);</span><br><span class="line">    cout&lt;&lt;<span class="string">"函数指针传值后:\n"</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">"x="</span>&lt;&lt;x&lt;&lt;<span class="string">"  y="</span>&lt;&lt;y&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0.0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">double set_value(double &amp;x,double &amp;y)</span><br><span class="line">//注意参数一定要定义成引用，要不是传不出去哈！</span><br><span class="line">&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">"自定义长宽（高）为：\n"</span>;</span><br><span class="line">    cout&lt;&lt;<span class="string">"长为："</span>;</span><br><span class="line">    cin&gt;&gt;x;</span><br><span class="line">    cout&lt;&lt;<span class="string">"宽或者高为："</span>;</span><br><span class="line">    cin&gt;&gt;y;</span><br><span class="line">    <span class="built_in">return</span> 0.0;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    bool quit=<span class="literal">false</span>;//初始化退出的值为否</span><br><span class="line">    double a=2,b=3;//初始化两个参数a和b</span><br><span class="line">    char choice;</span><br><span class="line">    //声明的p为一个函数指针，它所指向的函数带有梁个double类型的参数并且返回double</span><br><span class="line">    double (*p)(double &amp;,double &amp;);</span><br><span class="line">    <span class="keyword">while</span>(quit==<span class="literal">false</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">"退出(q); 设定长、宽或高(1); 三角形面积(2); 矩形面积(3); 交换长宽或高(4)."</span>&lt;&lt;endl;</span><br><span class="line">        cin&gt;&gt;choice;</span><br><span class="line">        switch(choice)</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'q'</span>:</span><br><span class="line">            quit=<span class="literal">true</span>;</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'1'</span>:</span><br><span class="line">            p=set_value;</span><br><span class="line">            print_area(p,a,b);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'2'</span>:</span><br><span class="line">            p=triangle_area;</span><br><span class="line">            print_area(p,a,b);         </span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span>  <span class="string">'3'</span>:</span><br><span class="line">            p=rectangle_area;</span><br><span class="line">            print_area(p,a,b);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'4'</span>:</span><br><span class="line">            p=swap_value;</span><br><span class="line">            print_area(p,a,b);</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        default:</span><br><span class="line">            cout&lt;&lt;<span class="string">"请按规矩出牌！"</span>&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="简化的定义"><a href="#简化的定义" class="headerlink" title="简化的定义"></a>简化的定义</h1><p>如果你认为上面所诉的函数指针的声明格式有点罗嗦，那么我们也可以利用typedef来简化声明和定义的操作。比如说在上例2的第61行，那么长一串。我们完全可以在在程序一开始利用typedef来代替：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typedef double (*vp)(double &amp;,double &amp;);</span><br></pre></td></tr></table></figure>
+<p>这样一来，我们就可以把程序的第61行简化成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vp p;</span><br></pre></td></tr></table></figure></p>
+<p>而且，我们在声明和定义print_area()函数的时候，就可以程序的第10行和第33行换成：</p>
+<ul>
+<li><p>函数声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double print_area(vp,double &amp;x,double &amp;y);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">double print_area(vp p, double &amp;x,double &amp;y)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/18/ocr-application-mk/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          application-mk
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/29/php/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PHP</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="pointer" data-title="函数指针和指针函数" data-url="http://dontcry2013.github.io/2016/04/29/pointer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Zachary
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
